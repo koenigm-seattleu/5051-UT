@@ -1,0 +1,210 @@
+﻿@model _5051.Models.SelectedAvatarItemListForStudentViewModel
+@{
+    ViewBag.Title = "Avatar Shop";
+    var disabledOn = "";
+    var BoxHover = "BoxWithHighlightHover";
+    var ActiveTab = "";
+    var TabCount = 0;
+    var DisplayText = "";
+}
+
+<br />
+
+<div class="row justify-content-center">
+
+    <div class="col-1 "></div>
+    <div class="col lightTransparentBox">
+        <br />
+        <div class="FontSizeLarge text-center">
+            <span class="FontSizeLarger FontBold">
+                Avatar Shop
+            </span>
+        </div>
+        <br />
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row">
+    <br />
+    <br />
+</div>
+@{
+    if (Model == null || Model.Student == null || Model.AvatarItemCategoryList == null || !Model.AvatarItemCategoryList.Any())
+    {
+        <div class="row justify-content-center">
+
+            <div class="col-1 "></div>
+            <div class="col lightTransparentBox">
+                <br />
+                <div class="FontSizeLarge text-center">
+                    No Avatar Items.  Go to the Shop and buy some
+                </div>
+                <br />
+            </div>
+            <div class="col-1"></div>
+        </div>
+    }
+    else
+    {
+        <div class="row justify-content-around">
+            <div class="col-1 "></div>
+
+            <div class="col lightTransparentBox">
+
+                <div class="FontSizeMedium">
+                    <br />
+                    <span class="FontSizeLarge">See something cool?</span><br />
+                    <span>
+                        You have @Model.Student.Tokens Tokens Available
+                    </span>
+                    <br />
+                    <hr />
+                </div>
+
+                <ul class="nav nav-tabs FontSizeSmall FontColorBlack FontBold">
+                    @{
+                        TabCount = 0;
+                        foreach (var CurrentList in Model.AvatarItemCategoryList)
+                        {
+                            ActiveTab = "";
+
+                            if (CurrentList == null)
+                            {
+                                continue;
+                            }
+
+                            TabCount++;
+                            if (TabCount == 1)
+                            {
+                                ActiveTab = "active";
+                            }
+
+                            <li class="nav-item"><a class="nav-link @ActiveTab" data-toggle="tab" href="#@CurrentList.Category">@CurrentList.Category.GetDisplayName()</a></li>
+                        }
+                    }
+                </ul>
+
+
+                <div class="tab-content">
+
+                    @{
+                        TabCount = 0;
+                        foreach (var CurrentList in Model.AvatarItemCategoryList)
+                        {
+                            ActiveTab = "";
+                            if (CurrentList == null)
+                            {
+                                continue;
+                            }
+
+                            TabCount++;
+                            if (TabCount == 1)
+                            {
+                                ActiveTab = "active";
+                            }
+
+                            <div id="@CurrentList.Category" class="tab-pane @ActiveTab">
+                                <br />
+                                <div class="row justify-content-start">
+                                    @{
+                                        // If no items, the skip
+
+                                        if (!CurrentList.AvatarItemList.Any())
+                                        {
+                                            <br />
+                                            <div class="FontSizeLarge">No Items</div>
+                                            continue;
+                                        }
+
+                                        //AvatarViewModel outputAvatar = new AvatarViewModel();
+                                        foreach (var item in CurrentList.AvatarItemList)
+                                        {
+                                            using (Html.BeginForm())
+                                            {
+                                                @Html.Hidden("StudentId", Model.Student.Id);
+                                                @Html.Hidden("ItemId", item.Id);
+
+                                                var picturURI = "/Content/avatar/" + item.Uri;
+
+                                                disabledOn = "";
+                                                BoxHover = "BoxWithHighlightHover";
+                                                DisplayText = "Available";
+
+                                                // Check if the user owns the item, if so disable it.
+                                                var ItemAlreadyExists = Model.Student.AvatarInventory.Exists(m => m.Id == item.Id);
+                                                if (ItemAlreadyExists)
+                                                {
+                                                    // Already own it.
+                                                    disabledOn = "disabled";
+                                                    BoxHover = "BoxWithHighlightHoverOff";    //don't show the hover effect
+                                                    DisplayText = "Purchased";
+
+                                                }
+
+
+                                                <div class="col-auto lightTransparentBox BoxWithHighlightHover DispalyBoxWithMargin @BoxHover" onclick="document.getElementById('@item.Id').click()">
+                                                    <br />
+
+                                                    <div class="row no-gutters justify-content-center">
+                                                        <input type="image" name="submit" src="@picturURI" border="0" alt="@item.Name" class="AvatarSize1 darkBox" id="@item.Id" @disabledOn />
+                                                    </div>
+
+                                                    <div class="row no-gutters justify-content-center">
+                                                        <div class="text-center FontSizeSmall">
+                                                            <br />
+                                                            @item.Name<br />
+                                                            @item.Description<br />
+                                                            <br />
+                                                            Tokens: @item.Tokens<br />
+                                                            @{
+                                                                if (@item.IsLimitSupply)
+                                                                {
+                                                                    <span>Quantity: @item.Quantities</span>
+                                                                }
+                                                            }
+                                                            <br />
+                                                            @DisplayText
+                                                            <br />
+                                                            <br />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+
+            <div class="col-1 "></div>
+        </div>
+    }
+}
+
+<div class="row justify-content-start">
+
+    <div class="col-1 "></div>
+
+    <div class="col text-left">
+        <br />
+        <br />
+
+        <div class="row justify-content-start">
+
+            <div class="col-auto text-center">
+                @Html.ActionLink("Back to Avatar", "Index", new { id = Model.Student.Id }, new { @class = "btn btn1 btn-light DispalyBoxWithMargin" })
+            </div>
+
+        </div>
+
+        <br />
+        <br />
+
+    </div>
+
+    <div class="col-1 "></div>
+</div>

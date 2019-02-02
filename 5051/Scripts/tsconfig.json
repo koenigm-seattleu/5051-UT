@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "noEmitOnError": true,
+    "sourceMap": true,
+    "target": "es6"
+  },
+  "files": [
+    "./game.ts",
+    "./people.ts"
+  ],
+  "compileOnSave": true
+}

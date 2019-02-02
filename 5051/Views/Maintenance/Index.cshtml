@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<div class="row justify-content-center">
+
+    <div class="col-1 "></div>
+    <div class="col lightTransparentBox">
+        <br />
+        <div class="FontSizeLarge text-center">
+            <span class="FontSizeLarger FontBold FontColorBlack">Maintenance</span>
+        </div>
+        <br />
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row">
+    <br />
+    <br />
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-1 "></div>
+
+    <div class="col lightTransparentBox">
+        <div class="row justify-content-center FontSizeMedium FontColorBlack">
+
+            <div class="col-auto text-center DispalyBoxWithMargin">
+                Backup Database<br />
+                @Html.ActionLink("Backup", "BackupData", "Maintenance", null, new { @class = "btn btn1 btn-light DispalyBoxWithMargin" })
+            </div>
+
+        </div>
+
+        <div class="row justify-content-center FontSizeMedium FontColorBlack">
+
+            <div class="col-auto text-center DispalyBoxWithMargin">
+                Reset Calendar<br />
+                @Html.ActionLink("Reset", "ResetCalendar", "Maintenance", null, new { @class = "btn btn1 btn-light DispalyBoxWithMargin" })
+            </div>
+
+        </div>
+
+
+        <div class="row justify-content-center FontSizeMedium FontColorBlack">
+
+            <div class="col-auto text-center DispalyBoxWithMargin">
+                Refresh Avatars<br />
+                @Html.ActionLink("Refresh", "RefreshAvatars", "Maintenance", null, new { @class = "btn btn1 btn-light DispalyBoxWithMargin" })
+            </div>
+
+        </div>
+
+        <div class="row">
+            <br />
+            <br />
+        </div>
+
+    </div>
+
+    <div class="col-1 "></div>
+</div>
+
+<div class="row">
+    <br />
+    <br />
+</div>

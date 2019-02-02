@@ -1,0 +1,116 @@
+﻿@model _5051.Models.GameModel
+@{
+    ViewBag.Title = "Read";
+
+}
+
+<br />
+<div class="row justify-content-center">
+
+    <div class="col-1 "></div>
+    <div class="col lightTransparentBox">
+        <br />
+        <div class="FontSizeLarge text-center">
+            <span class="FontSizeLarger FontBold FontColorBlack">
+                Game Settings
+            </span>
+        </div>
+        <br />
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row">
+    <br />
+    <br />
+</div>
+
+
+@{
+    if (Model == null)
+    {
+        <div class="row justify-content-center">
+
+            <div class="col-1 "></div>
+            <div class="col lightTransparentBox">
+                <br />
+                <div class="FontSizeLarge text-center FontColorBlack">
+                    No Data
+                </div>
+                <br />
+            </div>
+            <div class="col-1"></div>
+        </div>
+    }
+
+    else
+    {
+        <div class="row justify-content-center FontColorBlack">
+
+            <div class="col-1 "></div>
+            <div class="col lightTransparentBox">
+                <br />
+                <div class="FontSizeMedium text-center">
+                    <br />
+                    <br />
+                    @Html.HiddenFor(m => m.Id)
+
+                    <div class="row">
+                        <div class="col-5 text-right">
+                            @Html.DisplayNameFor(m => m.Enabled)
+                        </div>
+                        <div class="col-1">
+                            &nbsp;:&nbsp;
+                        </div>
+                        <div class="col text-left">
+                            @Html.DisplayFor(m => m.Enabled)
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-5 text-right">
+                            @Html.DisplayNameFor(m => m.RefreshRate)
+                        </div>
+                        <div class="col-1">
+                            &nbsp;:&nbsp;
+                        </div>
+                        <div class="col text-left">
+                            @Html.DisplayFor(m => m.RefreshRate)
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-5 text-right">
+                            @Html.DisplayNameFor(m => m.TimeIteration)
+                        </div>
+                        <div class="col-1">
+                            &nbsp;:&nbsp;
+                        </div>
+                        <div class="col text-left">
+                            @Html.DisplayFor(m => m.TimeIteration)
+                        </div>
+                    </div>
+
+                    <br />
+                    <hr />
+                </div>
+                <br />
+
+                <div class="row justify-content-around DispalyBoxWithMargin">
+                    <div class="col text-center DispalyBoxWithMargin">
+                        @Html.ActionLink("Back", "Settings", new { id = Model.Id, Controller = "Admin" }, new { @class = "btn btn1 btn-light DispalyBoxWithMargin", id = "BackButton" })
+                    </div>
+                    <div class="col text-center DispalyBoxWithMargin">
+                        @Html.ActionLink("Update", "Update", new { id = Model.Id }, new { @class = "btn btn1 btn-light DispalyBoxWithMargin" })
+                    </div>
+                </div>
+
+                <br />
+
+            </div>
+            <div class="col-1"></div>
+        </div>
+    }
+}
+
+<br />

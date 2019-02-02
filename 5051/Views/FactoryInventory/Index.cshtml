@@ -1,0 +1,118 @@
+﻿@model _5051.Models.FactoryInventoryListViewModel
+@{
+    ViewBag.Title = "Edit Factory Inventory";
+}
+
+<br />
+<div class="row justify-content-center">
+
+    <div class="col-1 "></div>
+    <div class="col lightTransparentBox">
+        <br />
+        <div class="FontSizeLarge text-center">
+            <span class="FontSizeLarger FontBold FontColorWhite">
+                Click on the Factory Item
+            </span>
+        </div>
+        <br />
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row">
+    <br />
+    <br />
+</div>
+
+@{
+    if (Model.FactoryInventoryCategoryList == null || !Model.FactoryInventoryCategoryList.Any())
+    {
+        <div class="row justify-content-center">
+
+            <div class="col-1 "></div>
+            <div class="col lightTransparentBox">
+                <br />
+                <div class="FontSizeLarge text-center FontColorWhite">
+                    No Avatar Items.  Click Create New Item to make one
+                </div>
+                <br />
+            </div>
+            <div class="col-1"></div>
+        </div>
+    }
+    else
+    {
+
+        <div class="row justify-content-around FontColorWhite">
+            <div class="col-1 "></div>
+
+            <div class="col">
+                @{
+                    foreach (var category in Model.FactoryInventoryCategoryList)
+                    {
+
+                        <div class="row justify-content-start">
+                            <div class="col align-self-center">
+                                <br />
+                                <hr />
+                                <span class="FontSizeLarge">
+                                    @category.Category.GetDisplayName()
+                                    <br />
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-start">
+
+                            <div class="col">
+                                <div class="row justify-content-start">
+
+                                    @{
+                                        foreach (var item in category.FactoryInventoryList)
+                                        {
+                                            <div class="col-auto lightTransparentBox BoxWithHighlightHover DispalyBoxWithMargin">
+                                                <br />
+                                                <a id="@item.Id" href="~/FactoryInventory/Read/@item.Id">
+                                                    <div class="row no-gutters justify-content-center">
+                                                        <img src="~/Content/shop/@item.Uri" class="FactoryInventorySize1" />
+                                                    </div>
+
+                                                    <div class="row no-gutters justify-content-center">
+                                                        <div class="text-center FontSizeSmall">
+                                                            <br />
+                                                            @item.Name<br />
+                                                            @item.Description<br />
+                                                            @item.Tokens Tokens<br />
+                                                            @item.Tokens Quantity<br />
+                                                            <br />
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+
+            <div class="col-1 "></div>
+        </div>
+    }
+}
+
+<div class="row justify-content-center">
+    <div class="col text-center">
+        <br />
+        <br />
+        @Html.ActionLink("Create New Item", "Create", null, new { @class = "btn btn1 btn-light" })
+        <br />
+        <br />
+    </div>
+</div>
+
+
+                        @*<div class="FactoryInventoryBox">*@
+

@@ -1,0 +1,76 @@
+﻿@model _5051.Models.StudentModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<br />
+<div class="row justify-content-center">
+
+    <div class="col-1 "></div>
+    <div class="col lightTransparentBox">
+        <br />
+        <div class="FontSizeLarge text-center">
+            <span class="FontSizeLarger FontBold">
+                Create Student
+            </span>
+        </div>
+        <br />
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row">
+    <br />
+    <br />
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-1 "></div>
+    <div class="col lightTransparentBox FontSizeMedium text-center">
+        <br />
+        <br />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.Id)
+            <div class="row justify-content-around">
+                <div class="col text-sm-center text-md-right" id="studentName">
+                    @Html.DisplayNameFor(m => m.Name)
+                </div>
+                <div class="col-1">
+                </div>
+                <div class="col text-left" id="studentValue">
+                    @Html.EditorFor(m => m.Name)
+                    @Html.ValidationMessageFor(m => m.Name)
+                </div>
+            </div>
+
+            <div class="row justify-content-around">
+                <div class="col text-sm-center text-md-right" id="studentName">
+                    @Html.DisplayNameFor(m => m.Password)
+                </div>
+                <div class="col-1">
+                </div>
+                <div class="col text-left" id="studentValue">
+                    @Html.PasswordFor(m => m.Password, new { @class = "text-box single-line" })
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+            </div>
+            <br />
+            <hr />
+            <br />
+
+            <div class="row justify-content-around">
+                <div class="col justify-content-center text-center">
+                    @Html.ActionLink("Cancel", "Index", new { id = Model.Id }, new { @class = "btn btn1 btn-light" })
+                </div>
+                <div class="col justify-content-center text-center">
+                    <input type="submit" value="Create" class="btn btn1 btn-light">
+                </div>
+            </div>
+        }
+        <br />
+    </div>
+    <div class="col-1"></div>
+</div>

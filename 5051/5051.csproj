@@ -1,0 +1,866 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3FB6DFE6-43FD-48FD-A214-3A80AB883CBB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>_5051</RootNamespace>
+    <AssemblyName>5051</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.8.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.8.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.8.1\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.8.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.8.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.8.1\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.5\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.ConfigurationManager, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.ConfigurationManager.4.0.0\lib\net452\Microsoft.Azure.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.3.0.1\lib\net452\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.0\lib\net451\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.0\lib\net451\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.0\lib\net451\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.0.0\lib\net451\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.0.0\lib\net451\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.0\lib\net451\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.0\lib\net451\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.0.0\lib\net451\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=9.3.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.9.3.3\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Backend\IdentityDataSourceMockV2.cs" />
+    <Compile Include="Backend\DateTimeHelper.cs" />
+    <Compile Include="Backend\SchoolCalendarBackendHelper.cs" />
+    <Compile Include="Backend\StudentDataSourceHelper.cs" />
+    <Compile Include="Backend\SchoolCalendarDataSourceTable.cs" />
+    <Compile Include="Backend\StudentDataSourceTable.cs" />
+    <Compile Include="Backend\SchoolDismissalSettingsDataSourceTable.cs" />
+    <Compile Include="Backend\KioskSettingsDataSourceTable.cs" />
+    <Compile Include="Backend\FactoryInventoryDataSourceHelper.cs" />
+    <Compile Include="Backend\AvatarItemDataSourceHelper.cs" />
+    <Compile Include="Backend\AvatarItemDataSourceTable.cs" />
+    <Compile Include="Backend\AvatarItemInterface.cs" />
+    <Compile Include="Backend\AvatarItemDataSourceMock.cs" />
+    <Compile Include="Backend\AvatarItemBackend.cs" />
+    <Compile Include="Backend\DataSourceBackendTable.cs" />
+    <Compile Include="Backend\FactoryInventoryDataSourceTable.cs" />
+    <Compile Include="Backend\GameInterface.cs" />
+    <Compile Include="Backend\GameDataSourceMock.cs" />
+    <Compile Include="Backend\GameBackend.cs" />
+    <Compile Include="Backend\IdentityBackend.cs" />
+    <Compile Include="Backend\IdentityDataSourceMock.cs" />
+    <Compile Include="Backend\IdentityDataSourceTable.cs" />
+    <Compile Include="Backend\IdentityInterface.cs" />
+    <Compile Include="Backend\KioskSettingsInterface.cs" />
+    <Compile Include="Backend\KioskSettingsBackend.cs" />
+    <Compile Include="Backend\KioskSettingsDataSourceMock.cs" />
+    <Compile Include="Backend\SchoolDismissalSettingsInterface.cs" />
+    <Compile Include="Backend\SchoolDismissalSettingsDataSourceMock.cs" />
+    <Compile Include="Backend\SchoolDismissalSettingsBackend.cs" />
+    <Compile Include="Backend\SchoolCalendarDataSourceMock.cs" />
+    <Compile Include="Backend\SchoolCalendarInterface.cs" />
+    <Compile Include="Backend\ReportBackend.cs" />
+    <Compile Include="Backend\SchoolCalendarBackend.cs" />
+    <Compile Include="Backend\FactoryInventoryBackend.cs" />
+    <Compile Include="Backend\FactoryInventoryDataSourceMock.cs" />
+    <Compile Include="Backend\FactoryInventoryInterface.cs" />
+    <Compile Include="Backend\DataSourceBackend.cs" />
+    <Compile Include="Backend\RandomHelper.cs" />
+    <Compile Include="Backend\StudentBackendHelper.cs" />
+    <Compile Include="Backend\StudentInterface.cs" />
+    <Compile Include="Backend\StudentDataSourceMock.cs" />
+    <Compile Include="Backend\StudentBackend.cs" />
+    <Compile Include="Backend\AvatarInterface.cs" />
+    <Compile Include="Backend\UTCConversionsBackend.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AttendanceController.cs" />
+    <Compile Include="Controllers\AvatarItemController.cs" />
+    <Compile Include="Controllers\AvatarSelectController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controllers\GameSettingsController.cs" />
+    <Compile Include="Controllers\KioskSettingsController.cs" />
+    <Compile Include="Controllers\FactoryInventoryController.cs" />
+    <Compile Include="Controllers\CalendarController.cs" />
+    <Compile Include="Controllers\PortalController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Controllers\SchoolDismissalSettingsController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KioskController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MaintenanceController.cs" />
+    <Compile Include="Controllers\SupportController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Maintain\AvatarItemMaintenance.cs" />
+    <Compile Include="Maintain\CalendarMaintenance.cs" />
+    <Compile Include="Maintain\DataBackupMaintenance.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AdminReportIndexViewModel.cs" />
+    <Compile Include="Models\ApplicationUserInputModel.cs" />
+    <Compile Include="Models\AttendanceModel.cs" />
+    <Compile Include="Models\AttendanceReportViewModel.cs" />
+    <Compile Include="Models\AttendanceDetailsViewModel.cs" />
+    <Compile Include="Models\AvatarCompositeModel.cs" />
+    <Compile Include="Models\AvatarItemInputModel.cs" />
+    <Compile Include="Models\AvatarItemModel.cs" />
+    <Compile Include="Models\AvatarItemShopViewModel.cs" />
+    <Compile Include="Models\AvatarSelectShopViewModel.cs" />
+    <Compile Include="Models\DataSourceBackendTableEntity.cs" />
+    <Compile Include="Models\Enums\UserRoleEnum.cs" />
+    <Compile Include="Models\Enums\AvatarItemCategoryEnum.cs" />
+    <Compile Include="Models\AvatarItemViewModel.cs" />
+    <Compile Include="Models\BusinessReportViewModel.cs" />
+    <Compile Include="Models\Enums\EnumHelper.cs" />
+    <Compile Include="Models\BackupDataInputModel.cs" />
+    <Compile Include="Models\VisitTruckViewModel.cs" />
+    <Compile Include="Models\LeaderBoardModel.cs" />
+    <Compile Include="Models\ApplicationUserViewModel.cs" />
+    <Compile Include="Models\ShopTruckFullModel.cs" />
+    <Compile Include="Models\UserListViewModel.cs" />
+    <Compile Include="Models\TransactionModel.cs" />
+    <Compile Include="Models\GameResultViewModel.cs" />
+    <Compile Include="Models\GameViewModel.cs" />
+    <Compile Include="Models\GameModel.cs" />
+    <Compile Include="Models\Enums\AttendanceStatusEnum.cs" />
+    <Compile Include="Models\Enums\CheckOutStatusEnum.cs" />
+    <Compile Include="Models\Enums\CheckInStatusEnum.cs" />
+    <Compile Include="Models\Enums\DataSourceDataSetEnum.cs" />
+    <Compile Include="Models\Enums\SchoolCalendarDismissalEnum.cs" />
+    <Compile Include="Models\Enums\FactoryInventoryCategoryEnum.cs" />
+    <Compile Include="Models\Enums\EmotionStatusEnum.cs" />
+    <Compile Include="Models\HomeModel.cs" />
+    <Compile Include="Models\MonthlyReportViewModel.cs" />
+    <Compile Include="Models\QuarterReportViewModel.cs" />
+    <Compile Include="Models\SchoolCalendarViewModel.cs" />
+    <Compile Include="Models\SchoolCalendarModel.cs" />
+    <Compile Include="Models\KioskSettingsModel.cs" />
+    <Compile Include="Models\SchoolDismissalSettingsModel.cs" />
+    <Compile Include="Models\SchoolYearReportViewModel.cs" />
+    <Compile Include="Models\SemesterReportViewModel.cs" />
+    <Compile Include="Models\ShopTruckInputModel.cs" />
+    <Compile Include="Models\ShopTruckItemViewModel.cs" />
+    <Compile Include="Models\ShopTruckViewModel.cs" />
+    <Compile Include="Models\ShopTruckModel.cs" />
+    <Compile Include="Models\ShopBuyViewModel.cs" />
+    <Compile Include="Models\FactoryInventoryViewModel.cs" />
+    <Compile Include="Models\FactoryInventoryModel.cs" />
+    <Compile Include="Models\AvatarModel.cs" />
+    <Compile Include="Models\Enums\StudentStatusEnum.cs" />
+    <Compile Include="Models\Enums\DataSourceEnum.cs" />
+    <Compile Include="Models\StudentAvatarModel.cs" />
+    <Compile Include="Models\StudentDisplayViewModel.cs" />
+    <Compile Include="Models\StudentInputModel.cs" />
+    <Compile Include="Models\StudentReportStatsModel.cs" />
+    <Compile Include="Models\BaseReportViewModel.cs" />
+    <Compile Include="Models\StudentViewModel.cs" />
+    <Compile Include="Models\AvatarViewModel.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\StudentModel.cs" />
+    <Compile Include="Models\SystemGlobalsModel.cs" />
+    <Compile Include="Models\WeeklyReportViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\avatar\Hair1_shortfringe_black.png" />
+    <Content Include="Content\avatar\Hair1_shortfringe_brown.png" />
+    <Content Include="Content\avatar\Hair1_shortfringe_chestnut.png" />
+    <Content Include="Content\avatar\Hair1_shortfringe_grey.png" />
+    <Content Include="Content\avatar\Hair1_shortfringe_red.png" />
+    <Content Include="Content\avatar\Hair1_shortfringe_blonde.png" />
+    <Content Include="Content\avatar\Hair2_blondegreen.png" />
+    <Content Include="Content\avatar\Hair2_kinky_BlackBlue.png" />
+    <Content Include="Content\avatar\Hair2_kinky_BlackGreen.png" />
+    <Content Include="Content\avatar\Hair2_kinky_BlackViolet.png" />
+    <Content Include="Content\avatar\Hair2_kinky_BlondeOmbre.png" />
+    <Content Include="Content\avatar\Hair2_kinky_BrownOmbre.png" />
+    <Content Include="Content\avatar\Hair2_long_blackblue.png" />
+    <Content Include="Content\avatar\Hair2_long_blackgreen.png" />
+    <Content Include="Content\avatar\Hair2_long_blackviolet.png" />
+    <Content Include="Content\avatar\Hair2_long_blondegreen.png" />
+    <Content Include="Content\avatar\Hair2_long_BlondeOmbre.png" />
+    <Content Include="Content\avatar\Hair2_long_blondepink.png" />
+    <Content Include="Content\avatar\Hair2_long_blondeviolet.png" />
+    <Content Include="Content\avatar\Hair2_long_BrownOmbre.png" />
+    <Content Include="Content\avatar\Hair2_short_BlackBlue.png" />
+    <Content Include="Content\avatar\Hair2_short_BlackGreen.png" />
+    <Content Include="Content\avatar\Hair2_short_BlackViolet.png" />
+    <Content Include="Content\avatar\Hair2_short_BlondeGreen.png" />
+    <Content Include="Content\avatar\Hair2_short_BlondeOmbre.png" />
+    <Content Include="Content\avatar\Hair2_short_BlondePink.png" />
+    <Content Include="Content\avatar\Hair2_short_BlondeViolet.png" />
+    <Content Include="Content\avatar\Hair2_short_BrownOmbre.png" />
+    <Content Include="Content\avatar\Head3.png" />
+    <Content Include="Content\avatar\placeholder.png" />
+    <Content Include="Content\avatar\Shirt_black.png" />
+    <Content Include="Content\avatar\Shirt_black_short.png" />
+    <Content Include="Content\avatar\Shirt_blue.png" />
+    <Content Include="Content\avatar\Shirt_blue_short.png" />
+    <Content Include="Content\avatar\Shirt_green.png" />
+    <Content Include="Content\avatar\Shirt_green_short.png" />
+    <Content Include="Content\avatar\Shirt_orange.png" />
+    <Content Include="Content\avatar\Shirt_orange_short.png" />
+    <Content Include="Content\avatar\Shirt_red.png" />
+    <Content Include="Content\avatar\Shirt_red_short.png" />
+    <Content Include="Content\avatar\Shirt_white.png" />
+    <Content Include="Content\avatar\Shirt_white_short.png" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\AdminPage_dark.png" />
+    <Content Include="Content\img\AdminPage_light.png" />
+    <Content Include="Content\img\Avatars_dark.png" />
+    <Content Include="Content\img\Avatars_light.png" />
+    <Content Include="Content\img\blackCheckMark.png" />
+    <Content Include="Content\img\Calendar_dark.png" />
+    <Content Include="Content\img\Calendar_light.png" />
+    <Content Include="Content\img\Inventory_dark.png" />
+    <Content Include="Content\img\Inventory_light.png" />
+    <Content Include="Content\img\KioskPage_dark.png" />
+    <Content Include="Content\img\KioskPage_Light.png" />
+    <Content Include="Content\img\placeholder.png" />
+    <Content Include="Content\img\PortalAvatars.png" />
+    <Content Include="Content\img\PortalCalendar.png" />
+    <Content Include="Content\img\EmotionVerySad.png" />
+    <Content Include="Content\img\EmotionVeryHappy.png" />
+    <Content Include="Content\img\EmotionHappy.png" />
+    <Content Include="Content\img\EmotionNeutral.png" />
+    <Content Include="Content\img\EmotionSad.png" />
+    <Content Include="Content\img\PortalStore.png" />
+    <Content Include="Content\img\PortalReport.png" />
+    <Content Include="Content\img\PortalSettings.png" />
+    <Content Include="Content\img\PortalStudents.png" />
+    <Content Include="Content\img\Reports_dark.png" />
+    <Content Include="Content\img\Reports_light.png" />
+    <Content Include="Content\img\Settings_dark.png" />
+    <Content Include="Content\img\Settings_light.png" />
+    <Content Include="Content\img\Store_dark.png" />
+    <Content Include="Content\img\Store_light.png" />
+    <Content Include="Content\img\StudentPage_dark.png" />
+    <Content Include="Content\img\StudentPage_light.png" />
+    <Content Include="Content\img\Students_dark.png" />
+    <Content Include="Content\img\Students_light.png" />
+    <Content Include="Content\img\Visiting_dark.png" />
+    <Content Include="Content\img\Visiting_light.png" />
+    <Content Include="Content\Shop.css" />
+    <Content Include="Content\avatar\Accessory0.png" />
+    <Content Include="Content\avatar\Accessory1.png" />
+    <Content Include="Content\avatar\Accessory2.png" />
+    <Content Include="Content\avatar\Accessory3.png" />
+    <Content Include="Content\avatar\Accessory4.png" />
+    <Content Include="Content\avatar\Accessory5.png" />
+    <Content Include="Content\avatar\AvatarFull.png" />
+    <Content Include="Content\avatar\AvatarHalf.png" />
+    <Content Include="Content\avatar\Cheeks0.png" />
+    <Content Include="Content\avatar\Cheeks1.png" />
+    <Content Include="Content\avatar\Cheeks2.png" />
+    <Content Include="Content\avatar\Cheeks3.png" />
+    <Content Include="Content\avatar\Cheeks4.png" />
+    <Content Include="Content\avatar\Cheeks5.png" />
+    <Content Include="Content\avatar\Expression0.png" />
+    <Content Include="Content\avatar\Expression1.png" />
+    <Content Include="Content\avatar\Expression2.png" />
+    <Content Include="Content\avatar\Expression3.png" />
+    <Content Include="Content\avatar\Expression4.png" />
+    <Content Include="Content\avatar\Expression5.png" />
+    <Content Include="Content\avatar\Expression6.png" />
+    <Content Include="Content\avatar\Hair0.png" />
+    <Content Include="Content\avatar\Hair1_hairline_black.png" />
+    <Content Include="Content\avatar\Hair1_hairline_blonde.png" />
+    <Content Include="Content\avatar\Hair1_hairline_brown.png" />
+    <Content Include="Content\avatar\Hair1_hairline_chestnut.png" />
+    <Content Include="Content\avatar\Hair1_hairline_red.png" />
+    <Content Include="Content\avatar\Hair1_hairline_white.png" />
+    <Content Include="Content\avatar\Hair1_loose_black.png" />
+    <Content Include="Content\avatar\Hair1_loose_blonde.png" />
+    <Content Include="Content\avatar\Hair1_loose_brown.png" />
+    <Content Include="Content\avatar\Hair1_loose_chestnut.png" />
+    <Content Include="Content\avatar\Hair1_loose_red.png" />
+    <Content Include="Content\avatar\Hair1_loose_white.png" />
+    <Content Include="Content\avatar\Hair1_short_black.png" />
+    <Content Include="Content\avatar\Hair1_short_blonde.png" />
+    <Content Include="Content\avatar\Hair1_short_brown.png" />
+    <Content Include="Content\avatar\Hair1_short_chestnut.png" />
+    <Content Include="Content\avatar\Hair1_short_red.png" />
+    <Content Include="Content\avatar\Hair1_short_white.png" />
+    <Content Include="Content\avatar\Hair1_straight_black.png" />
+    <Content Include="Content\avatar\Hair1_straight_blonde.png" />
+    <Content Include="Content\avatar\Hair1_straight_brown.png" />
+    <Content Include="Content\avatar\Hair1_straight_chestnut.png" />
+    <Content Include="Content\avatar\Hair1_straight_red.png" />
+    <Content Include="Content\avatar\Hair1_straight_white.png" />
+    <Content Include="Content\avatar\Hair1_swept_black.png" />
+    <Content Include="Content\avatar\Hair1_swept_blonde.png" />
+    <Content Include="Content\avatar\Hair1_swept_brown.png" />
+    <Content Include="Content\avatar\Hair1_swept_chestnut.png" />
+    <Content Include="Content\avatar\Hair1_swept_red.png" />
+    <Content Include="Content\avatar\Hair1_swept_white.png" />
+    <Content Include="Content\avatar\Hair2_kinky_black.png" />
+    <Content Include="Content\avatar\Hair2_kinky_blonde.png" />
+    <Content Include="Content\avatar\Hair2_kinky_brown.png" />
+    <Content Include="Content\avatar\hair2_kinky_chestnut.png" />
+    <Content Include="Content\avatar\Hair2_kinky_red.png" />
+    <Content Include="Content\avatar\Hair2_kinky_white.png" />
+    <Content Include="Content\avatar\Hair2_long_black.png" />
+    <Content Include="Content\avatar\Hair2_long_blonde.png" />
+    <Content Include="Content\avatar\Hair2_long_brown.png" />
+    <Content Include="Content\avatar\Hair2_long_chestnut.png" />
+    <Content Include="Content\avatar\Hair2_long_red.png" />
+    <Content Include="Content\avatar\Hair2_long_white.png" />
+    <Content Include="Content\avatar\Hair2_short_black.png" />
+    <Content Include="Content\avatar\Hair2_short_blonde.png" />
+    <Content Include="Content\avatar\Hair2_short_brown.png" />
+    <Content Include="Content\avatar\Hair2_short_chestnut.png" />
+    <Content Include="Content\avatar\Hair2_short_red.png" />
+    <Content Include="Content\avatar\Hair2_short_white.png" />
+    <Content Include="Content\avatar\Head1.png" />
+    <Content Include="Content\avatar\Head2.png" />
+    <Content Include="Content\avatar\Head4.png" />
+    <Content Include="Content\avatar\Head5.png" />
+    <Content Include="Content\avatar\Head0.png" />
+    <Content Include="Content\avatar\Pants.png" />
+    <Content Include="Content\fontawesome.css" />
+    <Content Include="Content\img\avatar0.png" />
+    <Content Include="Content\img\avatar1.png" />
+    <Content Include="Content\img\avatar2.png" />
+    <Content Include="Content\img\avatar3.png" />
+    <Content Include="Content\img\avatar4.png" />
+    <Content Include="Content\img\avatar5.png" />
+    <Content Include="Content\img\avatar6.png" />
+    <Content Include="Content\img\avatar7.png" />
+    <Content Include="Content\img\avatar8.png" />
+    <Content Include="Content\img\avatar9.png" />
+    <Content Include="Content\img\AvatarLevel.png" />
+    <Content Include="Content\img\BackgroundDaytime.png" />
+    <Content Include="Content\img\BackgroundDaytime_min.png" />
+    <Content Include="Content\img\BackgroundNitetime.png" />
+    <Content Include="Content\img\BackgroundNitetime_min.png" />
+    <Content Include="Content\img\BackgroundSunset.png" />
+    <Content Include="Content\img\BackgroundSunset_min.png" />
+    <Content Include="Content\img\CalendarEditIcon.png" />
+    <Content Include="Content\img\ChartPlaceholder.png" />
+    <Content Include="Content\img\EditPicture.png" />
+    <Content Include="Content\img\HomeArrange.jpg" />
+    <Content Include="Content\img\HomeExample.jpg" />
+    <Content Include="Content\img\PortalCustomizeAvatar.png" />
+    <Content Include="Content\img\PortalViewAttendance.png" />
+    <Content Include="Content\img\PortalViewAvatars.png" />
+    <Content Include="Content\img\PortalViewReports.png" />
+    <Content Include="Content\img\PortalViewSettings.png" />
+    <Content Include="Content\img\PortalViewShop.png" />
+    <Content Include="Content\img\PortalVisitHome.png" />
+    <Content Include="Content\shop\Avacadoes.png" />
+    <Content Include="Content\shop\Background1.png" />
+    <Content Include="Content\shop\Cheese.png" />
+    <Content Include="Content\shop\Cilantro.png" />
+    <Content Include="Content\shop\ClosedSign.png" />
+    <Content Include="Content\shop\Lime.png" />
+    <Content Include="Content\shop\Meat.png" />
+    <Content Include="Content\shop\Menu0.png" />
+    <Content Include="Content\shop\Menu1.png" />
+    <Content Include="Content\shop\Menu2.png" />
+    <Content Include="Content\shop\Onions.png" />
+    <Content Include="Content\shop\placeholder.png" />
+    <Content Include="Content\img\PortalCustomize.png" />
+    <Content Include="Content\img\PortalHouse.png" />
+    <Content Include="Content\img\PortalIndex.png" />
+    <Content Include="Content\img\PortalLogin.png" />
+    <Content Include="Content\img\PortalReports.png" />
+    <Content Include="Content\img\PortalSchool.png" />
+    <Content Include="Content\img\ReportBar.png" />
+    <Content Include="Content\img\ReportStudentMay.png" />
+    <Content Include="Content\img\SchoolCalendar.png" />
+    <Content Include="Content\img\StoreExample.jpg" />
+    <Content Include="Content\img\StudentExample.png" />
+    <Content Include="Content\img\StudentProfile.png" />
+    <Content Include="Content\img\StudentProfileBio.png" />
+    <Content Include="Content\img\White.png" />
+    <Content Include="Content\shop\CChocolate.png" />
+    <Content Include="Content\shop\CCoffee.png" />
+    <Content Include="Content\shop\CCookiedough.png" />
+    <Content Include="Content\shop\CCups.png" />
+    <Content Include="Content\shop\CMintchip.png" />
+    <Content Include="Content\shop\CStrawberry.png" />
+    <Content Include="Content\shop\CVanilla.png" />
+    <Content Include="Content\shop\GChocolate.png" />
+    <Content Include="Content\shop\GCoffee.png" />
+    <Content Include="Content\shop\GCookiedough.png" />
+    <Content Include="Content\shop\GMintchip.png" />
+    <Content Include="Content\shop\GSherbert.png" />
+    <Content Include="Content\shop\GStrawberry.png" />
+    <Content Include="Content\shop\GVanilla.png" />
+    <Content Include="Content\shop\IceCream.png" />
+    <Content Include="Content\shop\Sign0.png" />
+    <Content Include="Content\shop\Sign1.png" />
+    <Content Include="Content\shop\Sign2.png" />
+    <Content Include="Content\shop\Tomatoes.png" />
+    <Content Include="Content\shop\Topper0.png" />
+    <Content Include="Content\shop\Topper1.png" />
+    <Content Include="Content\shop\Topper2.png" />
+    <Content Include="Content\shop\Tortillas.png" />
+    <Content Include="Content\shop\Trailer0.png" />
+    <Content Include="Content\shop\Trailer1.png" />
+    <Content Include="Content\shop\Trailer2.png" />
+    <Content Include="Content\shop\Trailer3.png" />
+    <Content Include="Content\shop\Truck0.png" />
+    <Content Include="Content\shop\Truck1.png" />
+    <Content Include="Content\shop\Truck2.png" />
+    <Content Include="Content\shop\Truck3.png" />
+    <Content Include="Content\shop\TruckInside.png" />
+    <Content Include="Content\shop\Wheels0.png" />
+    <Content Include="Content\shop\Wheels1.png" />
+    <Content Include="Content\Avatar.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fa-regular-400.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\fa-regular-400.eot" />
+    <Content Include="fonts\fa-regular-400.ttf" />
+    <Content Include="fonts\fa-regular-400.woff" />
+    <Content Include="fonts\fa-regular-400.woff2" />
+    <Content Include="package.json" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="Properties\PublishProfiles\5051 - Web Deploy.pubxml" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\Game.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\game.js" />
+    <Content Include="Scripts\gulpfile.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\people.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Scripts\UTCtimeConvert.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Kiosk\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Student\Read.cshtml" />
+    <Content Include="Views\Student\Update.cshtml" />
+    <Content Include="Views\Student\Create.cshtml" />
+    <Content Include="Views\Student\Delete.cshtml" />
+    <Content Include="Views\Home\Privacy.cshtml" />
+    <Content Include="Views\Home\StudentExample.cshtml" />
+    <Content Include="Views\Home\ShopExample.cshtml" />
+    <Content Include="Views\Home\HouseExample.cshtml" />
+    <Content Include="Views\Portal\Index.cshtml" />
+    <Content Include="Views\Portal\Settings.cshtml" />
+    <Content Include="Views\Portal\Report.cshtml" />
+    <Content Include="Views\Shop\Visit.cshtml" />
+    <Content Include="Views\Portal\Avatar.cshtml" />
+    <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\Portal\Group.cshtml" />
+    <Content Include="Views\Portal\Login.cshtml" />
+    <Content Include="Views\Shop\Discounts.cshtml" />
+    <Content Include="Views\Shop\Specials.cshtml" />
+    <Content Include="Views\Shop\Factory.cshtml" />
+    <Content Include="Views\Admin\Report.cshtml" />
+    <Content Include="Views\Calendar\Index.cshtml" />
+    <Content Include="Views\Admin\Attendance.cshtml" />
+    <Content Include="Views\Admin\MonthlyReport.cshtml" />
+    <Content Include="Views\Home\AvatarExample.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Admin\Settings.cshtml" />
+    <Content Include="Views\Calendar\Update.cshtml" />
+    <Content Include="Views\Portal\Roster.cshtml" />
+    <Content Include="Views\Kiosk\ConfirmLogout.cshtml" />
+    <Content Include="Views\Kiosk\ConfirmLogin.cshtml" />
+    <Content Include="Views\FactoryInventory\Create.cshtml" />
+    <Content Include="Views\FactoryInventory\Delete.cshtml" />
+    <Content Include="Views\FactoryInventory\Index.cshtml" />
+    <Content Include="Views\FactoryInventory\Read.cshtml" />
+    <Content Include="Views\FactoryInventory\Update.cshtml" />
+    <Content Include="Views\Portal\Attendance.cshtml" />
+    <Content Include="Views\SchoolDismissalSettings\Read.cshtml" />
+    <Content Include="Views\SchoolDismissalSettings\Update.cshtml" />
+    <Content Include="Views\KioskSettings\Read.cshtml" />
+    <Content Include="Views\KioskSettings\Update.cshtml" />
+    <Content Include="Views\Kiosk\Login.cshtml" />
+    <Content Include="Views\Admin\_StudentReportTablePartial.cshtml" />
+    <Content Include="Views\Admin\_StudentReportCalendarPartial.cshtml" />
+    <Content Include="Views\Admin\_StudentReportCumulativeLineChartPartial.cshtml" />
+    <Content Include="Views\Home\FAQ.cshtml" />
+    <Content Include="Views\Home\Guide.cshtml" />
+    <Content Include="Views\Admin\OverallReport.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Shop\Inventory.cshtml" />
+    <Content Include="Views\Shop\Edit.cshtml" />
+    <Content Include="Views\Shop\CelebrityPoster.cshtml" />
+    <Content Include="Views\GameSettings\Read.cshtml" />
+    <Content Include="Views\GameSettings\Update.cshtml" />
+    <Content Include="Scripts\tsconfig.json" />
+    <Content Include="Views\Shop\VisitShop.cshtml" />
+    <Content Include="Views\Admin\WeeklyReport.cshtml" />
+    <Content Include="Views\Admin\SemesterReport.cshtml" />
+    <Content Include="Views\Admin\QuarterReport.cshtml" />
+    <Content Include="Scripts\people.js.map" />
+    <Content Include="Views\Kiosk\Create.cshtml" />
+    <Content Include="Views\AvatarItem\Create.cshtml" />
+    <Content Include="Views\AvatarItem\Delete.cshtml" />
+    <Content Include="Views\AvatarItem\Index.cshtml" />
+    <Content Include="Views\AvatarItem\Read.cshtml" />
+    <Content Include="Views\AvatarItem\Update.cshtml" />
+    <Content Include="Views\Support\Index.cshtml" />
+    <Content Include="Views\Support\UserList.cshtml" />
+    <Content Include="Views\Support\UserInfo.cshtml" />
+    <Content Include="Views\Attendance\Index.cshtml" />
+    <Content Include="Views\Attendance\Read.cshtml" />
+    <Content Include="Views\Attendance\Update.cshtml" />
+    <Content Include="Views\AvatarSelect\Edit.cshtml" />
+    <Content Include="Views\Attendance\Details.cshtml" />
+    <Content Include="Views\Attendance\Delete.cshtml" />
+    <Content Include="Views\Attendance\Create.cshtml" />
+    <Content Include="Views\AvatarSelect\Index.cshtml" />
+    <Content Include="Views\AvatarSelect\Select.cshtml" />
+    <Content Include="Views\AvatarSelect\Inventory.cshtml" />
+    <Content Include="Views\Shop\BusinessReport.cshtml" />
+    <Content Include="Views\Support\Settings.cshtml" />
+    <Content Include="Views\Support\DeleteUser.cshtml" />
+    <Content Include="Views\Support\Login.cshtml" />
+    <Content Include="Views\Support\CreateStudent.cshtml" />
+    <Content Include="Views\Support\CreateTeacher.cshtml" />
+    <Content Include="Views\Support\CreateSupport.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Portal\WeeklyReport.cshtml" />
+    <Content Include="Views\Portal\MonthlyReport.cshtml" />
+    <Content Include="Views\Portal\SemesterReport.cshtml" />
+    <Content Include="Views\Portal\QuarterReport.cshtml" />
+    <Content Include="Views\Portal\OverallReport.cshtml" />
+    <Content Include="Views\Support\ToggleUser.cshtml" />
+    <Content Include="Views\Support\ChangeUserPassword.cshtml" />
+    <Content Include="Views\Portal\AttendanceUpdate.cshtml" />
+    <Content Include="Views\Admin\ChangePassword.cshtml" />
+    <Content Include="Views\Portal\ChangePassword.cshtml" />
+    <Content Include="Views\Maintenance\Index.cshtml" />
+    <Content Include="Views\Maintenance\Login.cshtml" />
+    <Content Include="Views\Maintenance\BackupData.cshtml" />
+    <Content Include="Views\Student\ResetPassword.cshtml" />
+    <Content Include="Views\Maintenance\ResetCalendar.cshtml" />
+    <Content Include="Views\Maintenance\RefreshAvatars.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+    <TypeScriptCompile Include="Scripts\Game.ts" />
+    <TypeScriptCompile Include="Scripts\jquery\index.d.ts" />
+    <TypeScriptCompile Include="Scripts\people.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59052</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59052/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

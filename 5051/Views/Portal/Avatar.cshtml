@@ -1,0 +1,98 @@
+﻿@using _5051.Models;
+@model _5051.Models.SelectedAvatarForStudentViewModel
+
+@{
+    ViewBag.Title = "My Avatar";
+}
+
+<br />
+<span class="FontColorWhite FontSizeLarge FontBold">My Avatar</span>
+<br />
+<br />
+
+<div class="row">
+    <div class="col text-center">
+        <div class="AvatarBoxNormal" id="AvatarBox">
+            <div class="AvatarCircle"></div>
+            <img class="AvatarItemBase AvatarHairBack" id="AvatarHairBack" src="@Model.Student.AvatarComposite.AvatarHairBackUri" />
+            <img class="AvatarItemBase AvatarHead" id="AvatarHead" src="@Model.Student.AvatarComposite.AvatarHeadUri" />
+            <img class="AvatarItemBase AvatarShirt" id="AvatarShirt" src="@Model.Student.AvatarComposite.AvatarShirtShortUri" />
+            <img class="AvatarItemBase AvatarExpression" id="AvatarExpression" src="@Model.Student.AvatarComposite.AvatarExpressionUri" />
+            <img class="AvatarItemBase AvatarCheeks" id="AvatarCheeks" src="@Model.Student.AvatarComposite.AvatarCheeksUri" />
+            <img class="AvatarItemBase AvatarHairFront" id="AvatarHairFront" src="@Model.Student.AvatarComposite.AvatarHairFrontUri" />
+            <img class="AvatarItemBase AvatarAccessory" id="AvatarAccessory" src="@Model.Student.AvatarComposite.AvatarAccessoryUri" />
+        </div>
+    </div>
+</div>
+
+<br />
+
+@{
+    if (Model.AvatarList == null | !Model.AvatarList.Any())
+    {
+        <br />
+        <h2>No Avatars Available to Select</h2>
+    }
+    else
+    {
+        <br />
+        <h2>Avatars available to pick per Level.</h2>
+        <div class="container">
+            <div class="col-sm-10 col-sm-offset-1">
+                @{
+                    ///Walk the SelectedAvatarViewModel.MaxLevel, and for each level lay out the Level, and the Avatars
+                    for (var myList = 1; myList <= Model.MaxLevel; myList++)
+                    {
+                        var disabledOn = "";
+                        var BoxHover = "BoxWithHighlightHover";
+                        if (Model.Student.AvatarLevel < myList)
+                        {
+                            disabledOn = "disabled";
+                            BoxHover = "";    //don't show the hover effect
+                        }
+
+                        <br />
+                        <div class="row" @disabledOn>
+                            @{
+                                <h3>Level @myList</h3>
+
+                                AvatarViewModel myAvatarLevelList = Model.AvatarLevelList.Where(m => m.ListLevel == myList).FirstOrDefault();
+
+                                if (myAvatarLevelList == null || myAvatarLevelList.AvatarList == null || !myAvatarLevelList.AvatarList.Any())
+                                {
+                                    <p>No Avatars at this level</p>
+                                }
+                                else
+                                {
+                                    //AvatarViewModel outputAvatar = new AvatarViewModel();
+                                    foreach (var outputAvatar in myAvatarLevelList.AvatarList)
+                                    {
+                                        using (Html.BeginForm())
+                                        {
+                                            //Send up the Avatar, and the StudentId to associated the Avatar with.
+                                            @Html.Hidden("StudentId", Model.Student.Id);
+
+                                            var picturURI = "/Content/img/" + outputAvatar.Uri;
+
+                                            <div class="col-sm-2 text-center">
+                                                <div class="@BoxHover">
+                                                    <input type="image" name="submit" src="@picturURI" border="0" alt="@outputAvatar.Name" id="@outputAvatar.Id" class="AvatarSize1" @disabledOn />
+                                                    <br />
+                                                    <span class="text-center">
+                                                        @outputAvatar.Name
+                                                        <br />
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                }
+                            }
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    }
+}
+

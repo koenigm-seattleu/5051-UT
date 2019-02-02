@@ -1,0 +1,125 @@
+﻿@using _5051.Models;
+@model _5051.Models.AvatarSelectShopViewModel
+@{
+    ViewBag.Title = "Edit Avatar Components";
+    var myPlace = Model.data.Item.Category;
+}
+
+<br />
+
+<div class="row justify-content-center">
+
+    <div class="col-1 "></div>
+    <div class="col lightTransparentBox">
+        <br />
+        <div class="FontSizeLarge text-center">
+            <span class="FontSizeLarger FontBold">
+                Avatar Customization
+            </span>
+        </div>
+        <br />
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="AvatarBoxLarge align-self-sm-center" id="AvatarBox">
+        <div class="AvatarCircle"></div>
+        <img class="AvatarItemBase AvatarHairBack" id="AvatarHairBack" src="@Model.Student.AvatarComposite.AvatarHairBackUri" />
+        <img class="AvatarItemBase AvatarHead" id="AvatarHead" src="@Model.Student.AvatarComposite.AvatarHeadUri" />
+        <img class="AvatarItemBase AvatarShirt" id="AvatarShirt" src="@Model.Student.AvatarComposite.AvatarShirtShortUri" />
+        <img class="AvatarItemBase AvatarExpression" id="AvatarExpression" src="@Model.Student.AvatarComposite.AvatarExpressionUri" />
+        <img class="AvatarItemBase AvatarCheeks" id="AvatarCheeks" src="@Model.Student.AvatarComposite.AvatarCheeksUri" />
+        <img class="AvatarItemBase AvatarHairFront" id="AvatarHairFront" src="@Model.Student.AvatarComposite.AvatarHairFrontUri" />
+        <img class="AvatarItemBase AvatarAccessory" id="AvatarAccessory" src="@Model.Student.AvatarComposite.AvatarAccessoryUri" />
+    </div>
+</div>
+
+<div class="row justify-content-around">
+    <div class="col-1"></div>
+    <div class="col text-center">
+        <br />
+        <span class="FontSizeLarge">@Model.data.Item.Category.GetDisplayName()</span>
+        <br />
+        <br />
+        <hr />
+        <br />
+    </div>
+    <div class="col-1"></div>
+</div>
+
+
+<div class="row justify-content-start">
+    <div class="col-1"></div>
+
+    <div class="col">
+
+        <div class="row justify-content-center">
+            @{
+                if (Model.data.ItemList.Count < 1)
+                {
+                    <div>No Items to Select</div><br /><br />
+                }
+
+                foreach (var InventoryItem in Model.data.ItemList)
+                {
+                    using (Html.BeginForm())
+                    {
+                        //Send up the Avatar, and the StudentId to associated the Avatar with.
+                        @Html.Hidden("StudentId", Model.Student.Id);
+                        @Html.Hidden("ItemId", InventoryItem.Id);
+                        @Html.Hidden("Position", Model.data.Item.Category);
+
+                        var picturURI = "/Content/avatar/" + InventoryItem.Uri;
+
+                        <div class="col-auto lightTransparentBox BoxWithHighlightHover DispalyBoxWithMargin">
+                            <br />
+                            <div class="row no-gutters justify-content-center">
+                                <input type="image" name="submit" src="@picturURI" border="0" alt="@InventoryItem.Name" id="@InventoryItem.Id" class="AvatarSize1 darkBox" />
+                            </div>
+                            <div class="row no-gutters justify-content-center">
+                                <span class="FontSizeSmall text-center">
+                                @InventoryItem.Name<br />
+                                @InventoryItem.Description<br />
+                                    <br />
+                                </span>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+
+    </div>
+    <div class="col-1"></div>
+    <br />
+    <br />
+</div>
+
+
+<div class="row justify-content-start">
+
+    <div class="col-1 "></div>
+
+    <div class="col text-left">
+        <br />
+        <br />
+
+        <div class="row justify-content-start">
+
+            <div class="col-auto text-center">
+                @Html.ActionLink("Back to Avatar", "Index", new { id = Model.Student.Id }, new { @class = "btn btn1 btn-light" })
+            </div>
+
+            <div class="col-auto text-center">
+                @Html.ActionLink("Go to Shop", "Select", new { id = Model.Student.Id }, new { @class = "btn btn1 btn-light" })
+            </div>
+        </div>
+
+        <br />
+        <br />
+
+    </div>
+
+    <div class="col-1 "></div>
+</div>

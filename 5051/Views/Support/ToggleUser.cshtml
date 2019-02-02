@@ -1,0 +1,106 @@
+﻿@using _5051.Backend;
+@using _5051.Models.Enums;
+@model _5051.Models.ApplicationUserInputModel
+@{
+    ViewBag.Title = "Toggle";
+}
+
+<br />
+<div class="row justify-content-center">
+
+    <div class="col-1 "></div>
+    <div class="col lightTransparentBox">
+        <br />
+        <div class="FontSizeLarge text-center">
+            <span class="FontSizeLarger FontBold FontColorBlack">Toggle User</span>
+        </div>
+        <br />
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row">
+    <br />
+    <br />
+</div>
+
+@{
+    if (Model == null)
+    {
+        <div class="row justify-content-center">
+
+            <div class="col-1 "></div>
+            <div class="col lightTransparentBox">
+                <br />
+                <div class="FontSizeLarge text-center FontColorBlack">
+                    No Information
+                </div>
+                <br />
+            </div>
+            <div class="col-1"></div>
+        </div>
+    }
+
+    else
+    {
+        <div class="row justify-content-center">
+            <div class="col-1 "></div>
+
+            <div class="col lightTransparentBox">
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <br />
+                        <div class="row justify-content-center">
+                            <br />
+                            <div class="AvatarBoxNormal align-self-sm-center" id="AvatarBox">
+                                <div class="AvatarCircle"></div>
+                                <img class="AvatarItemBase AvatarHairBack" src="@Model.Student.AvatarComposite.AvatarHairBackUri" />
+                                <img class="AvatarItemBase AvatarHead" src="@Model.Student.AvatarComposite.AvatarHeadUri" />
+                                <img class="AvatarItemBase AvatarShirt" src="@Model.Student.AvatarComposite.AvatarShirtShortUri" />
+                                <img class="AvatarItemBase AvatarExpression" src="@Model.Student.AvatarComposite.AvatarExpressionUri" />
+                                <img class="AvatarItemBase AvatarCheeks" src="@Model.Student.AvatarComposite.AvatarCheeksUri" />
+                                <img class="AvatarItemBase AvatarHairFront" src="@Model.Student.AvatarComposite.AvatarHairFrontUri" />
+                                <img class="AvatarItemBase AvatarAccessory" src="@Model.Student.AvatarComposite.AvatarAccessoryUri" />
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center text-center">
+                            <div class="col FontSizeLarge text-center">
+                                @Model.Student.Name<br />
+                                <span class="FontSizeMedium text-center">
+                                    @Model.Role.GetDisplayName()
+                                </span>
+
+                                <br />
+                                @{
+                                    var displayString = "Remove";
+                                    if (Model.State == false)
+                                    {
+                                        displayString = "Add";
+                                    }
+
+                                    using (Html.BeginForm())
+                                    {
+                                            @Html.HiddenFor(m => m.Id)
+                                            @Html.HiddenFor(m => m.State)
+                                            @Html.HiddenFor(m => m.Role)
+
+                                        <input type="submit" value="@displayString" class="btn btn1 btn-light DispalyBoxWithMargin" id="Submit">
+                                    }
+                                }
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-1 "></div>
+        </div>
+
+        <div class="row">
+            <br />
+            <br />
+        </div>
+    }
+}

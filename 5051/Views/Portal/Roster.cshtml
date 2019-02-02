@@ -1,0 +1,59 @@
+﻿@model _5051.Models.StudentViewModel
+@{
+    ViewBag.Title = "Roster";
+}
+<br />
+<div class="row justify-content-center">
+
+    <div class="col-1 "></div>
+    <div class="col lightTransparentBox">
+        <br />
+        <div class="FontSizeLarge text-center">
+            <span class="FontSizeLarger FontBold">Click on your Avatar to Login</span>
+        </div>
+        <br />
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row">
+    <br />
+    <br />
+</div>
+
+<div class="row justify-content-around">
+    <div class="col-1"></div>
+    <div class="col">
+        <div class="row justify-content-start">
+
+            @{
+                foreach (var item in Model.StudentList)
+                {
+                    <div class="col-sm-2 lightTransparentBox BoxWithHighlightHover DispalyBoxWithMargin">
+                        <a id="@item.Id" href="~/Portal/Login/@item.Id">
+                            <div class="row justify-content-center">
+                                <div class="AvatarBoxNormal align-self-sm-center" id="AvatarBox">
+                                    <div class="AvatarCircle"></div>
+                                    <img class="AvatarItemBase AvatarHairBack" src="@item.AvatarComposite.AvatarHairBackUri" />
+                                    <img class="AvatarItemBase AvatarHead" src="@item.AvatarComposite.AvatarHeadUri" />
+                                    <img class="AvatarItemBase AvatarShirt" src="@item.AvatarComposite.AvatarShirtShortUri" />
+                                    <img class="AvatarItemBase AvatarExpression" src="@item.AvatarComposite.AvatarExpressionUri" />
+                                    <img class="AvatarItemBase AvatarCheeks" src="@item.AvatarComposite.AvatarCheeksUri" />
+                                    <img class="AvatarItemBase AvatarHairFront" src="@item.AvatarComposite.AvatarHairFrontUri" />
+                                    <img class="AvatarItemBase AvatarAccessory" src="@item.AvatarComposite.AvatarAccessoryUri" />
+                                </div>
+                            </div>
+                        </a>
+                        <div class="row justify-content-around">
+                            <span class="col FontSizeSmall text-center">
+                                @item.Name
+                            </span>
+                        </div>
+                    </div>
+                }
+            }
+            <br />
+        </div>
+    </div>
+        <div class="col-1"></div>
+    </div>

@@ -1,0 +1,99 @@
+﻿@model _5051.Models.StudentDisplayViewModel
+
+@{
+    ViewBag.Title = "Logged In";
+}
+<br />
+<div class="row justify-content-center">
+
+    <div class="col-1 "></div>
+    <div class="col lightTransparentBox">
+        <br />
+        <div class="FontSizeLarge text-center">
+            <span class="FontSizeLarger FontBold">
+                @Model.LastDateTime.ToShortDateString()<br />
+                @Model.LastDateTime.ToShortTimeString()
+            </span>
+        </div>
+        <br />
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row">
+    <br />
+    <br />
+</div>
+
+<div class="row justify-content-center">
+
+    <div class="col-1 "></div>
+    <div class="col lightTransparentBox">
+        <br />
+        <div class="row justify-content-center">
+
+            <div class="col-sm-1"></div>
+
+            <div class="col">
+                <div class="row justify-content-center">
+                    <div class="col FontSizeLarge text-center" id="text-center">
+                        <span class="FontSizeLarge">
+                            @Model.Name, you are now logged in and accumulating time.
+                        </span>
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="row justify-content-center">
+                    <div class="AvatarBoxNormal align-self-sm-center" id="AvatarBox">
+                        <div class="AvatarCircle"></div>
+                        <img class="AvatarItemBase AvatarHairBack" id="AvatarHairBack" src="@Model.AvatarComposite.AvatarHairBackUri" />
+                        <img class="AvatarItemBase AvatarHead" id="AvatarHead" src="@Model.AvatarComposite.AvatarHeadUri" />
+                        <img class="AvatarItemBase AvatarShirt" id="AvatarShirt" src="@Model.AvatarComposite.AvatarShirtShortUri" />
+                        <img class="AvatarItemBase AvatarExpression" id="AvatarExpression" src="@Model.AvatarComposite.AvatarExpressionUri" />
+                        <img class="AvatarItemBase AvatarCheeks" id="AvatarCheeks" src="@Model.AvatarComposite.AvatarCheeksUri" />
+                        <img class="AvatarItemBase AvatarHairFront" id="AvatarHairFront" src="@Model.AvatarComposite.AvatarHairFrontUri" />
+                        <img class="AvatarItemBase AvatarAccessory" id="AvatarAccessory" src="@Model.AvatarComposite.AvatarAccessoryUri" />
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="row justify-content-center">
+                    <div class="col FontSizeLarge text-center">
+                        Exciting !
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col FontSizeSmall text-center">
+                        <br />
+                        The page will auto refresh, or click
+                        <br />
+                        <br />
+                    </div>
+                </div>
+
+                @*<div class="row justify-content-center">
+                    <div class="col-3 FontSizeSmall text-center">
+                        @Html.ActionLink("Done", "Index", null, new { @class = "btn btn1 btn-light KioskLogButton" })
+                        <br />
+                        <br />
+                    </div>
+                </div>*@
+            </div>
+
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+
+    <div class="col-1 "></div>
+</div>
+
+<script>
+    window.setTimeout(function () {
+        // Move to a new location or you can do something else
+        window.location.href = "../../Kiosk/Index";
+    }, 1000);
+</script>

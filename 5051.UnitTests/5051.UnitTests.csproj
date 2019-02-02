@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.props" Condition="Exists('..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{406F8624-59D6-424C-99D0-1D9FB7EEF484}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>_5051.UnitTests</RootNamespace>
+    <AssemblyName>5051.UnitTests</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.3.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.ConfigurationManager, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.ConfigurationManager.4.0.0\lib\net452\Microsoft.Azure.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.3.0.1\lib\net452\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.0\lib\net451\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.0\lib\net451\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.0\lib\net451\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSTest.TestFramework.1.4.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSTest.TestFramework.1.4.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=9.3.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.9.3.3\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq, Version=4.10.0.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.10.1\lib\net45\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.1\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Backend\AvatarItemBackendUnitTests.cs" />
+    <Compile Include="Backend\IdentityDataSourceMockUnitTests.cs" />
+    <Compile Include="Backend\IdentityDataSourceTableUnitTests.cs" />
+    <Compile Include="Backend\KioskSettingsDataSourceTableUnitTests.cs" />
+    <Compile Include="Backend\FactoryInventoryDataSourceTableUnitTests.cs" />
+    <Compile Include="Backend\DataSourceBackendTableUnitTests.cs" />
+    <Compile Include="Backend\AvatarItemDataSourceTableUnitTests.cs" />
+    <Compile Include="Backend\AvatarItemDataSourceMockUnitTests.cs" />
+    <Compile Include="Backend\GameDataSourceMockUnitTests.cs" />
+    <Compile Include="Backend\GameBackendUnitTests.cs" />
+    <Compile Include="Backend\IdentityBackendUnitTests.cs" />
+    <Compile Include="Backend\DateTimeHelperUnitTests.cs" />
+    <Compile Include="Backend\RandomHelperUnitTests.cs" />
+    <Compile Include="Backend\ReportBackendUnitTests.cs" />
+    <Compile Include="Backend\SchoolCalendarBackendHelperUnitTests.cs" />
+    <Compile Include="Backend\SchoolCalendarBackendUnitTests.cs" />
+    <Compile Include="Backend\FactoryInventoryBackendUnitTests.cs" />
+    <Compile Include="Backend\DataSourceBackendUnitTests.cs" />
+    <Compile Include="Backend\KioskSettingsBackendUnitTests.cs" />
+    <Compile Include="Backend\SchoolCalendarDataSourceTableUnitTests.cs" />
+    <Compile Include="Backend\SchoolDismissalSettingsBackendUnitTests.cs" />
+    <Compile Include="Backend\FactoryInventoryDataSourceMockUnitTests.cs" />
+    <Compile Include="Backend\SchoolDismissalSettingsDataSourceTableUnitTests.cs" />
+    <Compile Include="Backend\SchoolDismissalSettingsDataSourceMockUnitTests.cs" />
+    <Compile Include="Backend\SchoolCalendarDataSourceMockUnitTests.cs" />
+    <Compile Include="Backend\StudentBackendHelperUnitTests.cs" />
+    <Compile Include="Backend\StudentBackendUnitTests.cs" />
+    <Compile Include="Backend\StudentDataSourceTableUnitTests.cs" />
+    <Compile Include="Backend\StudentDataSourceMockUnitTests.cs" />
+    <Compile Include="Backend\KioskSettingsDataSourceMockUnitTests.cs" />
+    <Compile Include="Backend\UTCConversionsBackendUnitTests.cs" />
+    <Compile Include="Misc\FilterConfigUnitTests.cs" />
+    <Compile Include="Misc\EmailServiceUnitTests.cs" />
+    <Compile Include="Misc\SmsServiceUnitTests.cs" />
+    <Compile Include="Misc\RouteConfigUnitTests.cs" />
+    <Compile Include="Misc\BundleConfigUnitTests.cs" />
+    <Compile Include="Models\AddPhoneNumberViewModelTests.cs" />
+    <Compile Include="Models\AdminReportIndexViewModelUnitTests.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\ApplicationUserViewModelUnitTests.cs" />
+    <Compile Include="Models\AttendanceReportViewModelUnitTests.cs" />
+    <Compile Include="Models\AvatarItemShopViewModelUnitTests.cs" />
+    <Compile Include="Models\DataSourceBackendTableEntityUnitTests.cs" />
+    <Compile Include="Models\Enums\AvatarItemCategoryEnumUnitTests .cs" />
+    <Compile Include="Models\AvatarItemModelUnitTests.cs" />
+    <Compile Include="Models\AvatarItemViewModelUnitTests.cs" />
+    <Compile Include="Models\AvatarItemListViewModelUnitTests.cs" />
+    <Compile Include="Models\AvatarItemInputModelUnitTests.cs" />
+    <Compile Include="Models\BusinessReportViewModelUnitTests.cs" />
+    <Compile Include="Models\Enums\UserRoleEnumUnitTests.cs" />
+    <Compile Include="Models\ApplicationUserInputModelUnitTests.cs" />
+    <Compile Include="Models\BackupDataInputModelUnitTests.cs" />
+    <Compile Include="Models\VisitTruckViewModelUnitTests.cs" />
+    <Compile Include="Models\ShopTruckInputModelUnitTests.cs" />
+    <Compile Include="Models\AvatarCompositeModelUnitTests.cs" />
+    <Compile Include="Models\AvatarSelectShopViewModelUnitTests.cs" />
+    <Compile Include="Models\LeaderBoardModelUnitTests.cs" />
+    <Compile Include="Models\TruckItemInputModel.cs" />
+    <Compile Include="Models\StudentInputModelUnitTests.cs" />
+    <Compile Include="Models\GameResultViewModelUnitTests.cs" />
+    <Compile Include="Models\GameViewModelUnitTests.cs" />
+    <Compile Include="Models\GameModelUnitTests.cs" />
+    <Compile Include="Models\ChangePasswordViewModelUnitTests.cs" />
+    <Compile Include="Models\ConfigureTwoFactorViewModelUnitTests.cs" />
+    <Compile Include="Models\Enums\CheckOutStatusEnumUnitTests.cs" />
+    <Compile Include="Models\Enums\CheckInStatusEnumUnitTests.cs" />
+    <Compile Include="Models\Enums\AttendanceStatusEnumUnitTests.cs" />
+    <Compile Include="Models\Enums\DataSourceDataSetEnumUnitTests.cs" />
+    <Compile Include="Models\Enums\StudentStatusEnumUnitTests.cs" />
+    <Compile Include="Models\Enums\ShopInventoryCategoryEnumUnitTests.cs" />
+    <Compile Include="Models\Enums\SchoolCalendarDismissalEnumUnitTests.cs" />
+    <Compile Include="Models\Enums\DataSourceEnumUnitTests.cs" />
+    <Compile Include="Models\Enums\EmotionStatusEnumUnitTests.cs" />
+    <Compile Include="Models\ExternalLoginConfirmationViewModelUnitTests.cs" />
+    <Compile Include="Models\ExternalLoginListViewModelUnitTests.cs" />
+    <Compile Include="Models\FactorViewModelUnitTests.cs" />
+    <Compile Include="Models\ForgotPasswordViewModelUnitTests.cs" />
+    <Compile Include="Models\ForgotViewModelUnitTests.cs" />
+    <Compile Include="Models\IndexViewModelUnitTests.cs" />
+    <Compile Include="Models\LoginViewModelUnitTests.cs" />
+    <Compile Include="Models\ManageLoginsViewModelUnitTests.cs" />
+    <Compile Include="Models\QuarterReportViewModelUnitTests.cs" />
+    <Compile Include="Models\RegisterViewModelUnitTests.cs" />
+    <Compile Include="Models\ResetPasswordViewModelUnitTests.cs" />
+    <Compile Include="Models\SchoolYearReportViewModelUnitTests.cs" />
+    <Compile Include="Models\SemesterReportViewModelTests.cs" />
+    <Compile Include="Models\SendCodeViewModelUnitTests.cs" />
+    <Compile Include="Models\ShopTruckModelUnitTests.cs" />
+    <Compile Include="Models\ShopTruckItemViewModelUnitTests.cs" />
+    <Compile Include="Models\ShopTruckViewModelUnitTests.cs" />
+    <Compile Include="Models\ShopBuyViewModelUnitTests.cs" />
+    <Compile Include="Models\StudentAvatarModelUnitTests.cs" />
+    <Compile Include="Models\StudentModelUnitTests.cs" />
+    <Compile Include="Models\FactoryInventoryModelUnitTests.cs" />
+    <Compile Include="Models\SchoolDismissalSettingsModelUnitTests.cs" />
+    <Compile Include="Models\SelectedShopInventoryForStudentViewModelUnitTests.cs" />
+    <Compile Include="Models\SchoolCalendarViewModelUnitTests.cs" />
+    <Compile Include="Models\SchoolCalendarModelUnitTests.cs" />
+    <Compile Include="Models\FactoryInventoryListViewModelUnitTests.cs" />
+    <Compile Include="Models\FactoryInventoryViewModelUnitTests.cs" />
+    <Compile Include="Models\StudentReportStatsModelUnitTests.cs" />
+    <Compile Include="Models\MonthlyReportViewModelUnitTests.cs" />
+    <Compile Include="Models\AttendanceModelUnitTests.cs" />
+    <Compile Include="Models\KioskSettingsModelUnitTests.cs" />
+    <Compile Include="Models\AvatarModelUnitTests.cs" />
+    <Compile Include="Models\AvatarViewModelUnitTests.cs" />
+    <Compile Include="Models\StudentDisplayViewModelUnitTests.cs" />
+    <Compile Include="Models\StudentViewModelUnitTests.cs" />
+    <Compile Include="Models\SystemGlobalsModelUnitTests.cs" />
+    <Compile Include="Models\BaseReportViewModelUnitTests.cs" />
+    <Compile Include="Models\AttendanceDetailsViewModelUnitTests.cs" />
+    <Compile Include="Models\TransactionModelUnitTests.cs" />
+    <Compile Include="Models\UserListViewModelUnitTests.cs" />
+    <Compile Include="Models\VerifyCodeViewModelUnitTests.cs" />
+    <Compile Include="Models\VerifyPhoneNumberViewModelUnitTests.cs" />
+    <Compile Include="Models\WeeklyReportViewModelUnitTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <Compile Include="Models\SetPasswordViewModelUnitTests.cs" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\5051\5051.csproj">
+      <Project>{3fb6dfe6-43fd-48fd-a214-3a80ab883cbb}</Project>
+      <Name>5051</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.props'))" />
+    <Error Condition="!Exists('..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.targets'))" />
+  </Target>
+  <Import Project="..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.1.4.0\build\net45\MSTest.TestAdapter.targets')" />
+</Project>

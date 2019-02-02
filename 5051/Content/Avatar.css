@@ -1,0 +1,113 @@
+﻿.AvatarItemDisplayBox {
+    margin: 5px;
+
+    min-width: 100px;
+    min-height: 175px;
+
+}
+
+.AvatarSize1 {
+    width: 75px;
+    height: 75px;
+}
+
+.AvatarSize2 {
+    width: 90px;
+    height: 90px;
+}
+
+.AvatarSize3{
+    width: 150px;
+    height: 150px;
+}
+
+.AvatarSize0 {
+    width: 50px;
+    height: 50px;
+}
+
+.AvatarKioskBox {
+    width: 100px;
+    height: 100px;
+}
+
+.AvatarPortalBox {
+    width: 100px;
+    height: auto;
+}
+
+.CenterAvatarStyle {
+    border: solid;
+    border-color: white;
+    border-radius: 100px;
+}
+
+.AvatarBlock {
+    padding: 30px;
+
+}
+
+/*Start Avatar */
+.AvatarBoxNormal {
+    position: relative;
+    height: 90px;
+    width: 90px;
+}
+
+.AvatarBoxLarge {
+    position: relative;
+    height: 200px;
+    width: 200px;
+}
+
+.AvatarItemBase {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+.AvatarHead 
+{
+    z-index:10;
+}
+
+.AvatarShirt {
+    z-index:15;
+}
+
+.AvatarCheeks {
+    z-index:20;
+}
+
+.AvatarAccessory {
+    z-index:30
+}
+
+.AvatarExpression{
+    z-index:25;
+}
+
+.AvatarHairBack {
+    z-index: 5;
+}
+
+.AvatarHairFront {
+    z-index: 12;
+}
+
+.AvatarCircle {
+    position:absolute;
+    top:15%;
+    left:8%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 1);
+    z-index:0;
+    width:85%;
+    height:80%;
+}
+
+/* End Avatar */

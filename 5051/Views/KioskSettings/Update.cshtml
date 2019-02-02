@@ -1,0 +1,109 @@
+﻿@model _5051.Models.KioskSettingsModel
+@{
+    ViewBag.Title = "Update";
+
+}
+
+<br />
+<div class="row justify-content-center">
+
+    <div class="col-1 "></div>
+    <div class="col lightTransparentBox">
+        <br />
+        <div class="FontSizeLarge text-center">
+            <span class="FontSizeLarger FontBold FontColorWhite">
+                Kiosk Settings
+            </span>
+        </div>
+        <br />
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row">
+    <br />
+    <br />
+</div>
+
+
+@{
+    if (Model == null)
+    {
+        <div class="row justify-content-center">
+
+            <div class="col-1 "></div>
+            <div class="col lightTransparentBox">
+                <br />
+                <div class="FontSizeLarge text-center FontColorWhite">
+                    No Data
+                </div>
+                <br />
+            </div>
+            <div class="col-1"></div>
+        </div>
+    }
+
+    else
+    {
+        <div class="row justify-content-center FontColorWhite">
+
+            <div class="col-1 "></div>
+            <div class="col lightTransparentBox FontSizeMedium text-center">
+                <br />
+                <br />
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.Id)
+
+
+                    <div class="row justify-content-center">
+                        <div class="col-sm text-sm-center text-md-right" id="Password">
+                            @Html.DisplayNameFor(m => m.Password)
+                        </div>
+                        <div class="col-1">
+
+                        </div>
+                        <div class="col text-left" id="PasswordValue">
+                            @Html.EditorFor(m => m.Password)
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="row justify-content-center">
+                        <div class="col-sm text-sm-center text-md-right" id="TimeZone">
+                            @Html.DisplayNameFor(m => m.TimeZone)
+                        </div>
+                        <div class="col-1">
+
+                        </div>
+                        <div class="col text-left" id="TimeZoneValue">
+                            @Html.DropDownListFor(m => m.SelectedTimeZoneId, Model.TimeZones)
+                        </div>
+                    </div>
+
+                    <br />
+                    <hr />
+                    <br />
+
+                    <div class="row justify-content-center">
+                        <div class="col-auto justify-content-center text-center">
+                            @Html.ActionLink("Back", "Settings", new { id = Model.Id, Controller = "Admin" }, new { @class = "btn btn1 btn-light DispalyBoxWithMargin" })
+                        </div>
+                        <div class="col-1"></div>
+                        <div class="col-auto justify-content-center text-center">
+                            <input type="submit" value="Update" class="btn btn1 btn-light DispalyBoxWithMargin">
+                        </div>
+                    </div>
+
+                    <br />
+                }
+            </div>
+            <div class="col-1"></div>
+        </div>
+    }
+}
+
+<br />

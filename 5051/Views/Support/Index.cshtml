@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<div class="row justify-content-center">
+
+    <div class="col-1 "></div>
+    <div class="col lightTransparentBox">
+        <br />
+        <div class="FontSizeLarge text-center">
+            <span class="FontSizeLarger FontBold FontColorBlack">Support Home</span>
+        </div>
+        <br />
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row">
+    <br />
+    <br />
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-1 "></div>
+
+    <div class="col lightTransparentBox">
+        <div class="row justify-content-center FontSizeMedium FontColorBlack">
+
+            <div class="col-auto text-center DispalyBoxWithMargin">
+                User View / Edit<br />
+                @Html.ActionLink("User List", "UserList", "Support", null, new { @class = "btn btn1 btn-light DispalyBoxWithMargin" })
+            </div>
+
+        </div>
+
+        <div class="row justify-content-center FontSizeMedium FontColorBlack">
+            <div class="col-auto text-center DispalyBoxWithMargin">
+                Change the Settings<br />
+                @Html.ActionLink("Settings", "Settings", "Support", null, new { @class = "btn btn1 btn-light DispalyBoxWithMargin" })<br />
+            </div>
+        </div>
+
+
+        <div class="row">
+            <br />
+            <br />
+        </div>
+
+    </div>
+
+    <div class="col-1 "></div>
+</div>
+
+<div class="row">
+    <br />
+    <br />
+</div>

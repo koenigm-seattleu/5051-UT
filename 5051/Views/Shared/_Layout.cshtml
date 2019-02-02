@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - AttendanceStar</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/UTCtimeConvert.js"></script>
+
+    <link rel="icon" href="~/Content/img/avatar8.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+</head>
+
+@{
+    var StudentId = "";
+
+    var wrapper = new HttpContextWrapper(HttpContext.Current);
+    var temp = _5051.Backend.DataSourceBackend.Instance;
+    StudentId = _5051.Backend.IdentityBackend.Instance.GetCurrentStudentID(wrapper);
+    if (string.IsNullOrEmpty(StudentId) ||
+        !string.IsNullOrEmpty(ViewBag.StudentId))
+    {
+        StudentId = ViewBag.StudentId;
+    }
+
+    var background = "IncludeBackgroundImageHome";
+    var backgroundColor = "IncludeBackgroundColorHome";
+
+    var routeController = Url.RequestContext.RouteData.Values["controller"].ToString();
+
+    switch (routeController)
+    {
+        case "support":
+        case "Support":
+            background = "IncludeBackgroundImageNone";
+            backgroundColor = "IncludeBackgroundColorNone";
+            break;
+
+        case "Kiosk":
+            background = "IncludeBackgroundImageSunset";
+            backgroundColor = "IncludeBackgroundColorSunset";
+            break;
+
+        case "KioskSettings":
+        case "kiosksettings":
+        case "Attendance":
+        case "attendance":
+        case "SchoolDismissalSettings":
+        case "schooldismissalsettings":
+        case "FactoryInventory":
+        case "factoryinventory":
+        case "AvatarItem":
+        case "avataritem":
+        case "Calendar":
+        case "calendar":
+        case "Student":
+        case "student":
+        case "Admin":
+        case "admin":
+            background = "IncludeBackgroundImageNight";
+            backgroundColor = "IncludeBackgroundColorNight";
+            break;
+
+        case "Portal":
+        default:
+            background = "IncludeBackgroundImageDay";
+            backgroundColor = "IncludeBackgroundColorDay";
+            break;
+    }
+}
+
+<body class="@backgroundColor" id="BodyBackgroundColorId">
+    <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        @{
+            switch (routeController)
+            {
+                case "Kiosk":
+                    break;
+
+                default:
+
+                    @Html.ActionLink("AttendanceStar", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", id = "AvatarAttendanceLinkNavBar" })
+                    break;
+            }
+        }
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="navbar-nav mr-auto FontBold FontColorBlack FontSizeSmall">
+
+                @{
+                    switch (routeController)
+                    {
+
+                        case "Support":
+                        case "support":
+                            <li class="nav-item">
+                                @Html.ActionLink("Support Home", "Index", "Support", null, new { @class = "nav-link", id = "HomeLinkNavBar" })
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("User List", "UserList", "Support", null, new { @class = "nav-link", id = "HomeLinkNavBar" })
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Support Settings", "Settings", "Support", null, new { @class = "nav-link", id = "HomeLinkNavBar" })
+                            </li>
+                            break;
+
+                        case "Home":
+                            <li class="nav-item">
+                                @Html.ActionLink("Student", "Roster", "Portal", null, new { @class = "nav-link", id = "HomeLinkNavBar" })
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Admin", "Login", "Admin", null, new { @class = "nav-link", id = "AdminLinkNavBar" })
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Kiosk Mode", "Login", "Kiosk", null, new { @class = "nav-link", id = "KioskModeLinkNavBar" })
+                            </li>
+                            break;
+
+                        case "Kiosk":
+                            <li class="nav-item">
+                                @Html.ActionLink("Add Student", "Create", "Kiosk", null, new { @class = "nav-link", id = "AddStudentLinkNavBar" })
+                            </li>
+                            break;
+
+                        case "Attendance":
+                        case "SchoolDismissalSettings":
+                        case "FactoryInventory":
+                        case "AvatarItem":
+                        case "Calendar":
+                        case "Student":
+                        case "Admin":
+                            {
+                                var routePath = Url.RequestContext.RouteData.Values["action"].ToString();
+
+                                switch (routePath)
+                                {
+                                    case "Login":
+                                    case "Roster":
+                                        break;
+
+                                    default:
+                                        {
+                                            <li class="nav-item">
+                                                @Html.ActionLink("Dashboard", "Index", "Admin", null, new { @class = "nav-link", id = "AdminLinkNavBar" })
+                                            </li>
+                                            <li class="nav-item">
+                                                @Html.ActionLink("Reports", "Report", "Admin", null, new { @class = "nav-link", id = "AdminReportLinkNavBar" })
+                                            </li>
+                                            <li class="nav-item">
+                                                @Html.ActionLink("Students", "Index", "Student", null, new { @class = "nav-link", id = "StudentLinkNavBar" })
+                                            </li>
+                                            <li class="nav-item">
+                                                @Html.ActionLink("Calendar", "Index", "Calendar", null, new { @class = "nav-link", id = "CalendarLinkNavBar" })
+                                            </li>
+                                            <li class="nav-item">
+                                                @Html.ActionLink("Avatars", "Index", "AvatarItem", null, new { @class = "nav-link", id = "AvatarLinkNavBar" })
+                                            </li>
+                                            <li class="nav-item">
+                                                @Html.ActionLink("Settings", "Settings", "Admin", null, new { @class = "nav-link", id = "AdminSettingsLinkNavBar" })
+                                            </li>
+                                            <li class="nav-item">
+                                                @Html.ActionLink("Inventory", "Index", "FactoryInventory", null, new { @class = "nav-link", id = "FactoryInventoryLinkNavBar" })
+                                            </li>
+                                            break;
+                                        }
+                                }
+                            }
+                            break;
+
+                        default:
+                            {
+                                var routePath = Url.RequestContext.RouteData.Values["action"].ToString();
+
+                                switch (routePath)
+                                {
+                                    case "Login":
+                                    case "Roster":
+                                        break;
+
+                                    default:
+                                        <li class="nav-item">
+                                            @Html.ActionLink("Home", "Index", "Portal", new { id = StudentId }, new { @class = "nav-link", id = "AdminMonthlyReportLinkNavBar" })
+                                        </li>
+                                        @*<li class="nav-item">
+                                                @Html.ActionLink("Reports", "Report", "Portal", new { id = StudentId }, new { @class = "nav-link", id = "AdminMonthlyReportLinkNavBar" })
+                                            </li>*@
+                                        <li class="nav-item">
+                                            @Html.ActionLink("Attendance", "Attendance", "Portal", new { id = StudentId }, new { @class = "nav-link", id = "AttendancePortalLinkNavBar" })
+                                        </li>
+                                        <li class="nav-item">
+                                            @Html.ActionLink("Visit", "Visit", "Shop", new { id = StudentId }, new { @class = "nav-link", id = "ShopVisitLinkNavBar" })
+                                        </li>
+                                        <li class="nav-item">
+                                            @Html.ActionLink("Store", "Index", "Shop", new { id = StudentId }, new { @class = "nav-link", id = "ShopLinkNavBar" })
+                                        </li>
+                                        <li class="nav-item">
+                                            @Html.ActionLink("Customize", "Settings", "Portal", new { id = StudentId }, new { @class = "nav-link", id = "PortalSettingsLinkNavBar" })
+                                        </li>
+                                        <li class="nav-item">
+                                            @Html.ActionLink("Avatars", "Index", "AvatarSelect", new { id = StudentId }, new { @class = "nav-link", id = "PortalAvatarLinkNavBar" })
+                                        </li>
+                                        break;
+                                }
+                                break;
+                            }
+                    }
+                }
+
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </nav>
+
+    <div class="@background" id="BodyBackgroundImageId">
+        <div class="container-fluid body-content fill-height">
+            @RenderBody()
+
+            @{
+                // Adding padding at the bottom of the page, needed to make sure buttons can be reached when in phone mode
+                <div>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+
+            }
+        </div>
+    </div>
+
+    @{
+        switch (routeController)
+        {
+            case "Kiosk":
+                break;
+
+            default:
+                <footer>
+                    <div class="footer fixed-bottom">
+                        <div class="FooterBar body-content">
+                            <div class="row FooterText flex-row">
+                                <div class="col FooterText align-left">
+                                    &copy;@DateTime.Now.Year, All rights reserved
+                                </div>
+                            </div>
+                            <div class="row no-gutters flex-row-reverse justify-content-around">
+                                <div class="col">
+                                    @Html.ActionLink("About", "About", "Home", new { controller = "Home" }, new { @class = "btn btn-link FooterText FooterLink", id = "AboutLinkFooter" })
+                                </div>
+                                <div class="col">
+                                    @Html.ActionLink("Privacy Policy", "Privacy", "Home", new { controller = "Home" }, new { @class = "btn btn-link FooterText FooterLink", id = "PrivacyPolicyLinkFooter" })
+                                </div>
+                                <div class="col">
+                                    @Html.ActionLink("Contact", "Contact", "Home", new { controller = "Home" }, new { @class = "btn btn-link FooterText FooterLink", id = "ContactLinkFooter" })
+                                </div>
+                                <div class="col">
+                                    @Html.ActionLink("FAQ's", "FAQ", "Home", new { controller = "Home" }, new { @class = "btn btn-link FooterText FooterLink", id = "FAQLinkFooter" })
+                                </div>
+                                @*<div class="col">
+                                        @Html.ActionLink("User Guide", "Guide", "Home", new { controller = "Home" }, new { @class = "btn btn-link FooterText FooterLink", id = "UserGuideLinkFooter" })
+                                    </div>*@
+                            </div>
+                        </div>
+
+                    </div>
+                </footer>
+                break;
+        }
+    }
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    @{
+        // Adding Tags to the page for UI Automation to use
+        var myAreaID = "Area-" + ViewContext.RouteData.DataTokens["area"] + "-Done";
+        var myControllerID = "Controller-" + ViewContext.Controller.ValueProvider.GetValue("controller").RawValue + "-Done";
+        var myActionID = "View-" + ViewContext.RouteData.Values["action"] + "-Done";
+
+        <div id="Page-Done"></div>
+        <div id="@myAreaID"></div>
+        <div id="@myControllerID"></div>
+        <div id="@myActionID"></div>
+    }
+</body>
+</html>

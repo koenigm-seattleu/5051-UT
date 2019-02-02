@@ -1,0 +1,91 @@
+﻿@using _5051.Models
+@model _5051.Models.StudentDisplayViewModel
+@{
+
+    ViewBag.Title = "Student Attendance";
+}
+
+<br />
+<div class="row justify-content-center">
+
+    <div class="col-1 "></div>
+    <div class="col lightTransparentBox">
+        <br />
+        <div class="FontSizeLarge text-center">
+            <span class="FontSizeLarger FontBold">
+                Welcome to your Attendance History
+            </span>
+        </div>
+        <br />
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row">
+    <br />
+    <hr />
+    <br />
+</div>
+
+<div class="row justify-content-around">
+    <div class="col-1"></div>
+    <div class="col">
+        <div class="row justify-content-around">
+            @{
+                if (Model.Attendance == null || !Model.Attendance.Any())
+                {
+                    <div class="col text-center FontSizeLarge">
+                        <br />
+                        No Attendance Records
+                        <br />
+                    </div>
+                }
+                else
+                {
+                    foreach (var item in Model.Attendance)
+                    { 
+                    <div class="col-sm-2 lightTransparentBox BoxWithHighlightHover DispalyBoxWithMargin FontSizeSmall">
+                        <a href="~/Portal/AttendanceUpdate/@item.StudentId/@item.Id">
+                            <div class="row justify-content-around">
+                                <div class="col text-center">
+                                    @item.In.ToShortDateString()
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-around">
+
+                                <div class="col text-center">
+                                    In<br />
+                                    @item.In.ToShortTimeString()<br />
+                                </div>
+
+                                <div class="col text-center align-self-center">
+                                    <img src="@item.EmotionUri" class="EmotionSize" alt="@item.Emotion" />
+                                </div>
+
+                                @if (item != Model.Attendance.First() || Model.Status != StudentStatusEnum.In)
+                                {
+                                    <div class="col text-center">
+                                        Out<br />
+
+                                        @item.Out.ToShortTimeString()<br />
+                                    </div>
+                                }
+                            </div>
+                        </a>
+                    </div>
+                    }
+                }
+            }
+        </div>
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row justify-content-start">
+    <div class="col text-center">
+        <br />
+        <br />
+        <br />
+    </div>
+</div>

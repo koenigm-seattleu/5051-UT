@@ -1,0 +1,137 @@
+﻿@model _5051.Models.VisitTruckViewModel
+@{
+    // Temporary using the Student Model, until the list of Student Shops can be sent down
+    ViewBag.Title = "Visit";
+
+    var students = Model.StudentList;
+    var student = Model.Student;
+    var leaderboard = Model.LeaderBoard;
+
+}
+
+<br />
+<div class="row justify-content-center">
+    <div class="col-1 "></div>
+    <div class="col lightTransparentBox">
+        <br />
+        <div class="FontSizeLarge text-center">
+            <span class="FontSizeLarger FontBold" id="PageTitle">Please pick one shop to visit</span>
+        </div>
+        <br />
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row">
+    <br />
+</div>
+
+
+<div class="row justify-content-around">
+    <div class="col-1"></div>
+    <div class="col">
+        <div class="row justify-content-around" id="AllTrucks">
+
+            @{
+                foreach (var item in students)
+                {
+
+                    <div class="col-sm-3 lightTransparentBox BoxWithHighlightHover DispalyBoxWithMargin">
+                        <div class="TruckBoxMedium">
+                            <a href="/Shop/VisitShop/@ViewBag.StudentId/@item.Id">
+                                <img class="TruckItemBase TopperItem" id="Topper" src="~/Content/shop/@item.Truck.TopperUri" alt="Topper">
+                                <img class="TruckItemBase SignItem" id="Sign" src="~/Content/shop/@item.Truck.SignUri" alt="Sign">
+                                <img class="TruckItemBase TruckItem" id="Truck" src="~/Content/shop/@item.Truck.TruckUri" alt="Truck">
+                                <img class="TruckItemBase MenuItem" id="Menu" src="~/Content/shop/@item.Truck.MenuUri" alt="Menu">
+                                <img class="TruckItemBase TruckItemBase WheelsItem" id="Wheels" src="~/Content/shop/@item.Truck.WheelsUri" alt="Wheels">
+                                <img class="TruckItemBase TrailerItem" id="Trailer" src="~/Content/shop/@item.Truck.TrailerUri" alt="Trailer">
+                                <img class="TruckItemBase TruckInsideItem" id="TruckInside" src="~/Content/shop/TruckInside.png" alt="TruckInside">
+                                @if (item.Truck.IsClosed == true)
+                                {
+                                    <img class="TruckItemBase TruckClosedSignItem" id="TruckClosedSign" src="~/Content/shop/ClosedSign.png" alt="closed">
+                                }
+                            </a>
+
+                        </div>
+                        <div class="row justify-content-around">
+                            <span class="col FontSizeMedium FontBold text-center">
+                                @item.Name<br />
+                            </span>
+                        </div>
+
+                        <div class="row">
+                            <br />
+                            <br />
+                        </div>
+                    </div>
+                }
+            }
+            <br />
+        </div>
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<br />
+
+<div class="row justify-content-center">
+    <div class="col-1 "></div>
+    <div class="col lightTransparentBox">
+        <br />
+        @{
+
+            <div class="row justify-content-center">
+                <div class="FontSizeMedium FontBold text-center">
+                    Leader board
+                </div>
+            </div>
+            <br />
+
+            for (int i = 0; i < leaderboard.Count; i++)
+            {
+            <div class="row justify-content-center">
+
+                <div class="col-2"></div>
+
+                <div class="col-1 FontSizeSmall text-center">
+                    @{
+                        if (i == 0)
+                        {
+                            <span class="FontBold">Rank</span><br />
+                        }
+                        <span>
+                            @(i + 1)
+                        </span>
+                    }
+                </div>
+
+                <div class="col-1 FontSizeSmall text-center">
+                    @{
+                        if (i == 0)
+                        {
+                            <span class="FontBold">Profit</span><br />
+                        }
+                        <span>
+                            @leaderboard[i].Profit
+                        </span>
+                    }
+                </div>
+
+                <div class="col-3 FontSizeSmall text-left">
+                    @{
+                        if (i == 0)
+                        {
+                            <span class="FontBold">Name</span><br />
+                        }
+                        <span>
+                            @leaderboard[i].Name
+                        </span>
+                    }
+                </div>
+            </div>
+            }
+        }
+        <br />
+    </div>
+    <div class="col-1"></div>
+</div>

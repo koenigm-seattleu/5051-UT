@@ -1,0 +1,69 @@
+﻿@using Microsoft.AspNet.Identity
+@using _5051.Backend
+@*@if (Request.IsAuthenticated)
+        {
+            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+            {
+                @Html.AntiForgeryToken()
+
+        <ul class="navbar-nav mr-auto FontBold FontColorBlack FontSizeSmall">
+            <li>
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { @class = "nav-link", title = "Manage" })
+            </li>
+            @{
+                var isSupport = User.Identity.GetIsSupportUser();
+
+                if (isSupport)
+                {
+                    <li>
+                        @Html.ActionLink("Support", "Index", "Support", null, htmlAttributes: new { @class = "nav-link", id = "SupportLinkNavBar"})
+                    </li>
+                }
+            }
+            <li><a href="javascript:document.getElementById('logoutForm').submit()" class="nav-link">Log off</a></li>
+        </ul>
+            }
+        }
+        else
+        {
+            <ul class="nav navbar-nav ml-auto">
+                <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link" })</li>
+                <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
+            </ul>
+    }*@
+
+@{
+    var DataBackend = DataSourceBackend.Instance;
+    var wrapper = new HttpContextWrapper(HttpContext.Current);
+    var currentID = IdentityBackend.Instance.GetCurrentStudentID(wrapper);
+
+    using (Html.BeginForm("LogOff", "Portal", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+<ul class="navbar-nav mr-auto FontBold FontColorBlack FontSizeSmall">
+    @{ if (currentID != null)
+        {
+            var user = DataBackend.IdentityBackend.FindUserByID(currentID);
+            if (user != null)
+            {
+                if (DataSourceBackend.Instance.IdentityBackend.UserHasClaimOfType(user.Id, _5051.Models.UserRoleEnum.SupportUser))
+                {
+                    @Html.ActionLink(user.UserName, "Index", "Support", routeValues: null, htmlAttributes: new { @class = "nav-link", style = "" });
+                }
+                else if (DataSourceBackend.Instance.IdentityBackend.UserHasClaimOfType(user.Id, _5051.Models.UserRoleEnum.TeacherUser))
+                {
+                    @Html.ActionLink(user.UserName, "Index", "Admin", routeValues: null, htmlAttributes: new { @class = "nav-link", style = "" });
+                }
+                else if (DataSourceBackend.Instance.IdentityBackend.UserHasClaimOfType(user.Id, _5051.Models.UserRoleEnum.StudentUser))
+                {
+                    @Html.ActionLink(user.UserName, "Index", "Portal", routeValues: null, htmlAttributes: new { @class = "nav-link", style = "" });
+                }
+            }
+
+            <li><a href="javascript:document.getElementById('logoutForm').submit()" class="nav-link">Log off</a></li>
+        }
+    }
+</ul>
+    }
+}

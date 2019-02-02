@@ -1,0 +1,661 @@
+﻿/* Start Factory Settings*/
+
+.FactoryInventoryBox {
+    /* Added tag to clear CSS.Lint error for empty css object */
+    background-size: auto;
+}
+
+    .FactoryInventoryBox:hover {
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+    }
+
+.FactoryInventorySize1 {
+    width: 75px;
+    height: 75px;
+}
+
+.FactoryInventorySize2 {
+    width: 150px;
+    height: 150px;
+}
+
+/* End Factory Settings*/
+
+
+/* Start Truck Sizes */
+.TruckBoxLarge {
+    position: relative;
+    min-height: 600px;
+    max-height: 600px;
+    min-width: 1000px;
+    max-width: 1000px;
+}
+
+.TruckBoxMedium {
+    position: relative;
+    width: 100%;
+    height: 80%;
+    padding-top: 50%;
+    /*min-height: 300px;
+    max-height: 300px;
+    min-width: 500px;
+    max-width: 500px;*/
+}
+
+@media screen and (max-width: 1500px) {
+    .TruckBoxLarge {
+        min-height: 450px;
+        max-height: 450px;
+        min-width: 750px;
+        max-width: 750px;
+    }
+
+    /*.GameButtonsBox {
+        margin-top: -100px;
+    }*/
+
+    .grid-container > div {
+        font-size: 100%;
+        /*font-size: 17px;*/
+    }
+
+    /*.AvatarImageBox {
+        margin-top: -100px;
+    }*/
+
+    .PeopleItem {
+        width: 6.2%;
+    }
+
+    .WorkerItem {
+        width: 6.2%;
+    }
+
+    #TruckName {
+        font-size: 27px;
+    }
+
+    .GameButtonsBox {
+        margin-top: 3%;
+    }
+}
+
+@media screen and (max-width: 805px) {
+    .TruckBoxLarge {
+        min-height: 414px;
+        max-height: 414px;
+        min-width: 690px;
+        max-width: 690px;
+    }
+
+    .grid-container > div {
+        font-size: 90%;
+    }
+
+    #TruckName {
+        font-size: 26px;
+    }
+    .GameButtonsBox {
+        margin-top: 5%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .TruckBoxLarge {
+        min-height: 360px;
+        max-height: 360px;
+        min-width: 600px;
+        max-width: 600px;
+    }
+
+    .grid-container > div {
+        font-size: 80%;
+    }
+
+    #TruckName {
+        font-size: 25px;
+    }
+
+}
+
+@media screen and (max-width: 630px) {
+    .TruckBoxLarge {
+        min-height: 324px;
+        max-height: 324px;
+        min-width: 540px;
+        max-width: 540px;
+    }
+
+    .grid-container > div {
+        font-size: 70%;
+    }
+
+    #TruckName {
+        font-size: 24px;
+    }
+    .GameButtonsBox {
+        margin-top: 7%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .TruckBoxLarge {
+        min-height: 300px;
+        max-height: 300px;
+        min-width: 500px;
+        max-width: 500px;
+    }
+
+    /*.grid-container > div {
+        font-size: 50%;
+    }*/
+
+    #TruckName {
+        font-size: 23px;
+    }
+    .GameButtonsBox {
+        margin-top: 10%;
+    }
+}
+
+@media screen and (max-width: 525px) {
+    .TruckBoxLarge {
+        min-height: 270px;
+        max-height: 270px;
+        min-width: 450px;
+        max-width: 450px;
+    }
+    /*.TruckBoxMedium {
+        min-height: 270px;
+        max-height: 270px;
+        min-width: 450px;
+        max-width: 450px;
+    }*/
+
+    .grid-container > div {
+        font-size: 60%;
+    }
+
+    #TruckName {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 434px) {
+    .TruckBoxLarge {
+        min-height: 223px;
+        max-height: 223px;
+        min-width: 372px;
+        max-width: 372px;
+    }
+    /*.TruckBoxMedium {
+        min-height: 223px;
+        max-height: 223px;
+        min-width: 372px;
+        max-width: 372px;
+    }*/
+
+    /*.grid-container > div {
+        font-size: 30%;
+    }*/
+
+    #TruckName {
+        font-size: 21px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .TruckBoxLarge {
+        min-height: 180px;
+        max-height: 180px;
+        min-width: 300px;
+        max-width: 300px;
+    }
+    /*.TruckBoxMedium {
+        min-height: 180px;
+        max-height: 180px;
+        min-width: 300px;
+        max-width: 300px;
+    }*/
+
+    /*.grid-container > div {
+        font-size: 20%;
+    }*/
+
+    #TruckName {
+        font-size: 20px;
+    }
+}
+
+.TruckBoxThumbnail {
+    position: relative;
+    height: 5%;
+    width: 5%;
+}
+
+.ImageBox {
+    position: relative;
+    width: 1000px;
+    height: 550px;
+}
+
+.TruckBoxThumbnail {
+    position: relative;
+    height: 5%;
+    width: 5%;
+}
+
+.ImageBox {
+    position: relative;
+    width: 1000px;
+    height: 550px;
+}
+
+/* End Truck Sizes */
+
+/* Start Truck Components */
+.TruckNameBox {
+    position: relative;
+    /*top: 15%;
+    width: 50%;*/
+    width: 100%;
+    height: 20%;
+    z-index: 500;
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+}
+
+.WorkerBoxLeft {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    width: 30%;
+    height: 20%;
+    z-index: 8;
+}
+
+.WorkerBoxRight {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    width: 5%;
+    height: 20%;
+    z-index: 8;
+}
+
+.WorkerBox {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    width: 1%;
+    height: 1%;
+    z-index: 8;
+}
+
+.PeopleBox {
+    position: absolute;
+    top: 60%;
+    left: 0%;
+    z-index: 100;
+}
+
+.ScoreBoardItem {
+    z-index: 50;
+}
+
+.BackgroundItem {
+    z-index: 1;
+}
+
+.TopperItem {
+    z-index: 20;
+}
+
+.TruckItem {
+    z-index: 10;
+}
+
+.TruckClosedSignItem {
+    z-index: 15;
+}
+
+.TruckInsideItem {
+    z-index: 5;
+}
+
+.MenuItem {
+    z-index: 15;
+}
+
+.SignItem {
+    z-index: 15;
+}
+
+.WheelsItem {
+    z-index: 15;
+}
+
+.TrailerItem {
+    z-index: 15;
+}
+
+.WorkerItemLeft {
+    z-index: 8;
+}
+
+.WorkerItemRight {
+    z-index: 8;
+}
+
+.WorkerItem {
+    z-index: 8;
+}
+
+.PeopleItem {
+    z-index: 100;
+}
+
+.TruckItemBase {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+/* End Truck Components */
+
+/* Start Data Feed Components */
+
+.ScoreBoardBox {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    z-index: 50;
+}
+
+.FeedBox {
+    position: absolute;
+    top: 0%;
+    left: 75%;
+    z-index: 50;
+    width: 30%;
+}
+
+.grid-container {
+    position: absolute;
+    /*top: 100%;
+    left: 0%;*/
+    /*width: 100%;
+    height: 10%;
+    padding: 0;
+    margin: 0;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 15px 15px;*/
+    z-index: 10;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-gap: 0.5px;
+    align-content: center;
+    justify-content: center;
+}
+
+    .grid-container > div {
+        text-align: center;
+    }
+
+.ProductBoughtBar {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+#ProductBought {
+    width: auto;
+    height: 90px;
+    position: relative;
+}
+
+#container {
+    height: 200px;
+    width: 700px;
+    overflow: hidden;
+    position: relative;
+}
+
+.Transactions {
+    white-space: nowrap;
+}
+
+.FeedBar {
+    position: absolute;
+    top: 110%;
+    left: 0%;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    border-radius: 10px 10px;
+    z-index: 11;
+    white-space: nowrap;
+
+    /* Starting position */
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    /* Apply animation to this element */
+    -moz-animation: FeedBar 15s linear infinite;
+    -webkit-animation: FeedBar 15s linear infinite;
+    animation: FeedBar 15s linear infinite;
+}
+
+    .FeedBar:hover {
+        /* Pause animation when hovering over game data */
+        animation-play-state: paused
+    }
+
+/* Animation */
+@-moz-keyframes FeedBar {
+    0% {
+        -moz-transform: translateX(100%);
+    }
+
+    100% {
+        -moz-transform: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes FeedBar {
+    0% {
+        -webkit-transform: translateX(100%);
+    }
+
+    100% {
+        -webkit-transform: translateX(-100%);
+    }
+}
+
+@keyframes FeedBar {
+    0% {
+        -moz-transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+
+    100% {
+        -moz-transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
+
+/* End Feed Components */
+
+/* Start People */
+
+.WorkerImageBox {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    z-index: 10;
+    /* Starting position */
+    -moz-transform: translateX(60%);
+    -webkit-transform: translateX(60%);
+    transform: translateX(60%);
+    /* Apply animation to this element */
+    -moz-animation: WorkerImageBox 15s alternate infinite;
+    -webkit-animation: WorkerImageBox 15s alternate infinite;
+    animation: WorkerImageBox 15s alternate infinite;
+}
+
+.AvatarImageBox {
+    position: absolute;
+    top: 55%;
+    left: 0%;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    z-index: 500;
+
+    /* Starting position */
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    /* Apply animation to this element */
+    -moz-animation: AvatarImageBox 15s alternate infinite;
+    -webkit-animation: AvatarImageBox 15s alternate infinite;
+    animation: AvatarImageBox 15s alternate infinite;
+}
+
+/* Animation */
+@-moz-keyframes AvatarImageBox {
+    0% {
+        -moz-transform: translateX(200%);
+    }
+
+    50% {
+        -moz-transform: translateX(50%);
+    }
+
+    100% {
+        -moz-transform: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes AvatarImageBox {
+    0% {
+        -webkit-transform: translateX(200%);
+    }
+
+    50% {
+        -webkit-transform: translateX(50%);
+    }
+
+    100% {
+        -webkit-transform: translateX(-100%);
+    }
+}
+
+@keyframes AvatarImageBox {
+    0% {
+        -moz-transform: translateX(200%);
+        -webkit-transform: translateX(200%);
+        transform: translateX(200%);
+    }
+
+    50% {
+        -moz-transform: translateX(50%);
+        -webkit-transform: translateX(50%);
+        transform: translateX(50%);
+    }
+
+    100% {
+        -moz-transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
+
+@-moz-keyframes WorkerImageBox {
+    60% {
+        -moz-transform: translateX(40%);
+    }
+
+    40% {
+        -moz-transform: translateX(60%);
+    }
+}
+
+@-webkit-keyframes WorkerImageBox {
+    60% {
+        -webkit-transform: translateX(40%);
+    }
+
+    40% {
+        -webkit-transform: translateX(60%);
+    }
+}
+
+@keyframes WorkerImageBox {
+    60% {
+        -moz-transform: translateX(40%);
+        -webkit-transform: translateX(40%);
+        transform: translateX(40%);
+    }
+
+    40% {
+        -moz-transform: translateX(60%);
+        -webkit-transform: translateX(60%);
+        transform: translateX(60%);
+    }
+}
+
+/* End People */
+
+/* Start Truck Navigation Buttons */
+.GameButtonsBox {
+    position: relative;
+    /*top: 0%;
+    left: 10%;*/
+    z-index: 700;
+}
+/* End Truck Naviation Buttons*/
+
+/* Start Edit Truck */
+.input2 {
+    /*width: 85%;*/
+    width: auto;
+    height: 40px;
+    position: relative;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-radius: 45px;
+    max-width: 100%;
+    /*padding-left: 15px;*/
+}
+
+.grid-box {
+    display: grid;
+    grid-template-columns: 45% 55%;
+}
+
+.TruckEditBox {
+    border-radius: 15px;
+    padding: 20px;
+    background-color: rgba(21, 32, 90, 0.2);
+}
+
+/* End Edit Truck */

@@ -1,0 +1,443 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Make the HR have extra width and black*/
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+/* Set items in a div */
+.div-center {
+    display: inline-block;
+    float: none;
+}
+
+.NoPadding {
+    padding: 0;
+}
+
+.darkBox {
+    background-color: darkgrey;
+    border-radius: 20px;
+}
+
+.lightBox {
+    background-color: lightgrey;
+    border-radius: 20px;
+}
+
+.darkTransparentBox {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+}
+
+.lightTransparentBox {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+}
+
+.PortalBox {
+    width: 200px;
+    height: 200px;
+}
+
+    .PortalBox:hover {
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+    }
+
+.PortalImage {
+    width: 150px;
+    height: 150px;
+}
+
+.BoxWithHighlightHover {
+    /* Added tag to clear CSS.Lint error for empty css object */
+    background-size: auto;
+}
+
+    .BoxWithHighlightHover:hover {
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+    }
+
+
+.BoxWithHighlightHoverOff {
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+}
+
+.PortalIconBox {
+    padding-top: 10px;
+}
+
+.PortalIcon {
+    width: 112px;
+    height: 112px;
+}
+
+.FooterBar {
+    background-color: white;
+}
+
+.FooterText {
+    color: black;
+}
+
+.FooterLink {
+    /* Added tag to clear CSS.Lint error for empty css object */
+    background-size: auto;
+}
+
+    .FooterLink:hover {
+        color: darkgrey;
+        background-color: transparent;
+    }
+
+.body-content {
+    padding: 0;
+    padding-left: 7px;
+}
+
+
+.CenterBoxParent {
+    text-align: center;
+}
+
+.CenterBoxChild {
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.table-fit {
+    white-space: nowrap;
+    width: 2%;
+}
+
+.FactoryInventoryBox {
+    /* Added tag to clear CSS.Lint error for empty css object */
+    background-size: auto;
+}
+
+    .FactoryInventoryBox:hover {
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+    }
+
+.FactoryInventorySize1 {
+    width: 75px;
+    height: 75px;
+}
+
+.FactoryInventorySize2 {
+    width: 150px;
+    height: 150px;
+}
+
+.FullChart {
+    height: 300px;
+    width: 500px;
+}
+
+.CalendarBox {
+    min-height: 475px;
+    min-width: 380px;
+    height:auto;
+    width:auto;
+}
+
+
+/*
+    New Styles for the Design
+*/
+
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: Sans-Serif;
+    color: black;
+}
+
+.fill-height {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+}
+
+.IncludeBackgroundColorDay {
+    background-color: rgb(125,185,211);
+}
+
+.IncludeBackgroundImageDay {
+    background-image: url("/content/img/BackgroundDayTime_min.png");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.IncludeBackgroundColorNight {
+    background-color: rgb(10,22,43);
+}
+
+.IncludeBackgroundImageNight {
+    background-image: url("/content/img/BackgroundNitetime_min.png");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.IncludeBackgroundColorSunset {
+    background-color: rgb(94,75,99);
+}
+
+.IncludeBackgroundImageSunset {
+    background-image: url("/content/img/BackgroundSunset_min.png");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.IncludeBackgroundImageNone {
+    background-image: none;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.IncludeBackgroundColorNone {
+    background-color: darkseagreen
+}
+
+.FontName {
+    font-family: Sans-Serif;
+}
+
+.FontStyleBlockH1 {
+    font-family: Sans-Serif;
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+    word-spacing: 6px;
+    margin: 0px auto;
+    position: relative;
+}
+
+.FontColor1 {
+    color: white;
+}
+
+/*Extra Large must be inside a Large Span, to work*/
+.FontSizeLarger {
+    font-size: 125%;
+}
+
+.FontSizeLarge {
+    font-size: xx-large;
+}
+
+.FontSizeMedium {
+    font-size: x-large;
+}
+
+.FontSizeSmall {
+    font-size: large;
+}
+
+.FontColorWhite {
+    color: white;
+}
+
+.FontColorBlack {
+    color: black;
+}
+
+.FontBold {
+    font-weight: bold;
+}
+
+.FontNormal {
+    font-weight: normal;
+}
+
+.btn1 {
+    border-radius: 45px;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black !important;
+    /*width: 500px;*/
+}
+
+.btn-light {
+    /* Added tag to clear CSS.Lint error for empty css object */
+    background-size: auto;
+}
+
+    .btn-light:hover, .btn-light:focus, .btn-light:active, .btn-light.active {
+        background-color: slategray;
+    }
+
+.input1 {
+    width: 100%;
+    height: 40px;
+    position: relative;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-radius: 45px;
+    max-width: 100%;
+    padding-left: 15px;
+}
+
+/*
+    /Portal/Login page
+*/
+
+/*todo: remove this with refactoring*/
+div.BlockStudentLogin {
+    border-radius: 25px;
+    background-color: #202021 !important;
+    height: 400px;
+    width: 600px;
+    opacity: 0.85;
+    margin: 0 auto;
+}
+
+.BlockStudentLogin {
+    border-radius: 25px;
+    background-color: #202021 !important;
+    height: 400px;
+    width: 600px;
+    opacity: 0.85;
+    margin: 0 auto;
+}
+
+.LockStyle {
+    color: white;
+    padding-top: 1px;
+    font-size: 38px;
+}
+
+
+/*
+    /Admin/Index page
+*/
+.AdminIconBox {
+    width: 250px;
+    height: 250px;
+}
+    .AdminIconBox:hover {
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+    }
+
+.AdminIconImage {
+    width: 100px;
+    height: 100px;
+}
+
+/*
+    /Kiosk/Index page
+*/
+.KioskBoxCenter {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.KioskBoxMargin {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.EmotionSize {
+    width: 20px;
+    height: 20px;
+    padding: 0px;
+    margin: 5px;
+}
+
+.EmotionSizeLarge {
+    width: 40px;
+    height: 40px;
+    padding: 0px;
+    margin: 5px;
+}
+
+.KioskLogButton {
+    min-width: 50%;
+}
+
+.chartWithMarkerOverlay {
+    position: relative;
+}
+
+.overlay-text {
+    width: 300px;
+    position: absolute;
+    top: 120px; /* chartArea top  */
+    left: 150px; /* chartArea left */
+}
+
+.AdminSmallChartBox {
+    height: 80px;
+    width: 80px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.DispalyBoxWithMargin {
+    margin: 5px;
+}
+
+a:hover, a:visited, a:link, a:active {
+    color: inherit;
+    text-decoration: none !important;
+}
+
+.chart {
+    width: 100%;
+    min-height: 450px;
+}
+
+.chart2 {
+    width: 100%;
+    min-height: 300px;
+}
+
+.reportTableCell {
+    min-width: 200px;
+}

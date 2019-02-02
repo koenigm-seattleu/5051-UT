@@ -1,0 +1,125 @@
+﻿@model _5051.Models.SelectedAvatarItemListForStudentViewModel
+@{
+    ViewBag.Title = "Inventory";
+}
+
+<br />
+<div class="row justify-content-center">
+
+    <div class="col-1 "></div>
+    <div class="col lightTransparentBox">
+        <br />
+        <div class="FontSizeLarge text-center">
+            <span class="FontSizeLarger FontBold">
+                Your Inventory of Avatar Components
+            </span>
+        </div>
+        <br />
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row">
+    <br />
+    <br />
+</div>
+
+@{
+    if (Model.AvatarItemCategoryList == null || !Model.AvatarItemCategoryList.Any())
+    {
+        <div class="row justify-content-center">
+
+            <div class="col-1 "></div>
+            <div class="col lightTransparentBox">
+                <br />
+                <div class="FontSizeLarge text-center">
+                    No Avatar Items.  Go to the Shop and buy some
+                </div>
+                <br />
+            </div>
+            <div class="col-1"></div>
+        </div>
+    }
+    else
+    {
+        <div class="row justify-content-around">
+            <div class="col-1 "></div>
+            <div class="col">
+                @{
+                    foreach (var category in Model.AvatarItemCategoryList)
+                    {
+
+                        <div class="row justify-content-start">
+                            <div class="col align-self-center">
+                                <br />
+                                <hr />
+                                <span class="FontSizeLarge">
+                                    @category.Category.GetDisplayName()
+                                    <br />
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-start">
+
+                            <div class="col">
+                                <div class="row justify-content-start">
+
+                                    @{
+                                        foreach (var item in category.AvatarItemList)
+                                        {
+                                            <div class="col-auto lightTransparentBox BoxWithHighlightHover DispalyBoxWithMargin">
+                                                <br />
+                                                <div class="row no-gutters justify-content-center">
+                                                    <img src="~/Content/avatar/@item.Uri" class="AvatarSize1 darkBox" />
+                                                </div>
+
+                                                <div class="row no-gutters justify-content-center">
+                                                    <div class="text-center FontSizeSmall">
+                                                        <br />
+                                                        @item.Name<br />
+                                                        @item.Description<br />
+                                                        <br />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+            <div class="col-1 "></div>
+
+        </div>
+    }
+}
+
+<div class="row justify-content-start">
+
+    <div class="col-1 "></div>
+
+    <div class="col text-left">
+        <br />
+        <br />
+
+        <div class="row justify-content-start">
+
+            <div class="col-auto text-center">
+                @Html.ActionLink("Back to Avatar", "Index", new { id = Model.Student.Id }, new { @class = "btn btn1 btn-light DispalyBoxWithMargin" })
+            </div>
+
+            <div class="col-auto text-center">
+                @Html.ActionLink("Go to Shop", "Select", new { id = Model.Student.Id }, new { @class = "btn btn1 btn-light DispalyBoxWithMargin" })
+            </div>
+        </div>
+
+        <br />
+        <br />
+
+    </div>
+
+    <div class="col-1 "></div>
+</div>

@@ -1,0 +1,195 @@
+﻿@model _5051.Models.UserListViewModel
+@{
+    ViewBag.Title = "User List";
+}
+
+<br />
+<div class="row justify-content-center">
+
+    <div class="col-1 "></div>
+    <div class="col lightTransparentBox">
+        <br />
+        <div class="FontSizeLarge text-center">
+            <span class="FontSizeLarger FontBold FontColorBlack">Users</span>
+        </div>
+        <br />
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row">
+    <br />
+    <br />
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-1 "></div>
+    <div class="col lightTransparentBox">
+
+        <div class="row justify-content-start">
+            <div class="col align-self-center">
+                <br />
+                <hr />
+                <span class="FontSizeLarge">
+                    Students
+                    @Html.ActionLink("Create", "CreateStudent", "Support", null, new { @class = "btn btn1 btn-light DispalyBoxWithMargin" })
+                    <br />
+                </span>
+            </div>
+        </div>
+
+        <div class="row justify-content-start">
+
+            <div class="col">
+                <div class="row justify-content-start">
+
+                    @{
+                        foreach (var item in Model.StudentList)
+                        {
+
+                            <div class="col-sm-2 lightTransparentBox BoxWithHighlightHover DispalyBoxWithMargin">
+                                <a id="@item.Id" href="~/Support/UserInfo/@item.Id">
+                                    <div class="row justify-content-center">
+                                        <div class="AvatarBoxNormal align-self-sm-center" id="AvatarBox">
+                                            <div class="AvatarCircle"></div>
+                                            <img class="AvatarItemBase AvatarHairBack" src="@item.AvatarComposite.AvatarHairBackUri" />
+                                            <img class="AvatarItemBase AvatarHead" src="@item.AvatarComposite.AvatarHeadUri" />
+                                            <img class="AvatarItemBase AvatarShirt" src="@item.AvatarComposite.AvatarShirtShortUri" />
+                                            <img class="AvatarItemBase AvatarExpression" src="@item.AvatarComposite.AvatarExpressionUri" />
+                                            <img class="AvatarItemBase AvatarCheeks" src="@item.AvatarComposite.AvatarCheeksUri" />
+                                            <img class="AvatarItemBase AvatarHairFront" src="@item.AvatarComposite.AvatarHairFrontUri" />
+                                            <img class="AvatarItemBase AvatarAccessory" src="@item.AvatarComposite.AvatarAccessoryUri" />
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-around">
+                                        <span class="col FontSizeSmall text-center">
+                                            @item.Name
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <br />
+            <hr />
+            <br />
+        </div>
+
+        <div class="row justify-content-start">
+            <div class="col align-self-center">
+                <br />
+                <hr />
+                <span class="FontSizeLarge">
+                    Teachers
+                    @Html.ActionLink("Create", "CreateTeacher", "Support", null, new { @class = "btn btn1 btn-light DispalyBoxWithMargin" })
+                    <br />
+                </span>
+            </div>
+        </div>
+
+        <div class="row justify-content-start">
+
+            <div class="col">
+                <div class="row justify-content-start">
+
+                    @{
+                        foreach (var item in Model.TeacherList)
+                        {
+
+                            <div class="col-sm-2 lightTransparentBox BoxWithHighlightHover DispalyBoxWithMargin">
+                                <a id="@item.Id" href="~/Support/UserInfo/@item.Id">
+                                    <div class="row justify-content-center">
+                                        <div class="AvatarBoxNormal align-self-sm-center" id="AvatarBox">
+                                            <div class="AvatarCircle"></div>
+                                            <img class="AvatarItemBase AvatarHairBack" src="@item.AvatarComposite.AvatarHairBackUri" />
+                                            <img class="AvatarItemBase AvatarHead" src="@item.AvatarComposite.AvatarHeadUri" />
+                                            <img class="AvatarItemBase AvatarShirt" src="@item.AvatarComposite.AvatarShirtShortUri" />
+                                            <img class="AvatarItemBase AvatarExpression" src="@item.AvatarComposite.AvatarExpressionUri" />
+                                            <img class="AvatarItemBase AvatarCheeks" src="@item.AvatarComposite.AvatarCheeksUri" />
+                                            <img class="AvatarItemBase AvatarHairFront" src="@item.AvatarComposite.AvatarHairFrontUri" />
+                                            <img class="AvatarItemBase AvatarAccessory" src="@item.AvatarComposite.AvatarAccessoryUri" />
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-around">
+                                        <span class="col FontSizeSmall text-center">
+                                            @item.Name
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <br />
+            <hr />
+            <br />
+        </div>
+
+        <div class="row justify-content-start">
+            <div class="col align-self-center">
+                <br />
+                <hr />
+                <span class="FontSizeLarge">
+                    Support Users
+                    @Html.ActionLink("Create", "CreateSupport", "Support", null, new { @class = "btn btn1 btn-light DispalyBoxWithMargin" })
+                    <br />
+                </span>
+            </div>
+        </div>
+
+        <div class="row justify-content-start">
+
+            <div class="col">
+                <div class="row justify-content-start">
+
+                    @{
+                        foreach (var item in Model.SupportList)
+                        {
+
+                            <div class="col-sm-2 lightTransparentBox BoxWithHighlightHover DispalyBoxWithMargin">
+                                <a id="@item.Id" href="~/Support/UserInfo/@item.Id">
+                                    <div class="row justify-content-center">
+                                        <div class="AvatarBoxNormal align-self-sm-center" id="AvatarBox">
+                                            <div class="AvatarCircle"></div>
+                                            <img class="AvatarItemBase AvatarHairBack" src="@item.AvatarComposite.AvatarHairBackUri" />
+                                            <img class="AvatarItemBase AvatarHead" src="@item.AvatarComposite.AvatarHeadUri" />
+                                            <img class="AvatarItemBase AvatarShirt" src="@item.AvatarComposite.AvatarShirtShortUri" />
+                                            <img class="AvatarItemBase AvatarExpression" src="@item.AvatarComposite.AvatarExpressionUri" />
+                                            <img class="AvatarItemBase AvatarCheeks" src="@item.AvatarComposite.AvatarCheeksUri" />
+                                            <img class="AvatarItemBase AvatarHairFront" src="@item.AvatarComposite.AvatarHairFrontUri" />
+                                            <img class="AvatarItemBase AvatarAccessory" src="@item.AvatarComposite.AvatarAccessoryUri" />
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-around">
+                                        <span class="col FontSizeSmall text-center">
+                                            @item.Name
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <br />
+            <br />
+        </div>
+
+    </div>
+    <div class="col-1 "></div>
+</div>
+
+<br />
+
