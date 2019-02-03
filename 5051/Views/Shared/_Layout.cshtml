@@ -235,46 +235,6 @@
         </div>
     </div>
 
-    @{
-        switch (routeController)
-        {
-            case "Kiosk":
-                break;
-
-            default:
-                <footer>
-                    <div class="footer fixed-bottom">
-                        <div class="FooterBar body-content">
-                            <div class="row FooterText flex-row">
-                                <div class="col FooterText align-left">
-                                    &copy;@DateTime.Now.Year, All rights reserved
-                                </div>
-                            </div>
-                            <div class="row no-gutters flex-row-reverse justify-content-around">
-                                <div class="col">
-                                    @Html.ActionLink("About", "About", "Home", new { controller = "Home" }, new { @class = "btn btn-link FooterText FooterLink", id = "AboutLinkFooter" })
-                                </div>
-                                <div class="col">
-                                    @Html.ActionLink("Privacy Policy", "Privacy", "Home", new { controller = "Home" }, new { @class = "btn btn-link FooterText FooterLink", id = "PrivacyPolicyLinkFooter" })
-                                </div>
-                                <div class="col">
-                                    @Html.ActionLink("Contact", "Contact", "Home", new { controller = "Home" }, new { @class = "btn btn-link FooterText FooterLink", id = "ContactLinkFooter" })
-                                </div>
-                                <div class="col">
-                                    @Html.ActionLink("FAQ's", "FAQ", "Home", new { controller = "Home" }, new { @class = "btn btn-link FooterText FooterLink", id = "FAQLinkFooter" })
-                                </div>
-                                @*<div class="col">
-                                        @Html.ActionLink("User Guide", "Guide", "Home", new { controller = "Home" }, new { @class = "btn btn-link FooterText FooterLink", id = "UserGuideLinkFooter" })
-                                    </div>*@
-                            </div>
-                        </div>
-
-                    </div>
-                </footer>
-                break;
-        }
-    }
-
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 
