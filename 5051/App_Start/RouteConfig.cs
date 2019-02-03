@@ -16,7 +16,7 @@ namespace _5051
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}/{item}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, item = UrlParameter.Optional }
+                defaults: new { controller = "Portal", action = "Roster", id = UrlParameter.Optional, item = UrlParameter.Optional }
             );
         }
     }
