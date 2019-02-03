@@ -261,7 +261,6 @@
     <Compile Include="Controllers\KioskController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MaintenanceController.cs" />
-    <Compile Include="Controllers\SupportController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -765,9 +764,6 @@
     <Content Include="Views\AvatarItem\Index.cshtml" />
     <Content Include="Views\AvatarItem\Read.cshtml" />
     <Content Include="Views\AvatarItem\Update.cshtml" />
-    <Content Include="Views\Support\Index.cshtml" />
-    <Content Include="Views\Support\UserList.cshtml" />
-    <Content Include="Views\Support\UserInfo.cshtml" />
     <Content Include="Views\Attendance\Index.cshtml" />
     <Content Include="Views\Attendance\Read.cshtml" />
     <Content Include="Views\Attendance\Update.cshtml" />
@@ -779,20 +775,12 @@
     <Content Include="Views\AvatarSelect\Select.cshtml" />
     <Content Include="Views\AvatarSelect\Inventory.cshtml" />
     <Content Include="Views\Shop\BusinessReport.cshtml" />
-    <Content Include="Views\Support\Settings.cshtml" />
-    <Content Include="Views\Support\DeleteUser.cshtml" />
-    <Content Include="Views\Support\Login.cshtml" />
-    <Content Include="Views\Support\CreateStudent.cshtml" />
-    <Content Include="Views\Support\CreateTeacher.cshtml" />
-    <Content Include="Views\Support\CreateSupport.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Portal\WeeklyReport.cshtml" />
     <Content Include="Views\Portal\MonthlyReport.cshtml" />
     <Content Include="Views\Portal\SemesterReport.cshtml" />
     <Content Include="Views\Portal\QuarterReport.cshtml" />
     <Content Include="Views\Portal\OverallReport.cshtml" />
-    <Content Include="Views\Support\ToggleUser.cshtml" />
-    <Content Include="Views\Support\ChangeUserPassword.cshtml" />
     <Content Include="Views\Portal\AttendanceUpdate.cshtml" />
     <Content Include="Views\Admin\ChangePassword.cshtml" />
     <Content Include="Views\Portal\ChangePassword.cshtml" />
