@@ -207,27 +207,6 @@ namespace _5051.Backend
                 StudentId = data.Id
             };
 
-            var currentKioskDate = UTCConversionsBackend.UtcToKioskTime(currentTime).Date;
-            //the school day model
-            var schoolDay = DataSourceBackend.Instance.SchoolCalendarBackend.ReadDate(currentKioskDate);
-
-            //set auto punch-out time        
-            if (schoolDay == null)   //if today is not a school day, use the default dismissal time as punch out time
-            {
-                var defaultEndTime = SchoolDismissalSettingsBackend.Instance.GetDefault().EndNormal;  
-
-                temp.Out = UTCConversionsBackend.KioskTimeToUtc(currentKioskDate.Add(defaultEndTime));
-            }
-            else
-            {
-                temp.Out = UTCConversionsBackend.KioskTimeToUtc(currentKioskDate.Add(schoolDay.TimeEnd));
-
-                schoolDay.HasAttendance = true;
-
-                //Save the school calendar change
-                DataSourceBackend.Instance.SchoolCalendarBackend.Update(schoolDay);
-            }
-
             data.Attendance.Add(temp);
 
             Update(data);
@@ -443,21 +422,6 @@ namespace _5051.Backend
         {
             var collectedTokens = 0;
 
-            if (attendance == null)
-            {
-                return collectedTokens;
-            }
-
-            //calculate tokens
-            var effectiveDuration = CalculateEffectiveDuration(attendance);
-
-            //if the effective duration of this check-in is too short, do not add tokens, 
-            //only add tokens is the duration is longer than 5 minutes.             
-            if (effectiveDuration.CompareTo(new TimeSpan(0, 5, 0)) > 0)
-            {
-                collectedTokens = (int)Math.Ceiling(effectiveDuration.TotalHours);
-            }
-
             return collectedTokens;
         }
 
@@ -497,54 +461,6 @@ namespace _5051.Backend
         //    }
 
         //}
-
-        /// <summary>
-        /// private helper method to calculate effective duration
-        /// </summary>
-        /// <param name="attendance"></param>
-        /// <returns></returns>
-        public TimeSpan CalculateEffectiveDuration(AttendanceModel attendance)
-        {
-            if (attendance == null)
-            {
-                return TimeSpan.Zero;
-            }
-
-            //the school day model, will use the school day's start time and end time later
-            var schoolDay = DataSourceBackend.Instance.SchoolCalendarBackend.ReadDate(UTCConversionsBackend.UtcToKioskTime(attendance.In));
-            if (schoolDay == null)
-            {
-                return TimeSpan.Zero;
-            }
-
-            var start = schoolDay.TimeStart.Add(-SchoolDismissalSettingsBackend.Instance.GetDefault().EarlyWindow); //the time from which duration starts to count
-
-            var end = schoolDay.TimeEnd.Add(SchoolDismissalSettingsBackend.Instance.GetDefault().LateWindow); //the time that duration counts until
-
-            var myIn = UTCConversionsBackend.UtcToKioskTime(attendance.In).TimeOfDay; //check-in time
-            var myOut = UTCConversionsBackend.UtcToKioskTime(attendance.Out).TimeOfDay; //check-out time
-
-            //trim the start time to actual arrive time only if the student is late
-            if (myIn.CompareTo(start) > 0)
-            {
-                start = myIn;
-            }
-            //trim the end time to actual out time only if the student leave early
-            if (myOut.CompareTo(end) < 0)
-            {
-                end = myOut;
-            }
-
-            var duration = end.Subtract(start);
-
-            //If time-in is later than time out, just return 0
-            if (duration < TimeSpan.Zero)
-            {
-                return TimeSpan.Zero;
-            }
-
-            return duration;
-        }
 
         /// <summary>
         /// Helper function that resets the DataSource, and rereads it.

@@ -200,9 +200,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Backend\IdentityDataSourceMockV2.cs" />
     <Compile Include="Backend\DateTimeHelper.cs" />
-    <Compile Include="Backend\SchoolCalendarBackendHelper.cs" />
     <Compile Include="Backend\StudentDataSourceHelper.cs" />
-    <Compile Include="Backend\SchoolCalendarDataSourceTable.cs" />
     <Compile Include="Backend\StudentDataSourceTable.cs" />
     <Compile Include="Backend\SchoolDismissalSettingsDataSourceTable.cs" />
     <Compile Include="Backend\KioskSettingsDataSourceTable.cs" />
@@ -227,10 +225,7 @@
     <Compile Include="Backend\SchoolDismissalSettingsInterface.cs" />
     <Compile Include="Backend\SchoolDismissalSettingsDataSourceMock.cs" />
     <Compile Include="Backend\SchoolDismissalSettingsBackend.cs" />
-    <Compile Include="Backend\SchoolCalendarDataSourceMock.cs" />
-    <Compile Include="Backend\SchoolCalendarInterface.cs" />
     <Compile Include="Backend\ReportBackend.cs" />
-    <Compile Include="Backend\SchoolCalendarBackend.cs" />
     <Compile Include="Backend\FactoryInventoryBackend.cs" />
     <Compile Include="Backend\FactoryInventoryDataSourceMock.cs" />
     <Compile Include="Backend\FactoryInventoryInterface.cs" />
@@ -252,7 +247,6 @@
     <Compile Include="Controllers\GameSettingsController.cs" />
     <Compile Include="Controllers\KioskSettingsController.cs" />
     <Compile Include="Controllers\FactoryInventoryController.cs" />
-    <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\PortalController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\SchoolDismissalSettingsController.cs" />
@@ -265,7 +259,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Maintain\AvatarItemMaintenance.cs" />
-    <Compile Include="Maintain\CalendarMaintenance.cs" />
     <Compile Include="Maintain\DataBackupMaintenance.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminReportIndexViewModel.cs" />
@@ -298,14 +291,11 @@
     <Compile Include="Models\Enums\CheckOutStatusEnum.cs" />
     <Compile Include="Models\Enums\CheckInStatusEnum.cs" />
     <Compile Include="Models\Enums\DataSourceDataSetEnum.cs" />
-    <Compile Include="Models\Enums\SchoolCalendarDismissalEnum.cs" />
     <Compile Include="Models\Enums\FactoryInventoryCategoryEnum.cs" />
     <Compile Include="Models\Enums\EmotionStatusEnum.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\MonthlyReportViewModel.cs" />
     <Compile Include="Models\QuarterReportViewModel.cs" />
-    <Compile Include="Models\SchoolCalendarViewModel.cs" />
-    <Compile Include="Models\SchoolCalendarModel.cs" />
     <Compile Include="Models\KioskSettingsModel.cs" />
     <Compile Include="Models\SchoolDismissalSettingsModel.cs" />
     <Compile Include="Models\SchoolYearReportViewModel.cs" />
@@ -710,13 +700,11 @@
     <Content Include="Views\Shop\Specials.cshtml" />
     <Content Include="Views\Shop\Factory.cshtml" />
     <Content Include="Views\Admin\Report.cshtml" />
-    <Content Include="Views\Calendar\Index.cshtml" />
     <Content Include="Views\Admin\Attendance.cshtml" />
     <Content Include="Views\Admin\MonthlyReport.cshtml" />
     <Content Include="Views\Home\AvatarExample.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Admin\Settings.cshtml" />
-    <Content Include="Views\Calendar\Update.cshtml" />
     <Content Include="Views\Portal\Roster.cshtml" />
     <Content Include="Views\Kiosk\ConfirmLogout.cshtml" />
     <Content Include="Views\Kiosk\ConfirmLogin.cshtml" />
@@ -787,7 +775,6 @@
     <Content Include="Views\Maintenance\Login.cshtml" />
     <Content Include="Views\Maintenance\BackupData.cshtml" />
     <Content Include="Views\Student\ResetPassword.cshtml" />
-    <Content Include="Views\Maintenance\ResetCalendar.cshtml" />
     <Content Include="Views\Maintenance\RefreshAvatars.cshtml" />
   </ItemGroup>
   <ItemGroup>

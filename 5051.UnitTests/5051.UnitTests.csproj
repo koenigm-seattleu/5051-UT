@@ -145,17 +145,13 @@
     <Compile Include="Backend\DateTimeHelperUnitTests.cs" />
     <Compile Include="Backend\RandomHelperUnitTests.cs" />
     <Compile Include="Backend\ReportBackendUnitTests.cs" />
-    <Compile Include="Backend\SchoolCalendarBackendHelperUnitTests.cs" />
-    <Compile Include="Backend\SchoolCalendarBackendUnitTests.cs" />
     <Compile Include="Backend\FactoryInventoryBackendUnitTests.cs" />
     <Compile Include="Backend\DataSourceBackendUnitTests.cs" />
     <Compile Include="Backend\KioskSettingsBackendUnitTests.cs" />
-    <Compile Include="Backend\SchoolCalendarDataSourceTableUnitTests.cs" />
     <Compile Include="Backend\SchoolDismissalSettingsBackendUnitTests.cs" />
     <Compile Include="Backend\FactoryInventoryDataSourceMockUnitTests.cs" />
     <Compile Include="Backend\SchoolDismissalSettingsDataSourceTableUnitTests.cs" />
     <Compile Include="Backend\SchoolDismissalSettingsDataSourceMockUnitTests.cs" />
-    <Compile Include="Backend\SchoolCalendarDataSourceMockUnitTests.cs" />
     <Compile Include="Backend\StudentBackendHelperUnitTests.cs" />
     <Compile Include="Backend\StudentBackendUnitTests.cs" />
     <Compile Include="Backend\StudentDataSourceTableUnitTests.cs" />
@@ -201,7 +197,6 @@
     <Compile Include="Models\Enums\DataSourceDataSetEnumUnitTests.cs" />
     <Compile Include="Models\Enums\StudentStatusEnumUnitTests.cs" />
     <Compile Include="Models\Enums\ShopInventoryCategoryEnumUnitTests.cs" />
-    <Compile Include="Models\Enums\SchoolCalendarDismissalEnumUnitTests.cs" />
     <Compile Include="Models\Enums\DataSourceEnumUnitTests.cs" />
     <Compile Include="Models\Enums\EmotionStatusEnumUnitTests.cs" />
     <Compile Include="Models\ExternalLoginConfirmationViewModelUnitTests.cs" />
@@ -227,8 +222,6 @@
     <Compile Include="Models\FactoryInventoryModelUnitTests.cs" />
     <Compile Include="Models\SchoolDismissalSettingsModelUnitTests.cs" />
     <Compile Include="Models\SelectedShopInventoryForStudentViewModelUnitTests.cs" />
-    <Compile Include="Models\SchoolCalendarViewModelUnitTests.cs" />
-    <Compile Include="Models\SchoolCalendarModelUnitTests.cs" />
     <Compile Include="Models\FactoryInventoryListViewModelUnitTests.cs" />
     <Compile Include="Models\FactoryInventoryViewModelUnitTests.cs" />
     <Compile Include="Models\StudentReportStatsModelUnitTests.cs" />

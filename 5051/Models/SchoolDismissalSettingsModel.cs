@@ -69,22 +69,6 @@ namespace _5051.Models
         public int SunStartSelected { get; set; }
         public int SunEndSelected { get; set; }
 
-        public SchoolCalendarDismissalEnum MonStartType { get; set; }
-        public SchoolCalendarDismissalEnum MonEndType { get; set; }
-        public SchoolCalendarDismissalEnum TueStartType { get; set; }
-        public SchoolCalendarDismissalEnum TueEndType { get; set; }
-        public SchoolCalendarDismissalEnum WedStartType { get; set; }
-        public SchoolCalendarDismissalEnum WedEndType { get; set; }
-        public SchoolCalendarDismissalEnum ThuStartType { get; set; }
-        public SchoolCalendarDismissalEnum ThuEndType { get; set; }
-        public SchoolCalendarDismissalEnum FriStartType { get; set; }
-        public SchoolCalendarDismissalEnum FriEndType { get; set; }
-        public SchoolCalendarDismissalEnum SatStartType { get; set; }
-        public SchoolCalendarDismissalEnum SatEndType { get; set; }
-        public SchoolCalendarDismissalEnum SunStartType { get; set; }
-        public SchoolCalendarDismissalEnum SunEndType { get; set; }
-
-
         // First day of school
         [Display(Name = "First Day", Description = "First Day of School")]
         public DateTime DayFirst { get; set; }
@@ -169,21 +153,6 @@ namespace _5051.Models
             SunStartSelected = data.SunStartSelected;
             SunEndSelected = data.SunEndSelected;
 
-            MonStartType = (SchoolCalendarDismissalEnum)MonStartSelected;
-            MonEndType = (SchoolCalendarDismissalEnum)MonEndSelected;
-            TueStartType = (SchoolCalendarDismissalEnum)TueStartSelected;
-            TueEndType = (SchoolCalendarDismissalEnum)TueEndSelected;
-            WedStartType = (SchoolCalendarDismissalEnum)WedStartSelected;
-            WedEndType = (SchoolCalendarDismissalEnum)WedEndSelected;
-            ThuStartType = (SchoolCalendarDismissalEnum)ThuStartSelected;
-            ThuEndType = (SchoolCalendarDismissalEnum)ThuEndSelected;
-            FriStartType = (SchoolCalendarDismissalEnum)FriStartSelected;
-            FriEndType = (SchoolCalendarDismissalEnum)FriEndSelected;
-            SatStartType = (SchoolCalendarDismissalEnum)SatStartSelected;
-            SatEndType = (SchoolCalendarDismissalEnum)SatEndSelected;
-            SunStartType = (SchoolCalendarDismissalEnum)SunStartSelected;
-            SunEndType = (SchoolCalendarDismissalEnum)SunEndSelected;
-
             DayFirst = data.DayFirst;
             DayLast = data.DayLast;
 
@@ -254,21 +223,6 @@ namespace _5051.Models
             SunStartSelected =0;
             SunEndSelected = 0;
 
-            MonStartType = SchoolCalendarDismissalEnum.Normal;
-            MonEndType = SchoolCalendarDismissalEnum.Normal;
-            TueStartType = SchoolCalendarDismissalEnum.Normal;
-            TueEndType = SchoolCalendarDismissalEnum.Normal;
-            WedStartType = SchoolCalendarDismissalEnum.Normal;
-            WedEndType = SchoolCalendarDismissalEnum.Early;
-            ThuStartType = SchoolCalendarDismissalEnum.Normal;
-            ThuEndType = SchoolCalendarDismissalEnum.Normal;
-            FriStartType = SchoolCalendarDismissalEnum.Late;
-            FriEndType = SchoolCalendarDismissalEnum.Normal;
-            SatStartType = SchoolCalendarDismissalEnum.Unknown;
-            SatEndType = SchoolCalendarDismissalEnum.Unknown;
-            SunStartType = SchoolCalendarDismissalEnum.Unknown;
-            SunEndType = SchoolCalendarDismissalEnum.Unknown;
-
             //School year settings
             DayFirst = DateTime.Parse("09/05/2018");
             DayLast = DateTime.Parse("06/20/2019");
@@ -324,21 +278,6 @@ namespace _5051.Models
             SatEndSelected = data.SatEndSelected;
             SunStartSelected = data.SunStartSelected;
             SunEndSelected = data.SunEndSelected;
-
-            MonStartType = (SchoolCalendarDismissalEnum)MonStartSelected;
-            MonEndType = (SchoolCalendarDismissalEnum)MonEndSelected;
-            TueStartType = (SchoolCalendarDismissalEnum)TueStartSelected;
-            TueEndType = (SchoolCalendarDismissalEnum)TueEndSelected;
-            WedStartType = (SchoolCalendarDismissalEnum)WedStartSelected;
-            WedEndType = (SchoolCalendarDismissalEnum)WedEndSelected;
-            ThuStartType = (SchoolCalendarDismissalEnum)ThuStartSelected;
-            ThuEndType = (SchoolCalendarDismissalEnum)ThuEndSelected;
-            FriStartType = (SchoolCalendarDismissalEnum)FriStartSelected;
-            FriEndType = (SchoolCalendarDismissalEnum)FriEndSelected;
-            SatStartType = (SchoolCalendarDismissalEnum)SatStartSelected;
-            SatEndType = (SchoolCalendarDismissalEnum)SatEndSelected;
-            SunStartType = (SchoolCalendarDismissalEnum)SunStartSelected;
-            SunEndType = (SchoolCalendarDismissalEnum)SunEndSelected;
 
             DayFirst = data.DayFirst;
             DayLast = data.DayLast;

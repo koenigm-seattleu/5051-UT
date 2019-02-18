@@ -108,9 +108,6 @@ namespace _5051.Backend
             }
 
 
-            //Generate report for this month
-            GenerateReportFromStartToEnd(report);
-
             return report;
         }
 
@@ -177,10 +174,6 @@ namespace _5051.Backend
 
             }
 
-
-            //Generate report for this month
-            GenerateReportFromStartToEnd(report);
-
             return report;
         }
         #endregion
@@ -226,8 +219,6 @@ namespace _5051.Backend
                 report.DateEnd = settings.DayLast;
             }
 
-            //Generate report for this semester
-            GenerateReportFromStartToEnd(report);
 
             return report;
         }
@@ -298,8 +289,6 @@ namespace _5051.Backend
                 report.DateEnd = settings.DayLast.Date;
             }
 
-            //Generate report for this semester
-            GenerateReportFromStartToEnd(report);
 
             return report;
         }
@@ -319,8 +308,6 @@ namespace _5051.Backend
             report.DateStart = DataSourceBackend.Instance.SchoolDismissalSettingsBackend.GetDefault().DayFirst.Date;
             report.DateEnd = DataSourceBackend.Instance.SchoolDismissalSettingsBackend.GetDefault().DayLast.Date;
 
-
-            GenerateReportFromStartToEnd(report);
 
             return report;
         }
@@ -342,262 +329,11 @@ namespace _5051.Backend
                 student.AttendedMinutesThisWeek = 0; //reset
 
                 var currentDate = thisMonday; //loop variable
-
-                while (currentDate.CompareTo(dayNow) < 0) //loop until today, don't include today
-                {
-                    //get today's school calendar model
-                    var myToday = DataSourceBackend.Instance.SchoolCalendarBackend.ReadDate(currentDate);
-                    if (myToday != null && myToday.SchoolDay)
-                    {
-                        var myRange = student.Attendance
-                            .Where(m => UTCConversionsBackend.UtcToKioskTime(m.In).Date == currentDate.Date)
-                            .OrderByDescending(m => m.In).ToList();
-                        if (myRange.Any())
-                        {
-                            // a list containing all intervals in this day
-                            List<Interval> intervals = new List<Interval>();
-
-                            //loop through all attendance records in my range
-                            foreach (var item in myRange)
-                            {
-                                TimeSpan timeIn = UTCConversionsBackend.UtcToKioskTime(item.In).TimeOfDay;
-                                TimeSpan timeOut = UTCConversionsBackend.UtcToKioskTime(item.Out).TimeOfDay;
-                                Interval inter = new Interval(timeIn, timeOut);
-                                intervals.Add(inter);                            
-                            }
-
-                            var earlyWindow = SchoolDismissalSettingsBackend.Instance.GetDefault().EarlyWindow;
-                            var lateWindow = SchoolDismissalSettingsBackend.Instance.GetDefault().LateWindow;
-                            //the time from which duration starts to count
-                            var start = myToday.TimeStart.Add(-earlyWindow);
-                            //the time that duration counts until
-                            var end = myToday.TimeEnd.Add(lateWindow);
-
-                            //Calculate hours attended on this day
-                            var dailyTotalTime = CalculateHoursAttended(intervals, start, end);
-
-                            student.AttendedMinutesThisWeek += (int)dailyTotalTime.TotalMinutes;
-                        }
-                    }
-                    currentDate = currentDate.AddDays(1);
-                }
             }
+
             //sort
             var leaderboard = studentList.OrderByDescending(m => m.AttendedMinutesThisWeek).ToList();
             return leaderboard;
-        }
-
-        /// <summary>
-        /// Generate the report from the start date to the end date
-        /// </summary>
-        /// <param name="report"></param>
-        /// <returns></returns>
-        private void GenerateReportFromStartToEnd(BaseReportViewModel report)
-        {
-            var myDateNow = UTCConversionsBackend.UtcToKioskTime(DateTimeHelper.Instance.GetDateTimeNowUTC()).Date; //today's date in kiosk time zone
-            // Don't go beyond today
-            if (report.DateEnd.CompareTo(myDateNow) > 0)
-            {
-                report.DateEnd = myDateNow;
-            }
-
-            var currentDate = report.DateStart;  //loop variable
-
-            TimeSpan accumlatedTotalHoursExpected = TimeSpan.Zero; //current accumulated total hours expected
-            TimeSpan accumlatedTotalHours = TimeSpan.Zero; //current accululated total hours attended
-            int emotionLevel = 0; //current emotion level
-
-            while (currentDate.CompareTo(report.DateEnd) <= 0)  //loop until last date, include last date
-            {
-                //create a new AttendanceReportViewmodel for each day
-                var temp = new AttendanceReportViewModel
-                {
-                    Date = currentDate
-                };
-
-                // Hold the emotion for the null condition
-                temp.EmotionUri = "/content/img/placeholder.png";
-
-                //get today's school calendar model
-                var myToday = DataSourceBackend.Instance.SchoolCalendarBackend.ReadDate(currentDate);
-
-                // if the day is not a school day, set IsSchoolDay to false
-                if (myToday == null || myToday.SchoolDay == false)
-                {
-                    temp.IsSchoolDay = false;
-                }
-
-                // if the day is a school day, perform calculations
-                else
-                {
-                    temp.HoursExpected = myToday.TimeDuration;
-
-                    // Find out if the student attended that day, and add that in.  Because the student can check in/out multiple times add them together.
-                    var myRange = report.Student.Attendance.Where(m => UTCConversionsBackend.UtcToKioskTime(m.In).Date == currentDate.Date).OrderBy(m => m.In).ToList();
-
-                    //if no attendance record on this day, set attendance status to absent
-                    if (!myRange.Any())
-                    {
-                        temp.AttendanceStatus = AttendanceStatusEnum.AbsentUnexcused;
-                        report.Stats.DaysAbsentUnexcused++;
-                    }
-                    else
-                    {
-                        temp.AttendanceStatus = AttendanceStatusEnum.Present;
-
-                        //set TimeIn to be the first check-in time in the list, so that if there are multiple check-ins,
-                        //the TimeIn is set to the first check-in time. Same for emotion.
-                        temp.TimeIn = UTCConversionsBackend.UtcToKioskTime(myRange.First().In);
-                        temp.Emotion = myRange.First().Emotion;
-                        temp.EmotionUri = Emotion.GetEmotionURI(temp.Emotion);
-
-                        //determine whether is on time or late
-                        if (temp.TimeIn.TimeOfDay > myToday.TimeStart)
-                        {
-                            temp.CheckInStatus = CheckInStatusEnum.ArriveLate;
-                        }
-                        else
-                        {
-                            temp.CheckInStatus = CheckInStatusEnum.ArriveOnTime;
-                        }
-
-                        // a list containing all intervals in this day
-                        List<Interval> intervals = new List<Interval>();
-
-                        //loop through all attendance records in my range
-                        foreach (var item in myRange)
-                        {
-                            TimeSpan timeIn = UTCConversionsBackend.UtcToKioskTime(item.In).TimeOfDay;
-                            TimeSpan timeOut = UTCConversionsBackend.UtcToKioskTime(item.Out).TimeOfDay;
-                            Interval inter = new Interval(timeIn, timeOut);
-
-                            intervals.Add(inter);
-
-                            //update the checkout time for this attendance report view model
-                            temp.TimeOut = UTCConversionsBackend.UtcToKioskTime(item.Out);
-
-                            //determine whether left early or not
-                            if (temp.TimeOut.TimeOfDay < myToday.TimeEnd)
-                            {
-                                temp.CheckOutStatus = CheckOutStatusEnum.DoneEarly;
-                            }
-                            else
-                            {
-                                temp.CheckOutStatus = CheckOutStatusEnum.DoneAuto;
-                            }
-                        }
-
-                        report.Stats.DaysPresent++;  //increase number of days present
-
-                        var earlyWindow = SchoolDismissalSettingsBackend.Instance.GetDefault().EarlyWindow;
-                        var lateWindow = SchoolDismissalSettingsBackend.Instance.GetDefault().LateWindow;
-                        //the time from which duration starts to count
-                        var start = myToday.TimeStart.Add(-earlyWindow);
-                        //the time that duration counts until
-                        var end = myToday.TimeEnd.Add(lateWindow);
-
-                        //Calculate hours attended on this day
-                        temp.HoursAttended = CalculateHoursAttended(intervals, start, end);
-
-                        temp.PercentAttended = (int)(temp.HoursAttended.TotalMinutes * 100 / temp.HoursExpected.TotalMinutes);  //calculate percentage of attended time
-
-                        if (temp.CheckInStatus == CheckInStatusEnum.ArriveLate)
-                        {
-                            report.Stats.DaysLate++;
-                        }
-
-                        report.Stats.DaysOnTime = report.Stats.DaysPresent - report.Stats.DaysLate;
-
-                        if (temp.CheckOutStatus == CheckOutStatusEnum.DoneEarly)
-                        {
-                            report.Stats.DaysOutEarly++;
-                        }
-
-                        report.Stats.DaysOutAuto = report.Stats.DaysPresent - report.Stats.DaysOutEarly;
-
-                    }
-
-                    switch (temp.Emotion)
-                    {
-                        case EmotionStatusEnum.VeryHappy:
-                            temp.EmotionLevel = emotionLevel + 2;
-                            report.Stats.DaysVeryHappy++;
-                            break;
-                        case EmotionStatusEnum.Happy:
-                            temp.EmotionLevel = emotionLevel + 1;
-                            report.Stats.DaysHappy++;
-                            break;
-                        case EmotionStatusEnum.Neutral:
-                            temp.EmotionLevel = emotionLevel;
-                            report.Stats.DaysNeutral++;
-                            break;
-                        case EmotionStatusEnum.Sad:
-                            temp.EmotionLevel = emotionLevel - 1;
-                            report.Stats.DaysSad++;
-                            break;
-                        case EmotionStatusEnum.VerySad:
-                            temp.EmotionLevel = emotionLevel - 2;
-                            report.Stats.DaysVerySad++;
-                            break;
-                        default:
-                            temp.EmotionLevel = emotionLevel;
-                            break;
-                    }
-
-                    emotionLevel = temp.EmotionLevel;
-                    //calculations for both absent and present records                    
-                    //calculations for both absent and present records                    
-                    report.Stats.NumOfSchoolDays++;
-                    accumlatedTotalHoursExpected += temp.HoursExpected;
-                    accumlatedTotalHours += temp.HoursAttended;
-
-                    // Need to add the totals back to the temp, because the temp is new each iteration
-                    temp.TotalHoursExpected += accumlatedTotalHoursExpected;
-                    temp.TotalHours = accumlatedTotalHours;
-                }
-
-                //add this attendance report to the attendance list
-                report.AttendanceList.Add(temp);
-
-                currentDate = currentDate.AddDays(1);
-            }
-
-            report.Stats.AccumlatedTotalHoursExpected = accumlatedTotalHoursExpected;
-            report.Stats.AccumlatedTotalHours = accumlatedTotalHours;
-
-            //if there is at least one school days in this report, calculate the following stats
-            if (report.Stats.NumOfSchoolDays > 0)
-            {
-                report.Stats.PercPresent = (int)Math.Round((double)report.Stats.DaysPresent * 100 / report.Stats.NumOfSchoolDays);
-                report.Stats.PercAttendedHours =
-                    (int)Math.Round(report.Stats.AccumlatedTotalHours.TotalHours * 100 / report.Stats.AccumlatedTotalHoursExpected.TotalHours);
-                report.Stats.PercExcused = (int)Math.Round((double)report.Stats.DaysAbsentExcused * 100 / report.Stats.NumOfSchoolDays);
-                report.Stats.PercUnexcused = (int)Math.Round((double)report.Stats.DaysAbsentUnexcused * 100 / report.Stats.NumOfSchoolDays);
-                if (report.Stats.DaysPresent > 0)
-                {
-                    report.Stats.PercInLate = (int)Math.Round((double)report.Stats.DaysLate * 100 / report.Stats.DaysPresent);
-                    report.Stats.PercOutEarly = (int)Math.Round((double)report.Stats.DaysOutEarly * 100 / report.Stats.DaysPresent);
-                }
-            }
-
-            //set the attendance goal percent according to school dismissal settings
-            report.Goal = SchoolDismissalSettingsBackend.Instance.GetDefault().Goal;
-
-            //set the date array, ideal value array and actual value array for line chart
-            report.YearArray = @String.Join(", ", report.AttendanceList.Where(m => m.IsSchoolDay).ToList().Select(m => m.Date.Year.ToString()).ToArray());
-            report.MonthArray = @String.Join(", ", report.AttendanceList.Where(m => m.IsSchoolDay).ToList().Select(m => m.Date.Month.ToString()).ToArray());
-            report.DayArray = @String.Join(", ", report.AttendanceList.Where(m => m.IsSchoolDay).ToList().Select(m => m.Date.Day.ToString()).ToArray());
-            report.ActualValues = @String.Join(", ",
-                report.AttendanceList.Where(m => m.IsSchoolDay).ToList()
-                    .Select(m => m.TotalHours.TotalHours.ToString("0.#")).ToArray());
-            report.PerfectValues = @String.Join(", ",
-                report.AttendanceList.Where(m => m.IsSchoolDay).ToList()
-                    .Select(m => m.TotalHoursExpected.TotalHours.ToString("0.#")).ToArray());
-            report.GoalValues = @String.Join(", ",
-                report.AttendanceList.Where(m => m.IsSchoolDay).ToList()
-                    .Select(m => (m.TotalHoursExpected.TotalHours * (report.Goal) / 100).ToString("0.#")).ToArray());
-            report.EmotionLevelValues = @String.Join(", ",
-                report.AttendanceList.Where(m => m.IsSchoolDay).Select(m => m.EmotionLevel).ToArray());
         }
 
         /// <summary>

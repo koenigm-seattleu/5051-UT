@@ -126,9 +126,6 @@ namespace _5051.Controllers
                 return RedirectToAction("Index", "Maintenance");
             }
             
-            var temp = new Maintain.CalendarMaintenance();
-            temp.ResetCalendar();
-
             return RedirectToAction("Index", "Maintenance");
         }
 

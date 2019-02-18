@@ -32,7 +32,6 @@ namespace _5051.Controllers
             if (DateTime.Compare(previousDate, currentDate) != 0) //If date has changed
             {
                 DataSourceBackend.Instance.StudentBackend.ResetStatusAndProcessNewAttendance();
-                DataSourceBackend.Instance.SchoolCalendarBackend.AutoSetNoSchool(currentDate);
 
                 // Save the update date back to KioskSettings
                 DataSourceBackend.Instance.KioskSettingsBackend.UpdateLatestDate(currentDateUTC);

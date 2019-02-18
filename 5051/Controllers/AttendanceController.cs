@@ -135,34 +135,7 @@ namespace _5051.Controllers
                 return RedirectToAction("Error", "Home");
             }
 
-            //current date
-            var myDate = UTCConversionsBackend.UtcToKioskTime(DateTimeHelper.Instance.GetDateTimeNowUTC()).Date;
-            //the school day model
-            var schoolDay = DataSourceBackend.Instance.SchoolCalendarBackend.ReadDate(myDate);
-            DateTime defaultStart;
-            DateTime defaultEnd;
-
-            var myDefaultDismissalSettings = DataSourceBackend.Instance.SchoolDismissalSettingsBackend.GetDefault();
-
-            if (schoolDay == null)
-            {
-                defaultStart = myDate.Add(myDefaultDismissalSettings.StartNormal);
-                defaultEnd = myDate.Add(myDefaultDismissalSettings.EndNormal);
-            }
-            else
-            {
-                defaultStart = myDate.Add(schoolDay.TimeStart);
-                defaultEnd = myDate.Add(schoolDay.TimeEnd);
-            }
-
-            var myData = new AttendanceModel
-            {
-                StudentId = id,
-                In = defaultStart,
-                Out = defaultEnd,
-            };
-
-            return View(myData);
+            return View();
         }
 
         // POST: Attendance/Create

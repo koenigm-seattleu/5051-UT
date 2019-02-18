@@ -29,8 +29,6 @@ namespace _5051.Maintain
 
             DataSourceBackend.Instance.IdentityBackend.BackupData(Source, Destination);
 
-            DataSourceBackend.Instance.SchoolCalendarBackend.BackupData(Source, Destination);
-
             DataSourceBackend.Instance.SchoolDismissalSettingsBackend.BackupData(Source, Destination);
 
             DataSourceBackend.Instance.StudentBackend.BackupData(Source, Destination);

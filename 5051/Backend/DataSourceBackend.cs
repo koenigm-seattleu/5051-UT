@@ -18,7 +18,6 @@ namespace _5051.Backend
         public GameBackend GameBackend = GameBackend.Instance;
         public KioskSettingsBackend KioskSettingsBackend = KioskSettingsBackend.Instance;
 
-        public SchoolCalendarBackend SchoolCalendarBackend = SchoolCalendarBackend.Instance;
         public SchoolDismissalSettingsBackend SchoolDismissalSettingsBackend = SchoolDismissalSettingsBackend.Instance;
 
         public IdentityBackend IdentityBackend = IdentityBackend.Instance;
@@ -43,7 +42,6 @@ namespace _5051.Backend
 
             KioskSettingsBackend = KioskSettingsBackend.Instance;
 
-            SchoolCalendarBackend = SchoolCalendarBackend.Instance;
             SchoolDismissalSettingsBackend = SchoolDismissalSettingsBackend.Instance;
 
             IdentityBackend = IdentityBackend.Instance;
@@ -82,7 +80,6 @@ namespace _5051.Backend
 
             KioskSettingsBackend.Reset();
 
-            SchoolCalendarBackend.Reset();
             SchoolDismissalSettingsBackend.Reset();
 
             IdentityBackend.Reset();
@@ -109,7 +106,6 @@ namespace _5051.Backend
             KioskSettingsBackend.SetDataSource(SystemGlobalsModel.Instance.DataSourceValue);
 
             SchoolDismissalSettingsBackend.SetDataSource(SystemGlobalsModel.Instance.DataSourceValue);
-            SchoolCalendarBackend.SetDataSource(SystemGlobalsModel.Instance.DataSourceValue);
 
             IdentityBackend.SetDataSource(SystemGlobalsModel.Instance.DataSourceValue);
 
@@ -131,8 +127,7 @@ namespace _5051.Backend
             KioskSettingsBackend.SetDataSourceDataSet(SetEnum);
 
             SchoolDismissalSettingsBackend.SetDataSourceDataSet(SetEnum);
-            SchoolCalendarBackend.SetDataSourceDataSet(SetEnum);
-
+            
             IdentityBackend.SetDataSourceDataSet(SetEnum);
 
             StudentBackend.SetDataSourceDataSet(SetEnum);

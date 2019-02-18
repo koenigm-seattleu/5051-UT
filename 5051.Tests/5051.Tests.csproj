@@ -132,7 +132,6 @@
   <ItemGroup>
     <Compile Include="Controllers\AttendanceControllerTest.cs" />
     <Compile Include="Controllers\AvatarItemControllerTest.cs" />
-    <Compile Include="Controllers\CalendarControllerTest.cs" />
     <Compile Include="Controllers\GameControllerTest.cs" />
     <Compile Include="Controllers\GameSettingsControllerTest.cs" />
     <Compile Include="Controllers\KioskSettingsControllerTest.cs" />
