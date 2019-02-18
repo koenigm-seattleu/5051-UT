@@ -666,7 +666,6 @@
     <Content Include="Views\Portal\Report.cshtml" />
     <Content Include="Views\Portal\Avatar.cshtml" />
     <Content Include="Views\Portal\Group.cshtml" />
-    <Content Include="Views\Portal\Login.cshtml" />
     <Content Include="Views\Home\AvatarExample.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Portal\Roster.cshtml" />

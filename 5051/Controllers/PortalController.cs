@@ -24,96 +24,6 @@ namespace _5051.Controllers
         }
 
         /// <summary>
-        /// The Roster in page for the Portal, shows all the Students
-        /// </summary>
-        /// <returns></returns>
-        // GET: Portal
-        public ActionResult Login(string id = null)
-        {
-            var myStudent = DataSourceBackend.Instance.StudentBackend.Read(id);
-            if (myStudent == null)
-            {
-                return RedirectToAction("Roster", "Portal");
-            }
-
-            var myReturn = new StudentDisplayViewModel(myStudent);
-
-            return View(myReturn);
-        }
-
-        /// <summary>
-        /// Login for the student, take the ID, the rest of the fields are required but not used
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns>if all is OK, then redirect to the student protal page</returns>
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login([Bind(Include=
-                                        "Id,"+
-                                        "Name,"+
-                                        "Description,"+
-                                        "Uri,"+
-                                        "AvatarLevel,"+
-                                        "Tokens,"+
-                                        "Status,"+
-                                        "Password,"+
-                                        "ExperiencePoints,"+
-                                        "Password,"+
-                                        "")] StudentDisplayViewModel data)
-        {
-            // Any password is accepted for now. does not really login...
-
-            if (!ModelState.IsValid)
-            {
-                // Send back for edit, with Error Message
-                return View(data);
-            }
-
-            if (data == null)
-            {
-                // Send to Error Page
-                return RedirectToAction("Error", "Home");
-            }
-
-            if (string.IsNullOrEmpty(data.Id))
-            {
-                // Send back for Edit
-                return RedirectToAction("Error", "Home");
-            }
-
-            var myStudent = DataSourceBackend.Instance.StudentBackend.Read(data.Id);
-            if (myStudent == null)
-            {
-                // Send to Error Page
-                //return RedirectToAction("Error", "Home");
-                return RedirectToAction("Roster", "Portal");
-            }
-
-            // When not in testing mode try the password
-            if (!DataSourceBackend.GetTestingMode())
-            {
-                if (!DataSourceBackend.Instance.IdentityBackend.LogUserIn(myStudent.Name, data.Password, _5051.Models.UserRoleEnum.StudentUser, HttpContext))
-                {
-                    ModelState.AddModelError("", "Invalid password");
-                    var myReturn = new StudentDisplayViewModel(myStudent);
-
-                    return View(myReturn);
-                }
-            }
-
-            // all is OK, so redirect to the student index page and pass in the student ID for now.
-            return RedirectToAction("Index", "Portal", new { id = data.Id });
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult LogOff()
-        {
-            DataSourceBackend.Instance.IdentityBackend.LogUserOut(HttpContext);
-            return RedirectToAction("Index", "Home");
-        }
-
-        /// <summary>
         /// Index Page
         /// </summary>
         /// <param name="id">Student Id</param>
@@ -121,23 +31,9 @@ namespace _5051.Controllers
         // GET: Portal
         public ActionResult Index(string id=null)
         {
-            var CurrentId = DataSourceBackend.Instance.IdentityBackend.GetCurrentStudentID(HttpContext);
+            ViewBag.StudentId = id;
 
-            // Todo: Remove when identity is fully hooked up
-            // Hack, to keep the current system working, while the identity system is slowly hooked up everywhere.  If the user is not logged in, then the passed in user will work, if the user is logged in, then the passed in user is ignored.
-            if (string.IsNullOrEmpty(CurrentId))
-            {
-                CurrentId = id;
-            }
-
-            ViewBag.StudentId = CurrentId;  //TODO: Remove this when identity is fully hooked up
-
-            if (DataSourceBackend.Instance.IdentityBackend.BlockExecptForRole(CurrentId, UserRoleEnum.StudentUser))
-            {
-                return RedirectToAction("Roster", "Portal");
-            }
-
-            var myStudent = DataSourceBackend.Instance.StudentBackend.Read(CurrentId);
+            var myStudent = DataSourceBackend.Instance.StudentBackend.Read(id);
 
             if (myStudent == null)
             {
@@ -154,13 +50,13 @@ namespace _5051.Controllers
 
             var myWeeklyReport = new WeeklyReportViewModel()
             {
-                StudentId = CurrentId,
+                StudentId = id,
                 SelectedWeekId = 1
             };
 
             var myMonthlyReport = new MonthlyReportViewModel()
             {
-                StudentId = CurrentId,
+                StudentId = id,
                 SelectedMonthId = 1
             };
 
