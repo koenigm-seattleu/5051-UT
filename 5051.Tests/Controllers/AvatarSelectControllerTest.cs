@@ -23,25 +23,6 @@ namespace _5051.Tests.Controllers
             DataSourceBackend.SetTestingMode(true);
         }
         
-        #region Instantiate
-        [TestMethod]
-        public void Controller_AvatarSelectShop_Instantiate_Default_Should_Pass()
-        {
-            // Arrange
-            var controller = new AdminController();
-
-            // Act
-            var result = controller.GetType();
-
-            // Reset
-            DataSourceBackend.Instance.Reset();
-
-            // Assert
-            Assert.AreEqual(result, new AdminController().GetType(), TestContext.TestName);
-        }
-
-        #endregion Instantiate
-
         #region IndexRegion
         [TestMethod]
         public void Controller_AvatarSelectShop_Index_Default_Should_Pass()

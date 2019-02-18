@@ -238,7 +238,6 @@
     <Compile Include="Backend\AvatarInterface.cs" />
     <Compile Include="Backend\UTCConversionsBackend.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AttendanceController.cs" />
     <Compile Include="Controllers\AvatarItemController.cs" />
     <Compile Include="Controllers\AvatarSelectController.cs" />
@@ -678,7 +677,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Kiosk\Index.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Student\Read.cshtml" />
     <Content Include="Views\Student\Update.cshtml" />
@@ -699,12 +697,8 @@
     <Content Include="Views\Shop\Discounts.cshtml" />
     <Content Include="Views\Shop\Specials.cshtml" />
     <Content Include="Views\Shop\Factory.cshtml" />
-    <Content Include="Views\Admin\Report.cshtml" />
-    <Content Include="Views\Admin\Attendance.cshtml" />
-    <Content Include="Views\Admin\MonthlyReport.cshtml" />
     <Content Include="Views\Home\AvatarExample.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
-    <Content Include="Views\Admin\Settings.cshtml" />
     <Content Include="Views\Portal\Roster.cshtml" />
     <Content Include="Views\Kiosk\ConfirmLogout.cshtml" />
     <Content Include="Views\Kiosk\ConfirmLogin.cshtml" />
@@ -719,12 +713,8 @@
     <Content Include="Views\KioskSettings\Read.cshtml" />
     <Content Include="Views\KioskSettings\Update.cshtml" />
     <Content Include="Views\Kiosk\Login.cshtml" />
-    <Content Include="Views\Admin\_StudentReportTablePartial.cshtml" />
-    <Content Include="Views\Admin\_StudentReportCalendarPartial.cshtml" />
-    <Content Include="Views\Admin\_StudentReportCumulativeLineChartPartial.cshtml" />
     <Content Include="Views\Home\FAQ.cshtml" />
     <Content Include="Views\Home\Guide.cshtml" />
-    <Content Include="Views\Admin\OverallReport.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -741,9 +731,6 @@
     <Content Include="Views\GameSettings\Update.cshtml" />
     <Content Include="Scripts\tsconfig.json" />
     <Content Include="Views\Shop\VisitShop.cshtml" />
-    <Content Include="Views\Admin\WeeklyReport.cshtml" />
-    <Content Include="Views\Admin\SemesterReport.cshtml" />
-    <Content Include="Views\Admin\QuarterReport.cshtml" />
     <Content Include="Scripts\people.js.map" />
     <Content Include="Views\Kiosk\Create.cshtml" />
     <Content Include="Views\AvatarItem\Create.cshtml" />
@@ -762,14 +749,12 @@
     <Content Include="Views\AvatarSelect\Select.cshtml" />
     <Content Include="Views\AvatarSelect\Inventory.cshtml" />
     <Content Include="Views\Shop\BusinessReport.cshtml" />
-    <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Portal\WeeklyReport.cshtml" />
     <Content Include="Views\Portal\MonthlyReport.cshtml" />
     <Content Include="Views\Portal\SemesterReport.cshtml" />
     <Content Include="Views\Portal\QuarterReport.cshtml" />
     <Content Include="Views\Portal\OverallReport.cshtml" />
     <Content Include="Views\Portal\AttendanceUpdate.cshtml" />
-    <Content Include="Views\Admin\ChangePassword.cshtml" />
     <Content Include="Views\Portal\ChangePassword.cshtml" />
     <Content Include="Views\Maintenance\Index.cshtml" />
     <Content Include="Views\Maintenance\Login.cshtml" />

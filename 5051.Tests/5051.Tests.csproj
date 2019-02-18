@@ -143,7 +143,6 @@
     <Compile Include="Controllers\PortalControllerTest.cs" />
     <Compile Include="Controllers\ManageControllerTest.cs" />
     <Compile Include="Controllers\KioskControllerTest.cs" />
-    <Compile Include="Controllers\AdminControllerTest.cs" />
     <Compile Include="Controllers\AccountControllerTest.cs" />
     <Compile Include="Maintain\AvatarItemMaintenance.cs" />
     <Compile Include="Maintain\CalendarMaintenance.cs" />

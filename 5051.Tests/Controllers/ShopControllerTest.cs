@@ -23,23 +23,6 @@ namespace _5051.Tests.Controllers
             DataSourceBackend.SetTestingMode(true);
         }
 
-        #region Instantiate
-        [TestMethod]
-        public void Controller_Shop_Instantiate_Default_Should_Pass()
-        {
-            // Arrange
-            var controller = new AdminController();
-
-            // Act
-            var result = controller.GetType();
-
-            // Assert
-            Assert.AreEqual(result, new AdminController().GetType(), TestContext.TestName);
-        }
-
-        #endregion Instantiate
-
-
         #region IndexRegion
 
         [TestMethod]

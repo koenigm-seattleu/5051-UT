@@ -26,22 +26,6 @@ namespace _5051.Tests.Controllers
             DataSourceBackend.SetTestingMode(true);
         }
 
-        #region Instantiate
-        [TestMethod]
-        public void Controller_SchoolDismissalSettings_Instantiate_Default_Should_Pass()
-        {
-            // Arrange
-            var controller = new AdminController();
-
-            // Act
-            var result = controller.GetType();
-
-            // Assert
-            Assert.AreEqual(result, new AdminController().GetType(), TestContext.TestName);
-        }
-
-        #endregion Instantiate
-
         #region ReadRegion
         [TestMethod]
         public void Controller_SchoolDismissalSettings_Read_Null_Id_Should_Return_Default_Model()
