@@ -740,12 +740,6 @@ namespace _5051.Tests.Controllers
             var testCookieValue = cookieValue;
             HttpCookie testCookie = new HttpCookie(testCookieName);
 
-            if (!string.IsNullOrEmpty(cookieValue))
-            {
-                testCookie.Value = testCookieValue;
-                testCookie.Expires = DateTime.Now.AddSeconds(30);
-            }
-
             var context = new Mock<HttpContextBase>();
             var request = new Mock<HttpRequestBase>();
             var response = new Mock<HttpResponseBase>();
@@ -762,14 +756,6 @@ namespace _5051.Tests.Controllers
 
             var mockedResponse = Mock.Get(context.Object.Response);
             mockedResponse.Setup(r => r.Cookies).Returns(new HttpCookieCollection());
-
-            if (!string.IsNullOrEmpty(cookieValue))
-            {
-                var mockedServer = Mock.Get(context.Object.Server);
-                mockedServer.Setup(x => x.HtmlEncode(cookieValue)).Returns(cookieValue);
-
-                context.Object.Request.Cookies.Add(testCookie);
-            }
 
             return context.Object;
         }

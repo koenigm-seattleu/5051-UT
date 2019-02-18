@@ -20,11 +20,6 @@ namespace _5051.Models
         public IList<AuthenticationDescription> OtherLogins { get; set; }
     }
 
-    public class FactorViewModel
-    {
-        public string Purpose { get; set; }
-    }
-
     public class SetPasswordViewModel
     {
         [Required]

@@ -159,7 +159,6 @@
     <Compile Include="Misc\RouteConfigUnitTests.cs" />
     <Compile Include="Misc\BundleConfigUnitTests.cs" />
     <Compile Include="Models\AddPhoneNumberViewModelTests.cs" />
-    <Compile Include="Models\AdminReportIndexViewModelUnitTests.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUserViewModelUnitTests.cs" />
     <Compile Include="Models\AttendanceReportViewModelUnitTests.cs" />

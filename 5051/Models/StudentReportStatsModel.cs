@@ -57,31 +57,6 @@ namespace _5051.Models
         public int DaysOutEarly { get; set; }
 
         /// <summary>
-        /// The number of days emotion is VeryHappy
-        /// </summary>
-        public int DaysVeryHappy { get; set; }
-
-        /// <summary>
-        /// The number of days emotion is Happy
-        /// </summary>
-        public int DaysHappy { get; set; }
-
-        /// <summary>
-        /// The number of days emotion is Neutral
-        /// </summary>
-        public int DaysNeutral { get; set; }
-
-        /// <summary>
-        /// The number of days emotion is Sad
-        /// </summary>
-        public int DaysSad { get; set; }
-
-        /// <summary>
-        /// The number of days emotion is VerySad
-        /// </summary>
-        public int DaysVerySad { get; set; }
-
-        /// <summary>
         /// The percentage of days present: DaysPresent/NumOfSchoolDays
         /// </summary>
         public int PercPresent { get; set; }
