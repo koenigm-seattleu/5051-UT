@@ -677,7 +677,6 @@
     <Content Include="Views\SchoolDismissalSettings\Update.cshtml" />
     <Content Include="Views\KioskSettings\Read.cshtml" />
     <Content Include="Views\KioskSettings\Update.cshtml" />
-    <Content Include="Views\Kiosk\Login.cshtml" />
     <Content Include="Views\Home\FAQ.cshtml" />
     <Content Include="Views\Home\Guide.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />

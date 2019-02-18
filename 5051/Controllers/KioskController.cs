@@ -47,28 +47,6 @@ namespace _5051.Controllers
             return View(myReturn);       
         }
 
-        /*
-         * 
-        // GET: Kiosk/SetLogout/5
-        /// <summary>
-        /// Manages the Login action, toggles the state
-        /// </summary>
-        /// <param name="id">Student ID</param>
-        /// <returns></returns>
-        public ActionResult SetLogin(string id)
-        {
-            if (string.IsNullOrEmpty(id))
-            {
-                return RedirectToAction("Error", "Home");
-            }
-
-            DataSourceBackend.Instance.StudentBackend.ToggleStatusById(id);
-            return RedirectToAction("ConfirmLogin", "Kiosk", new { id });
-        }
-        *
-        */
-
-
         /// <summary>
         /// student login with emotion status on Kiosk lndex page
         /// </summary>
@@ -99,27 +77,6 @@ namespace _5051.Controllers
 
             return RedirectToAction("ConfirmLogin", "Kiosk", new { id=data.Id });
         }
-
-        /*
-         * 
-        // GET: Kiosk/SetLogout/5
-        /// <summary>
-        /// Manages the logout action, toggles the state
-        /// </summary>
-        /// <param name="id">Student ID</param>
-        /// <returns></returns>
-        public ActionResult SetLogout(string id)
-        {
-            if (string.IsNullOrEmpty(id))
-            {
-                return RedirectToAction("Error", "Home");
-            }
-
-            DataSourceBackend.Instance.StudentBackend.ToggleStatusById(id);
-            return RedirectToAction("ConfirmLogout", "Kiosk", new { id });
-        }   
-        *
-        */
 
         /// <summary>
         /// student logout with emotion status on Kiosk lndex page
@@ -193,54 +150,6 @@ namespace _5051.Controllers
             };
 
             return View(StudentViewModel);
-        }
-
-        /// <summary>
-        /// Will prompt for the kiosk login
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult Login()
-        {
-            return View();
-        }
-
-        /// <summary>
-        /// Login takes the password sent in and compares it with the settings for kiosk
-        /// If they match, then it redirects to Index
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login([Bind(Include=
-                                        "Password,"+
-                                        "")] KioskSettingsModel data)
-        {
-            if (!ModelState.IsValid)
-            {
-                // Send back for edit, with Error Message
-                return View(data);
-            }
-
-            if (string.IsNullOrEmpty(data.Password))
-            {
-                ModelState.AddModelError("Password", "Please Enter a Password.");
-                return View(data);
-            }
-
-            var myKioskData = DataSourceBackend.Instance.KioskSettingsBackend.GetDefault();
-            // GetDefault always returns valid data.
-
-            // If the passwords match, then redirect
-            if (data.Password.Equals(myKioskData.Password))
-            {
-                //Todo, set flag to mark the current token for the kiosk
-                return RedirectToAction("Index", "Kiosk");
-            }
-
-            // Login failed, so send back with error message
-            ModelState.AddModelError("Password", "Invalid login attempt.");
-            return View(data);
         }
 
         /// <summary>
