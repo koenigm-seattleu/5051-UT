@@ -56,35 +56,30 @@ namespace _5051.Backend
 
             // Mike has Full Truck and Tokens
             data = new StudentModel("Mike");
-            data = FactoryInventoryBackend.Instance.GetDefaultFullTruck(data);
             data.Tokens = 1000;
             data.Password = data.Name;
             DataList.Add(data);
 
             // Doug has full truck, but no Tokens
             data = new StudentModel("Doug");
-            data = FactoryInventoryBackend.Instance.GetDefaultFullTruck(data);
             data.Tokens = 0;
             data.Password = data.Name;
             DataList.Add(data);
 
             // Jea has default Empty truck, and Tokens
             data = new StudentModel("Jea");
-            data = FactoryInventoryBackend.Instance.GetDefaultEmptyTruck(data);
             data.Tokens = 100;
             data.Password = data.Name;
             DataList.Add(data);
 
             // Jea has default Empty truck, and No Tokens
             data = new StudentModel("Sue");
-            data = FactoryInventoryBackend.Instance.GetDefaultEmptyTruck(data);
             data.Tokens = 0;
             data.Password = data.Name;
             DataList.Add(data);
 
             // Stan has Full Truck and 1 Token
             data = new StudentModel("Stan");
-            data = FactoryInventoryBackend.Instance.GetDefaultFullTruck(data);
             data.Tokens = 1;
             data.Password = data.Name;
             DataList.Add(data);

@@ -85,16 +85,6 @@ namespace _5051.Models
         public string EmotionUri { get; set; }
 
         /// <summary>
-        /// The inventory list for the student
-        /// </summary>
-        public List<FactoryInventoryModel> Inventory { get; set; }
-
-        /// <summary>
-        /// The Truck settigns for the Student
-        /// </summary>
-        public ShopTruckFullModel Truck { get; set; }
-
-        /// <summary>
         /// The Attendance list for the student
         /// </summary>
         public List<AttendanceModel> Attendance { get; set; }
@@ -121,7 +111,6 @@ namespace _5051.Models
             EmotionCurrent = EmotionStatusEnum.Neutral;
             EmotionUri = Emotion.GetEmotionURI(EmotionCurrent);
 
-            Truck = new ShopTruckFullModel();
             AvatarComposite = new AvatarCompositeModel();
 
 
@@ -140,17 +129,6 @@ namespace _5051.Models
             // Load all the Heads
             AvatarInventory.AddRange(DataSourceBackend.Instance.AvatarItemBackend.GetAllAvatarItem(AvatarItemCategoryEnum.Head));
 
-            // All Students get a default Truck Inventory
-            Inventory = new List<FactoryInventoryModel>
-            {
-                DataSourceBackend.Instance.FactoryInventoryBackend.GetDefault(FactoryInventoryCategoryEnum.Truck),
-                DataSourceBackend.Instance.FactoryInventoryBackend.GetDefault(FactoryInventoryCategoryEnum.Wheels),
-                DataSourceBackend.Instance.FactoryInventoryBackend.GetDefault(FactoryInventoryCategoryEnum.Topper),
-                DataSourceBackend.Instance.FactoryInventoryBackend.GetDefault(FactoryInventoryCategoryEnum.Trailer),
-                DataSourceBackend.Instance.FactoryInventoryBackend.GetDefault(FactoryInventoryCategoryEnum.Sign),
-                DataSourceBackend.Instance.FactoryInventoryBackend.GetDefault(FactoryInventoryCategoryEnum.Menu),
-                DataSourceBackend.Instance.FactoryInventoryBackend.GetDefault(FactoryInventoryCategoryEnum.Food)
-            };
         }
 
         /// <summary>
@@ -200,19 +178,10 @@ namespace _5051.Models
             Status = data.Status;
             ExperiencePoints = data.ExperiencePoints;
             Password = data.Password;
-            Inventory = data.Inventory;
             Attendance = data.Attendance;
             EmotionCurrent = data.EmotionCurrent;
             EmotionUri = Emotion.GetEmotionURI(EmotionCurrent);
 
-            Truck = data.Truck;
-
-            Truck.TruckUri = Backend.DataSourceBackend.Instance.FactoryInventoryBackend.GetFactoryInventoryUri(Truck.Truck);
-            Truck.WheelsUri = Backend.DataSourceBackend.Instance.FactoryInventoryBackend.GetFactoryInventoryUri(Truck.Wheels);
-            Truck.TopperUri = Backend.DataSourceBackend.Instance.FactoryInventoryBackend.GetFactoryInventoryUri(Truck.Topper);
-            Truck.TrailerUri = Backend.DataSourceBackend.Instance.FactoryInventoryBackend.GetFactoryInventoryUri(Truck.Trailer);
-            Truck.SignUri = Backend.DataSourceBackend.Instance.FactoryInventoryBackend.GetFactoryInventoryUri(Truck.Sign);
-            Truck.MenuUri = Backend.DataSourceBackend.Instance.FactoryInventoryBackend.GetFactoryInventoryUri(Truck.Menu);
         }
 
         /// <summary>
@@ -237,19 +206,9 @@ namespace _5051.Models
             Status = data.Status;
             ExperiencePoints = data.ExperiencePoints;
             Password = data.Password;
-            Inventory = data.Inventory;
             Attendance = data.Attendance;
             EmotionCurrent = data.EmotionCurrent;
             EmotionUri = Emotion.GetEmotionURI(EmotionCurrent);
-
-            Truck = data.Truck;
-
-            Truck.TruckUri = Backend.DataSourceBackend.Instance.FactoryInventoryBackend.GetFactoryInventoryUri(Truck.Truck);
-            Truck.WheelsUri = Backend.DataSourceBackend.Instance.FactoryInventoryBackend.GetFactoryInventoryUri(Truck.Wheels);
-            Truck.TopperUri = Backend.DataSourceBackend.Instance.FactoryInventoryBackend.GetFactoryInventoryUri(Truck.Topper);
-            Truck.TrailerUri = Backend.DataSourceBackend.Instance.FactoryInventoryBackend.GetFactoryInventoryUri(Truck.Trailer);
-            Truck.SignUri = Backend.DataSourceBackend.Instance.FactoryInventoryBackend.GetFactoryInventoryUri(Truck.Sign);
-            Truck.MenuUri = Backend.DataSourceBackend.Instance.FactoryInventoryBackend.GetFactoryInventoryUri(Truck.Menu);
 
             return true;
         }

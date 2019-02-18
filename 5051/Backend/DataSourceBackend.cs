@@ -13,9 +13,6 @@ namespace _5051.Backend
         /// Hold one of each of the DataSources as an instance to the datasource
         /// </summary>
         public AvatarItemBackend AvatarItemBackend = AvatarItemBackend.Instance;
-        public FactoryInventoryBackend FactoryInventoryBackend = FactoryInventoryBackend.Instance;
-
-        public GameBackend GameBackend = GameBackend.Instance;
         public KioskSettingsBackend KioskSettingsBackend = KioskSettingsBackend.Instance;
 
         public SchoolDismissalSettingsBackend SchoolDismissalSettingsBackend = SchoolDismissalSettingsBackend.Instance;
@@ -36,9 +33,6 @@ namespace _5051.Backend
         {
             // Avatar must be before Student, because Student needs the default avatar
             AvatarItemBackend = AvatarItemBackend.Instance;
-            FactoryInventoryBackend = FactoryInventoryBackend.Instance;
-
-            GameBackend = GameBackend.Instance;
 
             KioskSettingsBackend = KioskSettingsBackend.Instance;
 
@@ -74,9 +68,6 @@ namespace _5051.Backend
         public void Reset()
         {
             AvatarItemBackend.Reset();
-            FactoryInventoryBackend.Reset();
-
-            GameBackend.Reset();
 
             KioskSettingsBackend.Reset();
 
@@ -100,9 +91,6 @@ namespace _5051.Backend
             // Avatar must be reset before Student, because Student needs the default avatar
 
             AvatarItemBackend.SetDataSource(SystemGlobalsModel.Instance.DataSourceValue);
-            FactoryInventoryBackend.SetDataSource(SystemGlobalsModel.Instance.DataSourceValue);
-
-            GameBackend.SetDataSource(SystemGlobalsModel.Instance.DataSourceValue);
             KioskSettingsBackend.SetDataSource(SystemGlobalsModel.Instance.DataSourceValue);
 
             SchoolDismissalSettingsBackend.SetDataSource(SystemGlobalsModel.Instance.DataSourceValue);
@@ -121,9 +109,6 @@ namespace _5051.Backend
             // Avatar must be reset before Student, because Student needs the default avatar
 
             AvatarItemBackend.SetDataSourceDataSet(SetEnum);
-            FactoryInventoryBackend.SetDataSourceDataSet(SetEnum);
-
-            GameBackend.SetDataSourceDataSet(SetEnum);
             KioskSettingsBackend.SetDataSourceDataSet(SetEnum);
 
             SchoolDismissalSettingsBackend.SetDataSourceDataSet(SetEnum);

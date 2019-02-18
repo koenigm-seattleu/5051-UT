@@ -195,7 +195,6 @@ namespace _5051.Controllers
             myDataStudent.Tokens = data.Tokens;
             myDataStudent.Status = data.Status;
             myDataStudent.ExperiencePoints = data.ExperiencePoints;
-            myDataStudent.Truck.TruckName = data.Truck.TruckName;
 
             DataSourceBackend.Instance.StudentBackend.Update(myDataStudent);
 

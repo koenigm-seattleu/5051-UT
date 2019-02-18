@@ -132,13 +132,9 @@
   <ItemGroup>
     <Compile Include="Controllers\AttendanceControllerTest.cs" />
     <Compile Include="Controllers\AvatarItemControllerTest.cs" />
-    <Compile Include="Controllers\GameControllerTest.cs" />
-    <Compile Include="Controllers\GameSettingsControllerTest.cs" />
     <Compile Include="Controllers\KioskSettingsControllerTest.cs" />
     <Compile Include="Controllers\AvatarSelectControllerTest.cs" />
     <Compile Include="Controllers\StudentControllerTest.cs" />
-    <Compile Include="Controllers\ShopInventoryControllerTest.cs" />
-    <Compile Include="Controllers\ShopControllerTest.cs" />
     <Compile Include="Controllers\SchoolDismissalSettingsControllerTest.cs" />
     <Compile Include="Controllers\PortalControllerTest.cs" />
     <Compile Include="Controllers\ManageControllerTest.cs" />

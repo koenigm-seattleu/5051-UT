@@ -89,9 +89,7 @@ namespace _5051.Backend
                 Id = data.Id,
                 AvatarComposite = null,
                 AvatarInventory = null,
-                Inventory = null,
                 Attendance = null,
-                Truck = null
             };
 
             // Add to Storage, the smaller temp student
@@ -111,11 +109,7 @@ namespace _5051.Backend
 
             DataSourceBackendTable.Instance.Create<List<AvatarItemModel>>(tableName, "avatarinventory", tempData.Id, tempData.AvatarInventory, dataSourceEnum);
 
-            DataSourceBackendTable.Instance.Create<List<FactoryInventoryModel>>(tableName, "inventory", tempData.Id, tempData.Inventory, dataSourceEnum);
-
             DataSourceBackendTable.Instance.Create<List<AttendanceModel>>(tableName, "attendance", tempData.Id, tempData.Attendance, dataSourceEnum);
-
-            DataSourceBackendTable.Instance.Create<ShopTruckFullModel>(tableName, "truck", tempData.Id, tempData.Truck, dataSourceEnum);
 
             var idResult = IdentityBackend.Instance.CreateNewStudentUserIdRecordOnly(data, dataSourceEnum);
 
@@ -164,9 +158,7 @@ namespace _5051.Backend
                 Id = data.Id,
                 AvatarComposite = null,
                 AvatarInventory = null,
-                Inventory = null,
                 Attendance = null,
-                Truck = null
             };
 
             // Add to Storage, the smaller temp student
@@ -184,11 +176,7 @@ namespace _5051.Backend
 
             DataSourceBackendTable.Instance.Create<List<AvatarItemModel>>(tableName, "avatarinventory", tempData.Id, tempData.AvatarInventory);
 
-            DataSourceBackendTable.Instance.Create<List<FactoryInventoryModel>>(tableName, "inventory", tempData.Id, tempData.Inventory);
-
             DataSourceBackendTable.Instance.Create<List<AttendanceModel>>(tableName, "attendance", tempData.Id, tempData.Attendance);
-
-            DataSourceBackendTable.Instance.Create<ShopTruckFullModel>(tableName, "truck", tempData.Id, tempData.Truck);
 
             DataList = DataList.OrderBy(x => x.Name).ToList();
 
@@ -228,9 +216,7 @@ namespace _5051.Backend
             DataSourceBackendTable.Instance.Delete<StudentModel>(tableName, "student", Id, dataSourceEnum);
             DataSourceBackendTable.Instance.Delete<AvatarCompositeModel>(tableName, "composite", Id, dataSourceEnum);
             DataSourceBackendTable.Instance.Delete<List<AvatarItemModel>>(tableName, "avatarinventory", Id, dataSourceEnum);
-            DataSourceBackendTable.Instance.Delete<List<FactoryInventoryModel>>(tableName, "inventory", Id, dataSourceEnum);
             DataSourceBackendTable.Instance.Delete<List<AttendanceModel>>(tableName, "attendance", Id, dataSourceEnum);
-            DataSourceBackendTable.Instance.Delete<ShopTruckFullModel>(tableName, "truck", Id, dataSourceEnum);
 
             return true;
         }
@@ -330,9 +316,7 @@ namespace _5051.Backend
                     // Set default value incase the load below fails.
                     TempData.AvatarComposite = new AvatarCompositeModel();
                     TempData.AvatarInventory = new List<AvatarItemModel>();
-                    TempData.Inventory = new List<FactoryInventoryModel>();
                     TempData.Attendance = new List<AttendanceModel>();
-                    TempData.Truck = new ShopTruckFullModel();
 
                     // Load each sub field
 
@@ -348,22 +332,10 @@ namespace _5051.Backend
                         TempData.AvatarInventory = tempAvatarInventory;
                     }
 
-                    var tempInventory = DataSourceBackendTable.Instance.Load<List<FactoryInventoryModel>>(tableName, "inventory", temp.RowKey, dataSourceEnum);
-                    if (tempInventory != null)
-                    {
-                        TempData.Inventory = tempInventory;
-                    }
-
                     var tempAttendance = DataSourceBackendTable.Instance.Load<List<AttendanceModel>>(tableName, "attendance", temp.RowKey, dataSourceEnum);
                     if (tempAttendance != null)
                     {
                         TempData.Attendance = DataSourceBackendTable.Instance.Load<List<AttendanceModel>>(tableName, "attendance", temp.RowKey, dataSourceEnum);
-                    }
-
-                    var tempTruck = DataSourceBackendTable.Instance.Load<ShopTruckFullModel>(tableName, "truck", temp.RowKey, dataSourceEnum);
-                    if (tempTruck != null)
-                    {
-                        TempData.Truck = tempTruck;
                     }
 
                     var newData = new StudentModel(TempData)

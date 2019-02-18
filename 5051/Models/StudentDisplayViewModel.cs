@@ -65,8 +65,6 @@ namespace _5051.Models
             Status = data.Status;
             ExperiencePoints = data.ExperiencePoints;
             Password = data.Password;
-            Truck.TruckName = data.Truck.TruckName;
-            Inventory = data.Inventory;
             Attendance = data.Attendance;
             EmotionCurrent = data.EmotionCurrent;
             EmotionUri = Emotion.GetEmotionURI(EmotionCurrent);

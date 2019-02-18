@@ -111,11 +111,6 @@ namespace _5051.UnitTests.Models
             var tempAttendance = new AttendanceModel();
             test.Attendance.Add(tempAttendance);
 
-            var tempInventory = new FactoryInventoryModel();
-            test.Inventory.Add(tempInventory);
-
-            test.Truck = new ShopTruckFullModel();
-
             // Act
             data.Update(test);
 
@@ -133,8 +128,6 @@ namespace _5051.UnitTests.Models
             Assert.AreEqual(test.EmotionCurrent, data.EmotionCurrent, "EmotionCurrent " + TestContext.TestName);
             Assert.AreEqual(test.AvatarLevel, data.AvatarLevel, "AvatarLevel " + TestContext.TestName);
             Assert.AreEqual(test.Attendance.Count, data.Attendance.Count, "Attendance " + TestContext.TestName);
-            Assert.AreEqual(test.Inventory.Count, data.Inventory.Count, "Inventory " + TestContext.TestName);
-            Assert.IsNotNull(data.Truck, "Inventory " + TestContext.TestName);
         }
 
         [TestMethod]
