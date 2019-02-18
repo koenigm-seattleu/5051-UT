@@ -57,17 +57,18 @@
             </div>
 
             <div class="col-sm text-center">
-                <div class="FontSizeMedium">
-                    <br />
-                    Lvl <span id="levelValue">@Model.AvatarLevel</span><br />
-                    <span id="xpValue">@Model.ExperiencePoints</span> XP<br />
-                    <span id="tokensValue">@Model.Tokens</span> Tokens<br />
-
-                    <br />
-                    <span class="FontBold">Attendance</span><br />
-                    <span id="weeklyScore">@Model.WeeklyAttendanceScore</span>% Week<br />
-                    <span id="monthlyScore">@Model.MonthlyAttendanceScore</span>% Month<br />
-                    <br />
+                <div class="row">
+                    <div class="row AvatarBoxLarge">
+                        <div class="row">
+                            <div class="col text-center PortalBox">
+                                <a href="~/AvatarSelect/Index/@Model.Id" id="avatarLinkPortalIndex">
+                                    <img src="~/Content/img/Avatars_dark.png" alt="Choose Avatars" class="PortalIcon" />
+                                    <br />
+                                    <span class="FontSizeLarge">Avatars</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -112,61 +113,10 @@
 
         </div>
 
-        <hr />
-
         <br />
         <br />
 
-        <div class="row justify-content-center">
 
-            <div class="col-sm text-center PortalBox">
-                <a href="~/Portal/WeeklyReport/@Model.Id" id="reportsLinkPortalIndex">
-                    <img src="~/Content/img/Reports_dark.png" alt="Reports" class="PortalIcon" />
-                    <br />
-                    <span class="FontSizeLarge">Reports</span>
-                </a>
-            </div>
-
-            <div class="col-sm text-center PortalBox">
-                <a href="~/Portal/Attendance/@Model.Id" id="attendanceLinkPortalIndex">
-                    <img src="~/Content/img/AdminPage_dark.png" alt="Reports" class="PortalIcon" />
-                    <br />
-                    <span class="FontSizeLarge">Attendance</span>
-                </a>
-            </div>
-
-            <div class="col-sm text-center PortalBox">
-                <a href="~/Shop/Visit/@Model.Id" id="visitLinkPortalIndex">
-                    <img src="~/Content/img/Visiting_dark.png" alt="Visit" class="PortalIcon" />
-                    <br />
-                    <span class="FontSizeLarge">Visit</span>
-                </a>
-            </div>
-
-            <div class="col-sm text-center PortalBox">
-                <a href="~/Shop/Index/@Model.Id" id="shopLinkPortalIndex">
-                    <img src="~/Content/img/Store_dark.png" alt="Store" class="PortalIcon" />
-                    <br />
-                    <span class="FontSizeLarge">Store</span>
-                </a>
-            </div>
-
-            <div class="col-sm text-center PortalBox">
-                <a href="~/Portal/Settings/@Model.Id" id="settingsLinkPortalIndex">
-                    <img src="~/Content/img/Settings_dark.png" alt="Customize" class="PortalIcon" />
-                    <br />
-                    <span class="FontSizeLarge">Customize</span>
-                </a>
-            </div>
-
-            <div class="col-sm text-center PortalBox">
-                <a href="~/AvatarSelect/Index/@Model.Id" id="avatarLinkPortalIndex">
-                    <img src="~/Content/img/Avatars_dark.png" alt="Choose Avatars" class="PortalIcon" />
-                    <br />
-                    <span class="FontSizeLarge">Avatars</span>
-                </a>
-            </div>
-        </div>
     </div>
     <div class="col-1"></div>
 </div>
