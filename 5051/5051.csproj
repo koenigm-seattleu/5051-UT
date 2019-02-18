@@ -253,12 +253,9 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KioskController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MaintenanceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Maintain\AvatarItemMaintenance.cs" />
-    <Compile Include="Maintain\DataBackupMaintenance.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminReportIndexViewModel.cs" />
     <Compile Include="Models\ApplicationUserInputModel.cs" />
@@ -756,11 +753,7 @@
     <Content Include="Views\Portal\OverallReport.cshtml" />
     <Content Include="Views\Portal\AttendanceUpdate.cshtml" />
     <Content Include="Views\Portal\ChangePassword.cshtml" />
-    <Content Include="Views\Maintenance\Index.cshtml" />
-    <Content Include="Views\Maintenance\Login.cshtml" />
-    <Content Include="Views\Maintenance\BackupData.cshtml" />
     <Content Include="Views\Student\ResetPassword.cshtml" />
-    <Content Include="Views\Maintenance\RefreshAvatars.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
