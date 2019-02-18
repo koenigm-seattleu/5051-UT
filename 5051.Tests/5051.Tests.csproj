@@ -137,7 +137,6 @@
     <Compile Include="Controllers\StudentControllerTest.cs" />
     <Compile Include="Controllers\SchoolDismissalSettingsControllerTest.cs" />
     <Compile Include="Controllers\PortalControllerTest.cs" />
-    <Compile Include="Controllers\ManageControllerTest.cs" />
     <Compile Include="Controllers\KioskControllerTest.cs" />
     <Compile Include="Controllers\AccountControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
