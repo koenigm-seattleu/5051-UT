@@ -314,29 +314,6 @@ namespace _5051.Backend
         #endregion
 
         /// <summary>
-        /// Generate a leaderboard. Rank students according to their attended minutes in this week.
-        /// </summary>
-        /// <returns></returns>
-        public List<StudentModel> GenerateLeaderboard()
-        {
-            var dayNow = UTCConversionsBackend.UtcToKioskTime(DateTimeHelper.Instance.GetDateTimeNowUTC()).Date; //today's date
-            var thisMonday = dayNow.AddDays(-((dayNow.DayOfWeek - DayOfWeek.Monday + 7) % 7)); //this Monday's date
-
-            var studentList = DataSourceBackend.Instance.StudentBackend.Index();  //student list
-
-            foreach (var student in studentList)
-            {
-                student.AttendedMinutesThisWeek = 0; //reset
-
-                var currentDate = thisMonday; //loop variable
-            }
-
-            //sort
-            var leaderboard = studentList.OrderByDescending(m => m.AttendedMinutesThisWeek).ToList();
-            return leaderboard;
-        }
-
-        /// <summary>
         /// calculate non overlapping hours attended using given intervals
         /// </summary>
         /// <param name="intervals"></param>

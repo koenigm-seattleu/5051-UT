@@ -20,22 +20,5 @@ namespace _5051.UnitTests.Models
         {
             DataSourceBackend.SetTestingMode(true);
         }
-
-        [TestMethod]
-        public void Models_IndexViewModels_Default_Instantiate_Should_Pass()
-        {
-            //arrange
-            var studentList = DataSourceBackend.Instance.StudentBackend.Index();
-            var expectedLeaderBoard = new List<StudentModel>();
-            var test = new AdminReportIndexViewModel(studentList)
-            {
-
-                //act
-                Leaderboard = expectedLeaderBoard
-            };
-
-            //assert
-            Assert.AreEqual(expectedLeaderBoard, test.Leaderboard, TestContext.TestName);
-        }
     }
 }

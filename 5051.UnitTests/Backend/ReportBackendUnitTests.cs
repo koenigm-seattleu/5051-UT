@@ -175,52 +175,7 @@ namespace _5051.UnitTests.Backend
             //assert
             Assert.IsNotNull(result, TestContext.TestName);
         }
-
-        [TestMethod]
-        public void Backend_ReportBackend_GenerateLeaderboard_Valid_Data_Should_Pass()
-        {
-            //arrange
-            var studentList = DataSourceBackend.Instance.StudentBackend.Index();
-
-            var dayNow = UTCConversionsBackend.UtcToKioskTime(DateTime.UtcNow).Date; //today's date
-
-            var thisMonday = dayNow.AddDays(-((dayNow.DayOfWeek - DayOfWeek.Monday + 7) % 7)); //this Monday's date
-
-            var attendanceMon = new AttendanceModel
-            {
-                In = UTCConversionsBackend.KioskTimeToUtc(thisMonday.AddHours(8)),
-                Out = UTCConversionsBackend.KioskTimeToUtc(thisMonday.AddHours(9)),
-            };
-            var attendanceTue = new AttendanceModel
-            {
-                In = UTCConversionsBackend.KioskTimeToUtc(thisMonday.AddHours(10)),
-                Out = UTCConversionsBackend.KioskTimeToUtc(thisMonday.AddHours(12)),
-            };
-
-            var student1 = studentList.Where<StudentModel>(x => x.Name == "Doug").FirstOrDefault();
-            student1.Attendance.Add(attendanceMon);
-            DataSourceBackend.Instance.StudentBackend.Update(student1);
-
-            var student2 = studentList.Where<StudentModel>(x => x.Name == "Jea").FirstOrDefault();
-            student2.Attendance.Add(attendanceMon);
-            student2.Attendance.Add(attendanceTue);
-            DataSourceBackend.Instance.StudentBackend.Update(student2);
-
-            //act
-            var result = ReportBackend.Instance.GenerateLeaderboard();
-
-            //reset
-            DataSourceBackend.Instance.StudentBackend.Reset();
-
-            Assert.IsNotNull(result[1].Name, TestContext.TestName);
-
-            //assert
-            // TODO:  Need to rework this test, after getting the date/time wrapped.
-
-            //Assert.AreEqual(student1.Name, result[1].Name, TestContext.TestName);
-            //Assert.AreEqual(student2.Name, result[0].Name, TestContext.TestName);
-        }
-
+        
         [TestMethod]
         public void Backend_ReportBackend_Generate_Weekly_Report_Should_Pass()
         {

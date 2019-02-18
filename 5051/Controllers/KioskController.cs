@@ -37,12 +37,7 @@ namespace _5051.Controllers
                 DataSourceBackend.Instance.KioskSettingsBackend.UpdateLatestDate(currentDateUTC);
             }
 
-            var myReturn = new AdminReportIndexViewModel(myDataList)
-            {
-
-                //top 5 leaderboard
-                Leaderboard = ReportBackend.Instance.GenerateLeaderboard().Take(5).ToList()
-            };
+            var myReturn = new AdminReportIndexViewModel(myDataList);
 
             return View(myReturn);       
         }
