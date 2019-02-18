@@ -630,7 +630,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -657,16 +656,11 @@
     <Content Include="Views\Student\Update.cshtml" />
     <Content Include="Views\Student\Create.cshtml" />
     <Content Include="Views\Student\Delete.cshtml" />
-    <Content Include="Views\Home\Privacy.cshtml" />
-    <Content Include="Views\Home\StudentExample.cshtml" />
-    <Content Include="Views\Home\ShopExample.cshtml" />
-    <Content Include="Views\Home\HouseExample.cshtml" />
     <Content Include="Views\Portal\Index.cshtml" />
     <Content Include="Views\Portal\Settings.cshtml" />
     <Content Include="Views\Portal\Report.cshtml" />
     <Content Include="Views\Portal\Avatar.cshtml" />
     <Content Include="Views\Portal\Group.cshtml" />
-    <Content Include="Views\Home\AvatarExample.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Portal\Roster.cshtml" />
     <Content Include="Views\Kiosk\ConfirmLogout.cshtml" />
@@ -676,8 +670,6 @@
     <Content Include="Views\SchoolDismissalSettings\Update.cshtml" />
     <Content Include="Views\KioskSettings\Read.cshtml" />
     <Content Include="Views\KioskSettings\Update.cshtml" />
-    <Content Include="Views\Home\FAQ.cshtml" />
-    <Content Include="Views\Home\Guide.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
