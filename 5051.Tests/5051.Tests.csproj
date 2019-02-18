@@ -137,7 +137,6 @@
     <Compile Include="Controllers\GameSettingsControllerTest.cs" />
     <Compile Include="Controllers\KioskSettingsControllerTest.cs" />
     <Compile Include="Controllers\AvatarSelectControllerTest.cs" />
-    <Compile Include="Controllers\SupportControllerTest.cs" />
     <Compile Include="Controllers\StudentControllerTest.cs" />
     <Compile Include="Controllers\ShopInventoryControllerTest.cs" />
     <Compile Include="Controllers\ShopControllerTest.cs" />
