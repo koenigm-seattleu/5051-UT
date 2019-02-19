@@ -27,6 +27,16 @@ namespace _5051.UnitTests.Models
         }
 
         [TestMethod]
+        public void AttendanceDetailsViewModel_Initialize_Invalid_NULL_Item_Should_Fail()
+        {
+            var myAttendanceDetails = new AttendanceDetailsViewModel();
+
+            var result = myAttendanceDetails.Initialize("ABC", null);
+
+            Assert.IsNull(result, TestContext.TestName);
+        }
+
+        [TestMethod]
         public void AttendanceDetailsViewModel_Initialize_Invalid_AttendanceId_Does_Not_Exist_Should_Fail()
         {
             var myAttendanceDetails = new AttendanceDetailsViewModel();
@@ -59,6 +69,18 @@ namespace _5051.UnitTests.Models
             // Assert
             Assert.AreEqual(testStudent.Id, result.Attendance.StudentId, TestContext.TestName);
             Assert.AreEqual(testAttendance.Id, result.Attendance.Id, TestContext.TestName);
+        }
+
+        [TestMethod]
+        public void AttendanceDetailsViewModel_Constructor_Valid_AttendanceId_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = new AttendanceDetailsViewModel("ABC", "XYZ");
+
+            // Assert
+            Assert.IsNotNull(result, TestContext.TestName);
         }
 
         [TestMethod]

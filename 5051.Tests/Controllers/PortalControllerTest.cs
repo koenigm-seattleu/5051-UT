@@ -249,6 +249,22 @@ namespace _5051.Tests.Controllers
             // Assert
             Assert.IsNotNull(resultStudentDisplayViewModel, TestContext.TestName);
         }
+
+        [TestMethod]
+        public void Controller_Portal_Index_Invalid_ID_Should_Fail()
+        {
+            // Arrange
+            PortalController controller = new PortalController();
+
+            // Act
+            var result = (RedirectToRouteResult)controller.Index("Bogus");
+
+            // Reset StudentBackend
+            DataSourceBackend.Instance.StudentBackend.Reset();
+
+            // Assert
+            Assert.AreEqual("Roster", result.RouteValues["action"], TestContext.TestName);
+        }
         #endregion
 
 
