@@ -126,7 +126,7 @@ namespace _5051.Backend
                 return false;
             }
 
-            // If using the defaul data source, use it, else just do the table operation
+            // If using the default data source, use it, else just do the table operation
             if (dataSourceEnum == DataSourceEnum.Unknown)
             {
                 var data = DataList.Find(n => n.Id == Id);
@@ -135,10 +135,7 @@ namespace _5051.Backend
                     return false;
                 }
 
-                if (DataList.Remove(data) == false)
-                {
-                    return false;
-                }
+                DataList.Remove(data);
             }
 
             // Storage Delete

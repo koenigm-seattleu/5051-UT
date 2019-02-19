@@ -136,10 +136,7 @@ namespace _5051.Backend
                     return false;
                 }
 
-                if (DataList.Remove(data) == false)
-                {
-                    return false;
-                }
+                DataList.Remove(data);
             }
 
             // Storage Delete

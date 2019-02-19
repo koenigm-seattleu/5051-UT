@@ -42,7 +42,7 @@ namespace _5051.Backend
         /// <summary>
         /// The AvatarItem List
         /// </summary>
-        private List<AvatarItemModel> DataList = new List<AvatarItemModel>();
+        public List<AvatarItemModel> DataList = new List<AvatarItemModel>();
 
         /// <summary>
         /// Makes a new AvatarItem

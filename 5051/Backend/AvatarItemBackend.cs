@@ -41,7 +41,7 @@ namespace _5051.Backend
         }
 
         // Get the Datasource to use
-        private static IAvatarItemInterface DataSource;
+        public static IAvatarItemInterface DataSource;
 
         /// <summary>
         /// Sets the Datasource to be Mock or SQL
@@ -149,10 +149,10 @@ namespace _5051.Backend
             string myReturn = null;
 
             var myData = Index().ToList().FirstOrDefault();
-            if (myData == null)
-            {
-                return myReturn;
-            }
+            //if (myData == null)
+            //{
+            //    return myReturn;
+            //}
 
             myReturn = myData.Id;
             return myReturn;

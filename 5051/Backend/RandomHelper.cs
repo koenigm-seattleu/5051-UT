@@ -93,13 +93,10 @@ namespace _5051.Backend
 
             if (isSetForcedNumber)
             {
-                number = ForcedRandomNumber;
-            }
-            else
-            {
-                number = randObj.Next(0, max);
+                return ForcedRandomNumber;
             }
 
+            number = randObj.Next(0, max);
             return number;
         }
 
