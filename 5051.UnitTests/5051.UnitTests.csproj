@@ -108,20 +108,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Backend\AvatarItemBackendUnitTests.cs" />
-    <Compile Include="Backend\KioskSettingsDataSourceTableUnitTests.cs" />
-    <Compile Include="Backend\DataSourceBackendTableUnitTests.cs" />
-    <Compile Include="Backend\AvatarItemDataSourceTableUnitTests.cs" />
     <Compile Include="Backend\AvatarItemDataSourceMockUnitTests.cs" />
     <Compile Include="Backend\DateTimeHelperUnitTests.cs" />
     <Compile Include="Backend\RandomHelperUnitTests.cs" />
     <Compile Include="Backend\DataSourceBackendUnitTests.cs" />
     <Compile Include="Backend\KioskSettingsBackendUnitTests.cs" />
     <Compile Include="Backend\SchoolDismissalSettingsBackendUnitTests.cs" />
-    <Compile Include="Backend\SchoolDismissalSettingsDataSourceTableUnitTests.cs" />
     <Compile Include="Backend\SchoolDismissalSettingsDataSourceMockUnitTests.cs" />
     <Compile Include="Backend\StudentBackendHelperUnitTests.cs" />
     <Compile Include="Backend\StudentBackendUnitTests.cs" />
-    <Compile Include="Backend\StudentDataSourceTableUnitTests.cs" />
     <Compile Include="Backend\StudentDataSourceMockUnitTests.cs" />
     <Compile Include="Backend\KioskSettingsDataSourceMockUnitTests.cs" />
     <Compile Include="Backend\UTCConversionsBackendUnitTests.cs" />
@@ -130,7 +125,6 @@
     <Compile Include="Misc\BundleConfigUnitTests.cs" />
     <Compile Include="Models\AttendanceReportViewModelUnitTests.cs" />
     <Compile Include="Models\AvatarItemShopViewModelUnitTests.cs" />
-    <Compile Include="Models\DataSourceBackendTableEntityUnitTests.cs" />
     <Compile Include="Models\Enums\AvatarItemCategoryEnumUnitTests .cs" />
     <Compile Include="Models\AvatarItemModelUnitTests.cs" />
     <Compile Include="Models\AvatarItemViewModelUnitTests.cs" />

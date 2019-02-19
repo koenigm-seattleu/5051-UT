@@ -54,10 +54,6 @@ namespace _5051.Backend
                 case DataSourceEnum.Local:
                 case DataSourceEnum.ServerLive:
                 case DataSourceEnum.ServerTest:
-                    DataSourceBackendTable.Instance.SetDataSourceServerMode(dataSourceEnum);
-                    DataSource = KioskSettingsDataSourceTable.Instance;
-                    break;
-
                 case DataSourceEnum.Mock:
                 default:
                     // Default is to use the Mock

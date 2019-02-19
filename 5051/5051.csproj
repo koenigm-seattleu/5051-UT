@@ -157,15 +157,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Backend\DateTimeHelper.cs" />
     <Compile Include="Backend\StudentDataSourceHelper.cs" />
-    <Compile Include="Backend\StudentDataSourceTable.cs" />
-    <Compile Include="Backend\SchoolDismissalSettingsDataSourceTable.cs" />
-    <Compile Include="Backend\KioskSettingsDataSourceTable.cs" />
     <Compile Include="Backend\AvatarItemDataSourceHelper.cs" />
-    <Compile Include="Backend\AvatarItemDataSourceTable.cs" />
     <Compile Include="Backend\AvatarItemInterface.cs" />
     <Compile Include="Backend\AvatarItemDataSourceMock.cs" />
     <Compile Include="Backend\AvatarItemBackend.cs" />
-    <Compile Include="Backend\DataSourceBackendTable.cs" />
     <Compile Include="Backend\KioskSettingsInterface.cs" />
     <Compile Include="Backend\KioskSettingsBackend.cs" />
     <Compile Include="Backend\KioskSettingsDataSourceMock.cs" />
@@ -198,7 +193,6 @@
     <Compile Include="Models\AvatarItemModel.cs" />
     <Compile Include="Models\AvatarItemShopViewModel.cs" />
     <Compile Include="Models\AvatarSelectShopViewModel.cs" />
-    <Compile Include="Models\DataSourceBackendTableEntity.cs" />
     <Compile Include="Models\Enums\UserRoleEnum.cs" />
     <Compile Include="Models\Enums\AvatarItemCategoryEnum.cs" />
     <Compile Include="Models\AvatarItemViewModel.cs" />
