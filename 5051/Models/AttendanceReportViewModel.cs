@@ -81,10 +81,5 @@ namespace _5051.Models
         /// The image uri
         /// </summary>
         public string EmotionUri { get; set; }
-
-        /// <summary>
-        /// The current emotion level
-        /// </summary>
-        public int EmotionLevel { get; set; }
     }
 }

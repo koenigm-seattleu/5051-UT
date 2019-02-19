@@ -273,44 +273,5 @@ namespace _5051.Backend
                     break;
             }
         }
-
-        /// <summary>
-        /// Backup the Data from Source to Destination
-        /// </summary>
-        /// <param name="dataSourceSource"></param>
-        /// <param name="dataSourceDestination"></param>
-        /// <returns></returns>
-        public bool BackupData(DataSourceEnum dataSourceSource, DataSourceEnum dataSourceDestination)
-        {
-            // Read all the records from the Source using current database defaults
-
-            var DataAllSource = LoadAll(dataSourceSource);
-            if (DataAllSource == null || !DataAllSource.Any())
-            {
-                return false;
-            }
-
-            // Empty out Destination Table
-            // Get all rows in the destination Table
-            // Walk and delete each item, because delete table takes too long...
-            var DataAllDestination = LoadAll(dataSourceDestination);
-            if (DataAllDestination == null)
-            {
-                return false;
-            }
-
-            foreach (var data in DataAllDestination)
-            {
-                Delete(data.Id, dataSourceDestination);
-            }
-
-            // Write the data to the destination
-            foreach (var data in DataAllSource)
-            {
-                Create(data, dataSourceDestination);
-            }
-
-            return true;
-        }
     }
 }

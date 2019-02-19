@@ -136,42 +136,6 @@ namespace _5051.UnitTests.Backend
         }
         #endregion
 
-        #region Delete
-        [TestMethod]
-        public void Backend_StudentBackend_Delete_Invalid_ID_Null_Should_Fail()
-        {
-            //arrange
-            var expect = false;
-
-            //act
-            var result = DataSourceBackend.Instance.StudentBackend.Delete(null);
-
-            //reset
-            DataSourceBackend.Instance.Reset();
-
-            //assert
-            Assert.AreEqual(expect, result, TestContext.TestName);
-        }
-
-        [TestMethod]
-        public void Backend_StudentBackend_Delete_Valid_ID_Should_Pass()
-        {
-            //arrange
-            var testStudent = new StudentModel();
-            var createResult = DataSourceBackend.Instance.StudentBackend.Create(testStudent);
-            var expect = true;
-
-            //act
-            var deleteResult = DataSourceBackend.Instance.StudentBackend.Delete(createResult.Id);
-
-            //reset
-            DataSourceBackend.Instance.Reset();
-
-            //assert
-            Assert.AreEqual(expect, deleteResult, TestContext.TestName);
-        }
-        #endregion
-
         #region Index
         [TestMethod]
         public void Backend_StudentBackend_Index_Valid_Should_Pass()

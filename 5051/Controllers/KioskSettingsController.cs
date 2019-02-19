@@ -21,12 +21,7 @@ namespace _5051.Controllers
         // GET: KioskSettings/Details/5
         public ActionResult Read(string id = null)
         {
-            var CurrentId = DataSourceBackend.Instance.IdentityBackend.GetCurrentStudentID(HttpContext);
-
-            if (DataSourceBackend.Instance.IdentityBackend.BlockExecptForRole(CurrentId, UserRoleEnum.TeacherUser))
-            {
-                return RedirectToAction("Login", "Admin");
-            }
+            var CurrentId = id;
 
             var myData = KioskSettingsBackend.Read(id);
             if (myData == null)
@@ -53,12 +48,7 @@ namespace _5051.Controllers
         // GET: KioskSettings/Edit/5
         public ActionResult Update(string id = null)
         {
-            var CurrentId = DataSourceBackend.Instance.IdentityBackend.GetCurrentStudentID(HttpContext);
-
-            if (DataSourceBackend.Instance.IdentityBackend.BlockExecptForRole(CurrentId, UserRoleEnum.TeacherUser))
-            {
-                return RedirectToAction("Login", "Admin");
-            }
+            var CurrentId = id;
 
             var myData = KioskSettingsBackend.Read(id);
             if (myData == null)
@@ -82,23 +72,16 @@ namespace _5051.Controllers
                                         "SelectedTimeZoneId" +
                                         "")] KioskSettingsModel data)
         {
-            var CurrentId = DataSourceBackend.Instance.IdentityBackend.GetCurrentStudentID(HttpContext);
-
-            if (DataSourceBackend.Instance.IdentityBackend.BlockExecptForRole(CurrentId, UserRoleEnum.TeacherUser))
+            if (data == null)
             {
-                return RedirectToAction("Login", "Admin");
+                // Send to Error Page
+                return RedirectToAction("Error", "Home");
             }
 
             if (!ModelState.IsValid)
             {
                 // Send back for edit
                 return View(data);
-            }
-
-            if (data == null)
-            {
-                // Send to Error Page
-                return RedirectToAction("Error", "Home");
             }
 
             if (string.IsNullOrEmpty(data.Id))

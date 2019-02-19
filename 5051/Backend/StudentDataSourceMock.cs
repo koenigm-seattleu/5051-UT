@@ -55,8 +55,6 @@ namespace _5051.Backend
 
             DataSet.Add(data);
 
-            var idResult = IdentityBackend.Instance.CreateNewStudentUserIdRecordOnly(data);
-
             DataSet = DataSet.OrderBy(x => x.Name).ToList();
 
             return data;
@@ -213,17 +211,5 @@ namespace _5051.Backend
                     break;
             }
         }
-
-        /// <summary>
-        /// Not implemented for Mock
-        /// </summary>
-        /// <param name="dataSourceSource"></param>
-        /// <param name="dataSourceDestination"></param>
-        /// <returns></returns>
-        public bool BackupData(DataSourceEnum dataSourceSource, DataSourceEnum dataSourceDestination)
-        {
-            return true;
-        }
-
     }
 }

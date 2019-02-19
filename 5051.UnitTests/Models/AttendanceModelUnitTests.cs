@@ -39,6 +39,23 @@ namespace _5051.UnitTests.Models
         }
 
         [TestMethod]
+        public void Models_AttendanceModel_Default_Instantiate_With_Valid_Data_Should_Pass()
+        {
+            // Arange
+            var myData = new AttendanceModel();
+            var myDataNew = new AttendanceModel
+            {
+                Emotion = EmotionStatusEnum.Sad
+            };
+
+            // Act
+            var result = myData.Update(myDataNew);
+
+            // Assert
+            Assert.AreEqual(result.Emotion, myDataNew.Emotion, TestContext.TestName);
+        }
+
+        [TestMethod]
         public void Models_AttendanceModel_Default_Instantiate_Get_Set_Should_Pass()
         {
             //arrange

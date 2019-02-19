@@ -96,37 +96,12 @@ namespace _5051.Backend
                 var Table = tableClient.GetTableReference("initaltable");
                 Table.CreateIfNotExists();
 
-
-                // Add Record to Table of when it was accessed.
-                AddAccessHistoryToInitialTable("initaltable");
-
                 return true;
             }
             catch (Exception)
             {
                 return false;
             }
-        }
-
-        public bool AddAccessHistoryToInitialTable(string tableName, DataSourceEnum dataSourceEnum = DataSourceEnum.Unknown)
-        {
-            var Table = GetTable(dataSourceEnum, tableName);
-
-            var entity = new DataSourceBackendTableEntity
-            {
-                Blob = "{}",
-                PartitionKey = "Access",
-                RowKey = DateTimeHelper.Instance.GetDateTimeNowUTC().ToString("yy-mm-dd hh:mm:ss FFFFFF")
-            };
-
-            var updateOperation = TableOperation.InsertOrReplace(entity);
-            var query = Table.Execute(updateOperation);
-            if (query.Result == null)
-            {
-                return false;
-            }
-
-            return true;
         }
 
         /// <summary>

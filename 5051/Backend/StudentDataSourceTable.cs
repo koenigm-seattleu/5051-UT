@@ -111,8 +111,6 @@ namespace _5051.Backend
 
             DataSourceBackendTable.Instance.Create<List<AttendanceModel>>(tableName, "attendance", tempData.Id, tempData.Attendance, dataSourceEnum);
 
-            var idResult = IdentityBackend.Instance.CreateNewStudentUserIdRecordOnly(data, dataSourceEnum);
-
             DataList = DataList.OrderBy(x => x.Name).ToList();
 
             return data;
@@ -274,7 +272,7 @@ namespace _5051.Backend
             foreach (var item in DataList)
             {
                 //if storage not empty, be sure identity storage matches
-                DataSourceBackend.Instance.IdentityBackend.CreateNewStudentUserIdRecordOnly(item);
+                //DataSourceBackend.Instance.IdentityBackend.CreateNewStudentUserIdRecordOnly(item);
             }
 
             // If Storage is Empty, then Create.
@@ -403,45 +401,6 @@ namespace _5051.Backend
                     DataSetDefault();
                     break;
             }
-        }
-
-        /// <summary>
-        /// Backup the Data from Source to Destination
-        /// </summary>
-        /// <param name="dataSourceSource"></param>
-        /// <param name="dataSourceDestination"></param>
-        /// <returns></returns>
-        public bool BackupData(DataSourceEnum dataSourceSource, DataSourceEnum dataSourceDestination)
-        {
-            // Read all the records from the Source using current database defaults
-
-            var DataAllSource = LoadAll(dataSourceSource);
-            if (DataAllSource == null || !DataAllSource.Any())
-            {
-                return false;
-            }
-
-            // Empty out Destination Table
-            // Get all rows in the destination Table
-            // Walk and delete each item, because delete table takes too long...
-            var DataAllDestination = LoadAll(dataSourceDestination);
-            if (DataAllDestination == null)
-            {
-                return false;
-            }
-
-            foreach (var data in DataAllDestination)
-            {
-                Delete(data.Id, dataSourceDestination);
-            }
-
-            // Write the data to the destination
-            foreach (var data in DataAllSource)
-            {
-                Create(data, dataSourceDestination);
-            }
-
-            return true;
         }
     }
 }

@@ -17,8 +17,6 @@ namespace _5051.Backend
 
         public SchoolDismissalSettingsBackend SchoolDismissalSettingsBackend = SchoolDismissalSettingsBackend.Instance;
 
-        public IdentityBackend IdentityBackend = IdentityBackend.Instance;
-
         public StudentBackend StudentBackend = StudentBackend.Instance;
 
         /// <summary>
@@ -37,8 +35,6 @@ namespace _5051.Backend
             KioskSettingsBackend = KioskSettingsBackend.Instance;
 
             SchoolDismissalSettingsBackend = SchoolDismissalSettingsBackend.Instance;
-
-            IdentityBackend = IdentityBackend.Instance;
 
             StudentBackend = StudentBackend.Instance;
         }
@@ -73,8 +69,6 @@ namespace _5051.Backend
 
             SchoolDismissalSettingsBackend.Reset();
 
-            IdentityBackend.Reset();
-
             StudentBackend.Reset();
 
             SetTestingMode(false);
@@ -95,8 +89,6 @@ namespace _5051.Backend
 
             SchoolDismissalSettingsBackend.SetDataSource(SystemGlobalsModel.Instance.DataSourceValue);
 
-            IdentityBackend.SetDataSource(SystemGlobalsModel.Instance.DataSourceValue);
-
             StudentBackend.SetDataSource(SystemGlobalsModel.Instance.DataSourceValue);
         }
 
@@ -113,8 +105,6 @@ namespace _5051.Backend
 
             SchoolDismissalSettingsBackend.SetDataSourceDataSet(SetEnum);
             
-            IdentityBackend.SetDataSourceDataSet(SetEnum);
-
             StudentBackend.SetDataSourceDataSet(SetEnum);
         }
 
@@ -134,23 +124,5 @@ namespace _5051.Backend
             return isTestingMode;
         }
 
-        public bool IsUserNotInRole(string userID, _5051.Models.UserRoleEnum role)
-        {
-            if (isTestingMode)
-            {
-                return false; // all OK
-            }
-
-            if (IdentityBackend.UserHasClaimOfType(userID, role))
-            {
-                return false;
-            }
-            return true; // Not in role, so error
-        }
-
-        public object CreateCookie(string testCookieName, string testCookieValue, HttpContextBase @object)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

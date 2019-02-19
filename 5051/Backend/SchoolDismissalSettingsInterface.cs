@@ -19,6 +19,5 @@ namespace _5051.Backend
         List<SchoolDismissalSettingsModel> Index();
         void Reset();
         void LoadDataSet(DataSourceDataSetEnum setEnum);
-        bool BackupData(DataSourceEnum dataSourceSource, DataSourceEnum dataSourceDestination);
     }
 }

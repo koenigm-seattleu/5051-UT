@@ -90,12 +90,6 @@ namespace _5051.Models
         public List<AttendanceModel> Attendance { get; set; }
 
         /// <summary>
-        /// Attended Minutes This Week
-        /// </summary>
-        [Display(Name = "Attended Minutes This Week", Description = "Attended Minutes This Week")]
-        public int AttendedMinutesThisWeek { get; set; }
-
-        /// <summary>
         /// The defaults for a new student
         /// </summary>
         public void Initialize()

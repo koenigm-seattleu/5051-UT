@@ -16,7 +16,5 @@ namespace _5051.Backend
         List<AvatarItemModel> Index();
         void Reset();
         void LoadDataSet(DataSourceDataSetEnum setEnum);
-
-        bool BackupData(DataSourceEnum dataSourceSource, DataSourceEnum dataSourceDestination);
     }
 }

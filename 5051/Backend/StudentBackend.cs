@@ -156,25 +156,6 @@ namespace _5051.Backend
         }
 
         /// <summary>
-        /// Remove the Data item if it is in the list
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns>True for success, else false</returns>
-        public bool Delete(string Id)
-        {
-            if (string.IsNullOrEmpty(Id))
-            {
-                return false;
-            }
-
-            var myReturn = DataSource.Delete(Id);
-            //delete the identity side as well
-            var idDeleteResult = DataSourceBackend.Instance.IdentityBackend.DeleteUserIdRecordOnly(Id);
-
-            return myReturn;
-        }
-
-        /// <summary>
         /// Return the full dataset
         /// </summary>
         /// <returns>List of Students</returns>
@@ -354,38 +335,6 @@ namespace _5051.Backend
             return record;
         }
 
-        /// <summary>
-        /// Get the attendance model with given id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public AttendanceModel UpdateAttendance(AttendanceModel data)
-        {
-            if (data == null)
-            {
-                return null;
-            }
-
-            var student = Read(data.StudentId);
-            if (student == null)
-            {
-                return null;
-            }
-
-            var record = student.Attendance.Find(m => m.Id == data.Id);
-            if (record == null)
-            {
-                return null;
-            }
-
-            // Update the attendance record directly
-            record.Update(data);
-
-            // Update the Student in the DB of which the attendance record is part of
-            Update(student);
-                
-            return data;
-        }
 
         /// <summary>
         /// Reset all students' status to "out", then for each new attendance of each student,
@@ -425,43 +374,6 @@ namespace _5051.Backend
             return collectedTokens;
         }
 
-        ///// <summary>
-        ///// Update token
-        ///// </summary>
-        ///// <param name="id"></param>
-        //public void UpdateToken(string id)
-        //{
-        //    if (string.IsNullOrEmpty(id))
-        //    {
-        //        return;
-        //    }
-
-        //    var data = DataSource.Read(id);
-        //    if (data == null)
-        //    {
-        //        return;
-        //    }
-
-        //    //get the list of new attendances, for which token amount has not been added yet.
-        //    var newLogIns = data.Attendance.Where(m => m.IsNew);
-
-        //    //for each new attendance, calculate effective duration and according collected tokens,
-        //    //add to current tokens of the student.
-        //    foreach (var attendance in newLogIns)
-        //    {
-        //        var effectiveDuration = CalculateEffectiveDuration(attendance);
-
-        //        //todo: since hours attended is rounded up, need to prevent the case where consecutive check-ins in a short period
-        //        //todo: of time could add 1 tokens everytime
-        //        var collectedTokens = (int)Math.Ceiling(effectiveDuration.TotalHours);
-        //        data.Tokens += collectedTokens;
-
-        //        //mark it as old attendance
-        //        attendance.IsNew = false;
-        //    }
-
-        //}
-
         /// <summary>
         /// Helper function that resets the DataSource, and rereads it.
         /// </summary>
@@ -480,10 +392,22 @@ namespace _5051.Backend
             return myReturn;
         }
 
-        public bool BackupData(DataSourceEnum dataSourceSource, DataSourceEnum dataSourceDestination)
+        /// <summary>
+        /// Remove the Data item if it is in the list
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns>True for success, else false</returns>
+        public bool Delete(string Id)
         {
-            var result = DataSource.BackupData(dataSourceSource, dataSourceDestination);
-            return result;
+            if (string.IsNullOrEmpty(Id))
+            {
+                return false;
+            }
+
+            var myReturn = DataSource.Delete(Id);
+
+            return myReturn;
         }
+
     }
 }
