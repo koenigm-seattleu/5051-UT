@@ -73,7 +73,7 @@ namespace _5051.Backend
         /// <returns>AvatarItem Passed In</returns>
         public AvatarItemModel Create(AvatarItemModel data)
         {
-            DataSource.Create(data);
+            //DataSource.Create(data);
             return data;
         }
 
