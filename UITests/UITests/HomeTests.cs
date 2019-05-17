@@ -7,7 +7,7 @@ using System.IO;
 namespace UITests
 {
     [TestClass]
-    public class UnitTest1
+    public class HomeTests
     {
 
         private IWebDriver driver;
@@ -30,7 +30,7 @@ namespace UITests
         }
 
         [TestMethod]
-        public void TestMethod1()
+        public void IndexPage()
         {
             driver.Navigate().GoToUrl(homeURL);
             WebDriverWait wait = new WebDriverWait(driver,System.TimeSpan.FromSeconds(15));
@@ -38,7 +38,7 @@ namespace UITests
             // Find the Student Button
             wait.Until(driver=>driver.FindElement(By.Id("StudentButton")));
 
-            // Finnd the Kiosk Button
+            // Find the Kiosk Button
             wait.Until(driver => driver.FindElement(By.Id("StudentButton")));
 
         }
