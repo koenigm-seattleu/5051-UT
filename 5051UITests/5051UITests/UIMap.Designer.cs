@@ -76,6 +76,30 @@ namespace _5051UITests
             Mouse.Click(uIKioskAttendanceStarGCustom1, new Point(85, 281));
         }
         
+        /// <summary>
+        /// Home Page Student and Kiosk Button Clicks
+        /// </summary>
+        public void HomePage()
+        {
+            #region Variable Declarations
+            WinList uIDesktopList = this.UIProgramManagerWindow.UIFolderViewWindow.UIDesktopList;
+            WinCustom uIWelcomeAttendanceStaCustom = this.UIWelcomeAttendanceStaWindow.UIChromeLegacyWindowDocument.UIWelcomeAttendanceStaCustom;
+            WinPane uIWelcomeAttendanceStaPane = this.UIWelcomeAttendanceStaWindow.UIWelcomeAttendanceStaPane;
+            #endregion
+
+            // Click 'Desktop' list box
+            Mouse.Click(uIDesktopList, new Point(577, 182));
+
+            // Click 'Welcome - AttendanceStar - Google Chrome' custom control
+            Mouse.Click(uIWelcomeAttendanceStaCustom, new Point(436, 48));
+
+            // Click 'Desktop' list box
+            Mouse.Click(uIDesktopList, new Point(495, 92));
+
+            // Click 'Welcome - AttendanceStar - Google Chrome' pane
+            Mouse.Click(uIWelcomeAttendanceStaPane, new Point(1058, 627));
+        }
+        
         #region Properties
         public UIProgramManagerWindow UIProgramManagerWindow
         {
@@ -100,12 +124,26 @@ namespace _5051UITests
                 return this.mUIKioskAttendanceStarGWindow;
             }
         }
+        
+        public UIWelcomeAttendanceStaWindow UIWelcomeAttendanceStaWindow
+        {
+            get
+            {
+                if ((this.mUIWelcomeAttendanceStaWindow == null))
+                {
+                    this.mUIWelcomeAttendanceStaWindow = new UIWelcomeAttendanceStaWindow();
+                }
+                return this.mUIWelcomeAttendanceStaWindow;
+            }
+        }
         #endregion
         
         #region Fields
         private UIProgramManagerWindow mUIProgramManagerWindow;
         
         private UIKioskAttendanceStarGWindow mUIKioskAttendanceStarGWindow;
+        
+        private UIWelcomeAttendanceStaWindow mUIWelcomeAttendanceStaWindow;
         #endregion
     }
     
@@ -312,6 +350,93 @@ namespace _5051UITests
         
         #region Fields
         private WinCustom mUIKioskAttendanceStarGCustom;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIWelcomeAttendanceStaWindow : WinWindow
+    {
+        
+        public UIWelcomeAttendanceStaWindow()
+        {
+            #region Search Criteria
+            this.SearchProperties[WinWindow.PropertyNames.Name] = "Welcome - AttendanceStar - Google Chrome";
+            this.SearchProperties[WinWindow.PropertyNames.ClassName] = "Chrome_WidgetWin_1";
+            this.WindowTitles.Add("Welcome - AttendanceStar - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public UIChromeLegacyWindowDocument2 UIChromeLegacyWindowDocument
+        {
+            get
+            {
+                if ((this.mUIChromeLegacyWindowDocument == null))
+                {
+                    this.mUIChromeLegacyWindowDocument = new UIChromeLegacyWindowDocument2(this);
+                }
+                return this.mUIChromeLegacyWindowDocument;
+            }
+        }
+        
+        public WinPane UIWelcomeAttendanceStaPane
+        {
+            get
+            {
+                if ((this.mUIWelcomeAttendanceStaPane == null))
+                {
+                    this.mUIWelcomeAttendanceStaPane = new WinPane(this);
+                    #region Search Criteria
+                    this.mUIWelcomeAttendanceStaPane.SearchProperties[WinControl.PropertyNames.Name] = "Welcome - AttendanceStar - Google Chrome";
+                    this.mUIWelcomeAttendanceStaPane.WindowTitles.Add("Welcome - AttendanceStar - Google Chrome");
+                    #endregion
+                }
+                return this.mUIWelcomeAttendanceStaPane;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private UIChromeLegacyWindowDocument2 mUIChromeLegacyWindowDocument;
+        
+        private WinPane mUIWelcomeAttendanceStaPane;
+        #endregion
+    }
+    
+    [GeneratedCode("Coded UITest Builder", "15.0.26208.0")]
+    public class UIChromeLegacyWindowDocument2 : WinControl
+    {
+        
+        public UIChromeLegacyWindowDocument2(UITestControl searchLimitContainer) : 
+                base(searchLimitContainer)
+        {
+            #region Search Criteria
+            this.SearchProperties[UITestControl.PropertyNames.Name] = "Welcome - AttendanceStar";
+            this.SearchProperties[UITestControl.PropertyNames.ControlType] = "Document";
+            this.WindowTitles.Add("Welcome - AttendanceStar - Google Chrome");
+            #endregion
+        }
+        
+        #region Properties
+        public WinCustom UIWelcomeAttendanceStaCustom
+        {
+            get
+            {
+                if ((this.mUIWelcomeAttendanceStaCustom == null))
+                {
+                    this.mUIWelcomeAttendanceStaCustom = new WinCustom(this);
+                    #region Search Criteria
+                    this.mUIWelcomeAttendanceStaCustom.SearchProperties["Instance"] = "2";
+                    this.mUIWelcomeAttendanceStaCustom.WindowTitles.Add("Welcome - AttendanceStar - Google Chrome");
+                    #endregion
+                }
+                return this.mUIWelcomeAttendanceStaCustom;
+            }
+        }
+        #endregion
+        
+        #region Fields
+        private WinCustom mUIWelcomeAttendanceStaCustom;
         #endregion
     }
 }
