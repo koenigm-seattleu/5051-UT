@@ -14,34 +14,34 @@ namespace _5051.UnitTests.Models
         public TestContext TestContext { get; set; }
 
         #region Instantiate
-        [TestMethod]
-        public void Models_SystemGlobals_Default_Instantiate_Should_Pass()
-        {
-            // Arrange
-            var myModel = SystemGlobalsModel.Instance;
+        //[TestMethod]
+        //public void Models_SystemGlobals_Default_Instantiate_Should_Pass()
+        //{
+        //    // Arrange
+        //    var myModel = SystemGlobalsModel.Instance;
 
-            // Act
-            var result = myModel.DataSourceValue;
+        //    // Act
+        //    var result = myModel.DataSourceValue;
 
-            // Assert
-            Assert.AreEqual(result, DataSourceEnum.Mock, TestContext.TestName);
-        }
+        //    // Assert
+        //    Assert.AreEqual(result, DataSourceEnum.Mock, TestContext.TestName);
+        //}
 
-        [TestMethod]
-        public void Models_SystemGlobals_Default_Existing_Should_Pass()
-        {
-            // Calls for the instance two times, the first time creates it, the second time uses the existing
+        //[TestMethod]
+        //public void Models_SystemGlobals_Default_Existing_Should_Pass()
+        //{
+        //    // Calls for the instance two times, the first time creates it, the second time uses the existing
 
-            // Arrange
-            var myFirstTime = SystemGlobalsModel.Instance;
-            var myModel = SystemGlobalsModel.Instance;
+        //    // Arrange
+        //    var myFirstTime = SystemGlobalsModel.Instance;
+        //    var myModel = SystemGlobalsModel.Instance;
 
-            // Act
-            var result = myModel.DataSourceValue;
+        //    // Act
+        //    var result = myModel.DataSourceValue;
 
-            // Assert
-            Assert.AreEqual(result, DataSourceEnum.Mock, TestContext.TestName);
-        }
+        //    // Assert
+        //    Assert.AreEqual(result, DataSourceEnum.Mock, TestContext.TestName);
+        //}
 
         #endregion Instantiate
 
